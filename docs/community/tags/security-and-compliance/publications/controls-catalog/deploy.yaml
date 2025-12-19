@@ -1,0 +1,69 @@
+title: Deploy
+description: Deploy
+controls:
+    - id: CNSWP-57
+      title: trust confirmation verifies the image has a valid signature from an authorized source
+      objective: SR-4 (4)
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SR-4 (3) PROVENANCE
+              strength: 5
+              remarks: Reference to SR-4 (3) PROVENANCE
+            - reference-id: VALIDATE AS GENUINE AND NOT ALTERED
+              strength: 5
+              remarks: Reference to VALIDATE AS GENUINE AND NOT ALTERED
+    - id: CNSWP-58
+      title: Image runtime policies are enforced prior to deployment
+      objective: Image runtime policies are enforced prior to deployment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 (17) SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 (17) SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+            - reference-id: RUNTIME APPLICATION SELF-PROTECTION
+              strength: 5
+              remarks: Reference to RUNTIME APPLICATION SELF-PROTECTION
+    - id: CNSWP-59
+      title: Image integrity and signature are verifying prior to deployment
+      objective: SR-4 (4)
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SR-4 (3) PROVENANCE
+              strength: 5
+              remarks: Reference to SR-4 (3) PROVENANCE
+            - reference-id: VALIDATE AS GENUINE AND NOT ALTERED
+              strength: 5
+              remarks: Reference to VALIDATE AS GENUINE AND NOT ALTERED
+    - id: CNSWP-60
+      title: Applications provide logs regarding authentication, authorization, actions, and failures
+      objective: Applications provide logs regarding authentication, authorization, actions, and failures
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3 CONFIGURATION CHANGE CONTROL
+              strength: 5
+              remarks: Reference to CM-3 CONFIGURATION CHANGE CONTROL
+    - id: CNSWP-61
+      title: Forensics capabilities are integrated into an incident response plan and procedures
+      objective: Forensics capabilities are integrated into an incident response plan and procedures
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: INCIDENT HANDLING
+              strength: 5
+              remarks: Reference to INCIDENT HANDLING
+            - reference-id: MALICIOUS CODE AND FORENSIC ANALYSIS
+              strength: 5
+              remarks: Reference to MALICIOUS CODE AND FORENSIC ANALYSIS
+    - id: CNSWP-62
+      title: AI, ML, or statistical modeling are used for behavioural and heuristic environment analysis
+      objective: AI, ML, or statistical modeling are used for behavioural and heuristic environment analysis
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-3 SYSTEM AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-3 SYSTEM AND INFORMATION INTEGRITY

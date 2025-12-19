@@ -1,0 +1,212 @@
+title: Securing Build Pipelines
+description: Securing Build Pipelines
+controls:
+    - id: CNSWP-149
+      title: Cryptographically guarantee policy adherence
+      recommendations:
+        - in-toto project that can be used to secure a chain of pipeline stages end-to-end with cryptographic guarantees. Build metadata should be evaluated against the policy template by using tools such as Open Policy Agent.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: "CM-3(6)\tCONFIGURATION CHANGE CONTROL"
+              strength: 5
+              remarks: "Reference to CM-3(6)\tCONFIGURATION CHANGE CONTROL"
+            - reference-id: CRYPTOGRAPHY MANAGEMENT
+              strength: 5
+              remarks: Reference to CRYPTOGRAPHY MANAGEMENT
+    - id: CNSWP-150
+      title: Validate environments and dependencies before usage
+      recommendations:
+        - and any signatures should be validated both in the downloading or ingestion process, and again by the build worker. This should include validating package manager signatures, checking out specific Git commit hashes, and verifying SHA sums of input sources and binaries. After completing this validation, the downloading process should sign all binaries or libraries it is adding to the secure source
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: "CM-3(2)\tCONFIGURATION CHANGE CONTROL"
+              strength: 5
+              remarks: "Reference to CM-3(2)\tCONFIGURATION CHANGE CONTROL"
+            - reference-id: TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES
+              strength: 5
+              remarks: Reference to TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES
+    - id: CNSWP-151
+      title: Validate runtime security of build workers
+      recommendations:
+        - such as seccomp, AppArmor, and SELinux, provides defense in depth against attacks on build infrastructure. High privilege kernel capabilities such as debugger, device, and network attachments should be restricted and monitored.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(4)
+              strength: 5
+            - reference-id: SECURITY AND PRIVACY REPRESENTATIVES
+              strength: 5
+              remarks: Reference to SECURITY AND PRIVACY REPRESENTATIVES
+    - id: CNSWP-152
+      title: Validate build artefacts through verifiably reproducible builds
+      objective: |-
+        Validate build artefacts through verifiably reproducible builds
+
+        CM-3(5)	CONFIGURATION CHANGE CONTROL | AUTOMATED SECURITY RESPONSE
+
+        Assurance Level: High
+
+        Risk Categories: High
+      recommendations:
+        - build instructions, an end user should be able to reproduce the built artefact bit for bit.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(4)"
+              strength: 5
+            - reference-id: SECURITY AND PRIVACY REPRESENTATIVES
+              strength: 5
+              remarks: Reference to SECURITY AND PRIVACY REPRESENTATIVES
+    - id: CNSWP-153
+      title: Lock and Verify External Requirements from the build process
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(2)
+              strength: 5
+            - reference-id: TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES
+              strength: 5
+              remarks: Reference to TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES
+    - id: CNSWP-154
+      title: Find and Eliminate Sources of Non-Determinism
+      recommendations:
+        - to dig in and find the cause of differences when tracking down sources of non-determinism.
+    - id: CNSWP-155
+      title: Record the Build Environment
+      recommendations:
+        - layer
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(1)
+              strength: 5
+            - reference-id: AUTOMATED DOCUMENTATION, NOTIFICATION, AND PROHIBITION OF CHANGES
+              strength: 5
+              remarks: Reference to AUTOMATED DOCUMENTATION, NOTIFICATION, AND PROHIBITION OF CHANGES
+    - id: CNSWP-156
+      title: Automate Creation of the Build Environment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(3)
+              strength: 5
+            - reference-id: AUTOMATED CHANGE IMPLEMENTATION
+              strength: 5
+              remarks: Reference to AUTOMATED CHANGE IMPLEMENTATION
+    - id: CNSWP-157
+      title: Distribute Builds across different infrastructure
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-3(3)
+              strength: 5
+            - reference-id: AUTOMATED CHANGE IMPLEMENTATION
+              strength: 5
+              remarks: Reference to AUTOMATED CHANGE IMPLEMENTATION
+    - id: CNSWP-158
+      title: Build and related CI/CD steps should be automated through a pipeline delivered as code
+      objective: SA-11
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
+              strength: 5
+              remarks: Reference to SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
+    - id: CNSWP-159
+      title: Standardize pipelines across projects
+    - id: CNSWP-160
+      title: Provision a secured orchestration platform to host software factory
+    - id: CNSWP-161
+      title: Build workers should be single use
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-2 ACCOUNT MANAGEMENT
+              strength: 5
+              remarks: Reference to AC-2 ACCOUNT MANAGEMENT
+    - id: CNSWP-162
+      title: Ensure software factory has minimal network connectivity
+      recommendations:
+        - of hardened source code, the dependency repository and code signing infrastructure.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: "SC-7(3)\tBOUNDARY PROTECTION"
+              strength: 5
+              remarks: "Reference to SC-7(3)\tBOUNDARY PROTECTION"
+            - reference-id: ACCESS POINTS
+              strength: 5
+              remarks: Reference to ACCESS POINTS
+    - id: CNSWP-163
+      title: Segregate the duties of each build worker
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-5 SEPARATION OF DUTIES
+              strength: 5
+              remarks: Reference to AC-5 SEPARATION OF DUTIES
+    - id: CNSWP-164
+      title: Pass in build worker environment and commands
+      recommendations:
+        - a clean and isolated environmment. It should not be able to pull its own environment. Ensure environment variables and commands are explicitly passed to avoid any complicated and opaque build process
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-2(2) BASELINE CONFIGURATION
+              strength: 5
+              remarks: Reference to CM-2(2) BASELINE CONFIGURATION
+            - reference-id: AUTOMATION SUPPORT FOR ACCURACY / CURRENC
+              strength: 5
+              remarks: Reference to AUTOMATION SUPPORT FOR ACCURACY / CURRENC
+    - id: CNSWP-165
+      title: Write output to separate secured storage repo
+      recommendations:
+        - from the Build Worker should then upload that artefact to an appropriate repository.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AU-9(2) PROTECTION OF AUDIT INFORMATION
+              strength: 5
+              remarks: Reference to AU-9(2) PROTECTION OF AUDIT INFORMATION
+            - reference-id: STORE ON SEPARATE PHYSICAL SYSTEMS OR COMPONENTS
+              strength: 5
+              remarks: Reference to STORE ON SEPARATE PHYSICAL SYSTEMS OR COMPONENTS
+    - id: CNSWP-166
+      title: Only allow pipeline modification through “pipeline as code”
+      recommendations:
+        - This prevents attackers from interacting and modifying the configuration. This model then requires appropriate authentication and authorization to be in place for the software and configuration of the pipeline
+    - id: CNSWP-167
+      title: Define user roles
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-2 ACCOUNT MANAGEMENT
+              strength: 5
+              remarks: Reference to AC-2 ACCOUNT MANAGEMENT
+    - id: CNSWP-168
+      title: Follow established practices for establishing a root of trust from an offline source
+      objective: |
+        IA-5(2) AUTHENTICATOR MANAGEMENT | PUBLIC KEY-BASED AUTHENTICATION
+        SA-8(10) SECURITY AND PRIVACY ENGINEERING PRINCIPLES | HIERARCHICAL TRUST
+        SR-4(4)        PROVENANCE | SUPPLY CHAIN INTEGRITY — PEDIGREE
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES
+              strength: 5
+              remarks: Reference to SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES
+    - id: CNSWP-169
+      title: Use short-lived workload certificates
+      objective: |
+        SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-23(5) SESSION AUTHENTICITY
+              strength: 5
+              remarks: Reference to SC-23(5) SESSION AUTHENTICITY
+            - reference-id: ALLOWED CERTIFICATE AUTHORITIES
+              strength: 5
+              remarks: Reference to ALLOWED CERTIFICATE AUTHORITIES

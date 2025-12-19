@@ -1,0 +1,113 @@
+title: Security Assurance
+description: Security Assurance
+controls:
+    - id: CNSWP-115
+      title: Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access
+      objective: Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-6(3) LEAST PRIVILEGE
+              strength: 5
+              remarks: Reference to AC-6(3) LEAST PRIVILEGE
+            - reference-id: NETWORK ACCESS TO PRIVILEGED COMMANDS
+              strength: 5
+              remarks: Reference to NETWORK ACCESS TO PRIVILEGED COMMANDS
+    - id: CNSWP-116
+      title: Incident reponse considers cloud native workloads
+      recommendations:
+        - instances could run on a different server), networking (e.g. IP addresses are assigned dynamically) and immutability (e.g. runtime changes to container are not persisted across restarts)
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IR-4 INCIDENT HANDLING
+              strength: 5
+              remarks: Reference to IR-4 INCIDENT HANDLING
+            - reference-id: AUTOMATED INCIDENT HANDLING PROCESSES
+              strength: 5
+              remarks: Reference to AUTOMATED INCIDENT HANDLING PROCESSES
+    - id: CNSWP-117
+      title: Incident response accounts for appropriate evidence handling and collection of coud native workloads
+      objective: Incident response accounts for appropriate evidence handling and collection of coud native workloads
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IR-5(1) INCIDENT MONITORING
+              strength: 5
+              remarks: Reference to IR-5(1) INCIDENT MONITORING
+            - reference-id: AUTOMATED TRACKING, DATA COLLECTION, AND ANALYSIS
+              strength: 5
+              remarks: Reference to AUTOMATED TRACKING, DATA COLLECTION, AND ANALYSIS
+    - id: CNSWP-118
+      title: Rootless builds are employed
+      objective: Rootless builds are employed
+    - id: CNSWP-119
+      title: cgroups and system groups are used to isolate workloads and deployments
+      objective: cgroups and system groups are used to isolate workloads and deployments
+    - id: CNSWP-120
+      title: MAC implementations are employed
+      objective: MAC implementations are employed
+      recommendations:
+        - SELinux, AppArmor
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-3(3) ACCESS ENFORCEMENT
+              strength: 5
+              remarks: Reference to AC-3(3) ACCESS ENFORCEMENT
+            - reference-id: MANDATORY ACCESS CONTROL
+              strength: 5
+              remarks: Reference to MANDATORY ACCESS CONTROL
+    - id: CNSWP-121
+      title: Threat model code and infrastructure
+      objective: Threat model code and infrastructure
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11(2) DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11(2) DEVELOPER TESTING AND EVALUATION
+            - reference-id: THREAT MODELING AND VULNERABILITY ANALYSES
+              strength: 5
+              remarks: Reference to THREAT MODELING AND VULNERABILITY ANALYSES
+    - id: CNSWP-122
+      title: Entities are able to independently authenticate other identities
+      objective: Entities are able to independently authenticate other identities
+      recommendations:
+        - Public Key Infrastructure
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION
+              strength: 5
+              remarks: Reference to IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION
+    - id: CNSWP-123
+      title: Each entity can create proof of who the identity is
+      objective: Each entity can create proof of who the identity is
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION
+              strength: 5
+              remarks: Reference to IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION
+    - id: CNSWP-124
+      title: Orchestrator is running on an a trusted OS, BIOS, etc
+      objective: Orchestrator is running on an a trusted OS, BIOS, etc
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-14 SIGNED COMPONENTS
+              strength: 5
+              remarks: Reference to CM-14 SIGNED COMPONENTS
+    - id: CNSWP-125
+      title: Orchestrator verifies the claims of a container
+      objective: Orchestrator verifies the claims of a container
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-6 SECURITY AND PRIVACY FUNCTION VERIFICATION
+              strength: 5
+              remarks: Reference to SI-6 SECURITY AND PRIVACY FUNCTION VERIFICATION
+    - id: CNSWP-126
+      title: Orchestrator network policies are used in conjunction with a service mesh
+      objective: Orchestrator network policies are used in conjunction with a service mesh

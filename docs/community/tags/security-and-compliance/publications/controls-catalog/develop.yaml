@@ -1,0 +1,161 @@
+title: Develop
+description: Develop
+controls:
+    - id: CNSWP-63
+      title: Establish a dedicated Production environment
+      objective: Establish a dedicated Production environment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE
+              strength: 5
+              remarks: Reference to SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE
+            - reference-id: MANAGE PREPRODUCTION ENVIRONMENT
+              strength: 5
+              remarks: Reference to MANAGE PREPRODUCTION ENVIRONMENT
+    - id: CNSWP-64
+      title: Leverage Dynamic deployments
+      objective: Leverage Dynamic deployments
+      recommendations:
+        - Blue/Green, Alpha/Beta, Canary, red-black deployments
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-8(31) SECURITY AND PRIVACY ENGINEERING PRINCIPLES
+              strength: 5
+              remarks: Reference to SA-8(31) SECURITY AND PRIVACY ENGINEERING PRINCIPLES
+            - reference-id: SECURE SYSTEM MODIFICATION
+              strength: 5
+              remarks: Reference to SECURE SYSTEM MODIFICATION
+    - id: CNSWP-65
+      title: Integrate vulnerability and configuration scanning in the IDE or at the pull request
+      objective: Integrate vulnerability and configuration scanning in the IDE or at the pull request
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11(1) DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11(1) DEVELOPER TESTING AND EVALUATION
+            - reference-id: STATIC CODE ANALYSIS
+              strength: 5
+              remarks: Reference to STATIC CODE ANALYSIS
+    - id: CNSWP-66
+      title: Establish dedicated development, testing, and production environment
+      objective: Establish dedicated development, testing, and production environment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-15 DEVELOPMENT PROCESS, STANDARDS, AND TOOLS
+              strength: 5
+              remarks: Reference to SA-15 DEVELOPMENT PROCESS, STANDARDS, AND TOOLS
+    - id: CNSWP-67
+      title: Build tests for business-critical code
+      objective: Build tests for business-critical code
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-68
+      title: Build tests for business-critical infrastructure
+      objective: Build tests for business-critical infrastructure
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-69
+      title: Test suite able to be ran locally
+      objective: Test suite able to be ran locally
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-70
+      title: Test suites should be available to run in a shared environment
+      objective: Test suites should be available to run in a shared environment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-71
+      title: Implement two non-author reviewers/approvers prior to merging
+      objective: Implement two non-author reviewers/approvers prior to merging
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11(4) DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11(4) DEVELOPER TESTING AND EVALUATION
+            - reference-id: MANUAL CODE REVIEWS
+              strength: 5
+              remarks: Reference to MANUAL CODE REVIEWS
+    - id: CNSWP-72
+      title: Code should be clean and well commented
+      objective: Code should be clean and well commented
+    - id: CNSWP-73
+      title: Full infrastructure tests are used
+      objective: Full infrastructure tests are used
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-74
+      title: Regression tests are used
+      objective: Regression tests are used
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-75
+      title: Test suites are updated against new and emerging threats and developed into security regressions tests
+      objective: Test suites are updated against new and emerging threats and developed into security regressions tests
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-76
+      title: Establish a dedicated Testing environment
+      objective: Establish a dedicated Testing environment
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE
+              strength: 5
+              remarks: Reference to SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE
+            - reference-id: MANAGE PREPRODUCTION ENVIRONMENT
+              strength: 5
+              remarks: Reference to MANAGE PREPRODUCTION ENVIRONMENT
+    - id: CNSWP-77
+      title: Continuous integration server is isolated
+      objective: Continuous integration server is isolated
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-39 PROCESS ISOLATION
+              strength: 5
+              remarks: Reference to SC-39 PROCESS ISOLATION
+    - id: CNSWP-78
+      title: Use threat model results to determine ROI for test development
+      objective: Use threat model results to determine ROI for test development
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11(2) DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11(2) DEVELOPER TESTING AND EVALUATION
+            - reference-id: THREAT MODELING AND VULNERABILITY ANALYSES
+              strength: 5
+              remarks: Reference to THREAT MODELING AND VULNERABILITY ANALYSES

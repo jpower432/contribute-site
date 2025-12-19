@@ -1,0 +1,126 @@
+title: Storage
+description: Storage
+controls:
+    - id: CNSWP-127
+      title: Storage control plane management interface requires mutual authentication and TLS for connections
+      objective: Storage control plane management interface requires mutual authentication and TLS for connections
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-8 TRANSMISSION CONFIDENTIALITY AND INTEGRITY
+              strength: 5
+              remarks: Reference to SC-8 TRANSMISSION CONFIDENTIALITY AND INTEGRITY
+    - id: CNSWP-128
+      title: Data availability is achieved through parity or mirroring, erasure coding or replicas
+      objective: Data availability is achieved through parity or mirroring, erasure coding or replicas
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-13 PREDICTABLE FAILURE PREVENTION
+              strength: 5
+              remarks: Reference to SI-13 PREDICTABLE FAILURE PREVENTION
+    - id: CNSWP-129
+      title: Hashing and checksums are added to blocks, objects or files
+      objective: |
+        SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
+      recommendations:
+        - the tampering of data.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-7 LEAST FUNCTIONALITY
+              strength: 5
+              remarks: Reference to CM-7 LEAST FUNCTIONALITY
+    - id: CNSWP-130
+      title: Data backup storage locations employ like access controls and security policies to that of the data storage source
+      objective: |
+        SC-30 CONCEALMENT AND MISDIRECTION'
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-9 EXTERNAL SYSTEM SERVICES
+              strength: 5
+              remarks: Reference to SA-9 EXTERNAL SYSTEM SERVICES
+    - id: CNSWP-131
+      title: Secure erasure adhering to OPAL standards is employed for returned or non-functional devices
+      objective: |
+        MP-6 MEDIA SANITIZATION'
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CP-9 SYSTEM BACKUP
+              strength: 5
+              remarks: Reference to CP-9 SYSTEM BACKUP
+    - id: CNSWP-132
+      title: Encryption at rest considers data path, size, and frequency of access when determing additional security protections and cryptographic algorithms to employ
+      objective: Encryption at rest considers data path, size, and frequency of access when determing additional security protections and cryptographic algorithms to employ
+      recommendations:
+        - will vary by system (e.g. per volume, per group or global keys)
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-28 PROTECTION OF INFORMATION AT REST
+              strength: 5
+              remarks: Reference to SC-28 PROTECTION OF INFORMATION AT REST
+    - id: CNSWP-133
+      title: Caching is considered for determining encryption requirements in archictures
+      objective: Caching is considered for determining encryption requirements in archictures
+    - id: CNSWP-134
+      title: Namespaces have defined trust boundaries to cordon access to volumes
+      objective: Namespaces have defined trust boundaries to cordon access to volumes
+    - id: CNSWP-135
+      title: Security policies are used to prevent containers from accessing volume mounts on worker nodes
+      objective: |
+        SA-8 SECURITY AND PRIVACY ENGINEERING PRINCIPLES
+        CM-6 CONFIGURATION SETTINGS'
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-7 BOUNDARY PROTECTION
+              strength: 5
+              remarks: Reference to SC-7 BOUNDARY PROTECTION
+    - id: CNSWP-136
+      title: Security policies are used enforce authorized worker node access to volumes
+      objective: |
+        SA-8 SECURITY AND PRIVACY ENGINEERING PRINCIPLES
+        CM-6 CONFIGURATION SETTINGS'
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-7 BOUNDARY PROTECTION
+              strength: 5
+              remarks: Reference to SC-7 BOUNDARY PROTECTION
+    - id: CNSWP-137
+      title: Volume UID and GID are inaccessible to containers
+      objective: |
+        AC-16 SECURITY AND PRIVACY ATTRIBUTES
+        SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-4 INFORMATION FLOW ENFORCEMENT
+              strength: 5
+              remarks: Reference to AC-4 INFORMATION FLOW ENFORCEMENT
+    - id: CNSWP-138
+      title: Artifact registry supports OCI artifacts
+      objective: Artifact registry supports OCI artifacts
+    - id: CNSWP-139
+      title: Artifact registry supports signed artifacts
+      objective: Artifact registry supports signed artifacts
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-14 SIGNED COMPONENTS
+              strength: 5
+              remarks: Reference to CM-14 SIGNED COMPONENTS
+    - id: CNSWP-140
+      title: Artifact registry verifies artifacts against organizational policies
+      objective: |
+        Artifact registry verifies artifacts against organizational policies
+        CM-6 CONFIGURATION SETTINGS
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AU-10 NON-REPUDIATION
+              strength: 5
+              remarks: Reference to AU-10 NON-REPUDIATION

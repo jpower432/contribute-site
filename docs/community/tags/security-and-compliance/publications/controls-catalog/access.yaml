@@ -1,0 +1,242 @@
+title: Access
+description: Access
+controls:
+    - id: CNSWP-1
+      title: Secrets are injected at runtime
+      objective: Secrets are injected at runtime
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-5(7)
+              strength: 5
+              remarks: Reference to IA-5(7) Authenticator Management
+    - id: CNSWP-2
+      title: Applications and workloads are explicitly authorized to communicate with each other using mutual authentication
+      objective: Applications and workloads are explicitly authorized to communicate with each other using mutual authentication
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-9
+              strength: 5
+    - id: CNSWP-10
+      title: ABAC and RBAC are used
+      objective: AC-3(7) Access Enforcement | Role-Based Access Control
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-3(13)
+              strength: 5
+              remarks: Reference to AC-3(13) Access Enforcement
+            - reference-id: Attribute-Based Access Control
+              strength: 5
+              remarks: Reference to Attribute-Based Access Control
+    - id: CNSWP-11
+      title: End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
+      objective: End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
+      recommendations:
+        - This can be achieved through the use of identity documents and tokens.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-7(19)
+              strength: 5
+              remarks: Reference to SC-7(19) Boundary Protection
+            - reference-id: Block Communication from Non-Organizationally Configured Hosts
+              strength: 5
+              remarks: Reference to Block Communication from Non-Organizationally Configured Hosts
+    - id: CNSWP-12
+      title: All cluster and workloads operators are authenticated
+      objective: All cluster and workloads operators are authenticated
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-7 Cryptographic Module Authentication
+              strength: 5
+              remarks: Reference to IA-7 Cryptographic Module Authentication
+    - id: CNSWP-13
+      title: cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output
+      objective: cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-7 Cryptographic Module Authentication
+              strength: 5
+              remarks: Reference to IA-7 Cryptographic Module Authentication
+    - id: CNSWP-14
+      title: Identity federation uses multi-factor authentication
+      objective: Identity federation uses multi-factor authentication
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-2(1)(2) Identification and Authentication (organizational Users)
+              strength: 5
+              remarks: Reference to IA-2(1)(2) Identification and Authentication (organizational Users)
+            - reference-id: Multi-Factor Authenticaiton to Priviledged & Non Priveledged Accounts
+              strength: 5
+              remarks: Reference to Multi-Factor Authenticaiton to Priviledged & Non Priveledged Accounts
+    - id: CNSWP-15
+      title: HSMs are used to physically protect cryptographic secrets with an encryption key residing in the HSM
+      objective: SC-3(1) Security Function Isolation | Hardware Separation
+      recommendations:
+        - If this is not possible, software-based credential managers should be used.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-4(4) Information Flow Enforcement
+              strength: 5
+              remarks: Reference to AC-4(4) Information Flow Enforcement
+            - reference-id: Flow Control of Encrypted Information
+              strength: 5
+              remarks: Reference to Flow Control of Encrypted Information
+    - id: CNSWP-16
+      title: Secrets should have a short expiration period or time to live
+      objective: Secrets should have a short expiration period or time to live
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-12 Information Management and Retention
+              strength: 5
+              remarks: Reference to SI-12 Information Management and Retention
+    - id: CNSWP-17
+      title: time to live and expiration period on secrets is verfied to prevent reuse
+      objective: time to live and expiration period on secrets is verfied to prevent reuse
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-16(3) Security and Privacy Attributes
+              strength: 5
+              remarks: Reference to AC-16(3) Security and Privacy Attributes
+            - reference-id: Maintenance of Attribute Associations by System
+              strength: 5
+              remarks: Reference to Maintenance of Attribute Associations by System
+    - id: CNSWP-18
+      title: secrets management systems are highly available
+      objective: secrets management systems are highly available
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-12(1) Cryptographic Key Establishment and Management
+              strength: 5
+              remarks: Reference to SC-12(1) Cryptographic Key Establishment and Management
+            - reference-id: Availability
+              strength: 5
+              remarks: Reference to Availability
+    - id: CNSWP-19
+      title: long-lived secrets adhere to periodic rotation and revocation
+      objective: long-lived secrets adhere to periodic rotation and revocation
+      recommendations:
+        - Long-lived secrets are not recommended, but some capabilities require them
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-12 Information Management and Retention
+              strength: 5
+              remarks: Reference to SI-12 Information Management and Retention
+    - id: CNSWP-20
+      title: Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting
+      objective: Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-16 Security and Privacy Atributes
+              strength: 5
+              remarks: Reference to AC-16 Security and Privacy Atributes
+    - id: CNSWP-21
+      title: Secrets injected are runtime are masqued or dropped from logs, audit, or system dumps
+      objective: Secrets injected are runtime are masqued or dropped from logs, audit, or system dumps
+      recommendations:
+        - Even short lived secrets may be resused if caught in time by an interested attacker. Logs, audit, and systems dumps (i.e. in-memory shared volumes instead of environment variables) are all areas where runtime injected secrets show up
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AU-9(3) Protection of Audit Information
+              strength: 5
+              remarks: Reference to AU-9(3) Protection of Audit Information
+            - reference-id: Cryptographic Protection
+              strength: 5
+              remarks: Reference to Cryptographic Protection
+    - id: CNSWP-3
+      title: Keys are rotated frequently
+      objective: Keys are rotated frequently
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-12
+              strength: 5
+              remarks: Reference to SC-12 Cryptographic Key Establishment and Management
+    - id: CNSWP-4
+      title: Key lifespan is short
+      objective: Key lifespan is short
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-12(3)
+              strength: 5
+              remarks: Reference to SC-12(3) Cryptographic Key Establishment and Management
+            - reference-id: Asymetric Key
+              strength: 5
+              remarks: Reference to Asymetric Key
+    - id: CNSWP-5
+      title: Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider
+      objective: Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider
+      recommendations:
+        - KMS and HMS are common technologies to achive this. FIPS 140-2 complaince is strongly suggested. Cloud KMS tends to be FIPS 140-2 Level 2 or greater.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-2(12)
+              strength: 5
+              remarks: Reference to IA-2(12) Identification and Authentication (Organizational Users)
+            - reference-id: Acceptance of PIV Credentials
+              strength: 5
+              remarks: Reference to Acceptance of PIV Credentials
+    - id: CNSWP-6
+      title: Authentication and authorization are determined independently
+      objective: Authentication and authorization are determined independently
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-2(6)
+              strength: 5
+              remarks: Reference to IA-2(6) Identification and Authentication (Organizational Users)
+            - reference-id: Access to Accounts - Separate Devices
+              strength: 5
+              remarks: Reference to Access to Accounts - Separate Devices
+    - id: CNSWP-7
+      title: Authentication and authorization are enforced independently
+      objective: Authentication and authorization are enforced independently
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-2(6)
+              strength: 5
+              remarks: Reference to IA-2(6) Identification and Authentication (Organizational Users)
+            - reference-id: Access to Accounts - Separate Devices
+              strength: 5
+              remarks: Reference to Access to Accounts - Separate Devices
+    - id: CNSWP-8
+      title: access control and file permissions are updated in real-time
+      objective: access control and file permissions are updated in real-time
+      recommendations:
+        - where possible as caching may permit unauthorized access
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-4(2)
+              strength: 5
+              remarks: Reference to SI-4(2) System Monitoring
+            - reference-id: Automated Tools and Mechanisms for Real-Time Analysis
+              strength: 5
+              remarks: Reference to Automated Tools and Mechanisms for Real-Time Analysis
+    - id: CNSWP-9
+      title: authorization for workloads is granted based on attributs and roles/permissions previously assigned
+      objective: authorization for workloads is granted based on attributs and roles/permissions previously assigned
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-3(13)
+              strength: 5
+              remarks: Reference to AC-3(13) Access Enforcement
+            - reference-id: Attribute-Based Access Control
+              strength: 5
+              remarks: Reference to Attribute-Based Access Control

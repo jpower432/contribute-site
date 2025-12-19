@@ -1,0 +1,71 @@
+title: Securing Materials
+description: Securing Materials
+controls:
+    - id: CNSWP-173
+      title: Verify third party artefacts and open source libraries
+      recommendations:
+        - of the continuous integration pipeline by validating their checksums against a known good source and validating any cryptographic signatures. Any software ingested must be scanned using Software Composition Analysis (SCA) and pentesting tools to detect whether any vulnerable open-source software is used in the final product.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
+    - id: CNSWP-174
+      title: Require SBOM from third party suppliers
+      recommendations:
+        - explicit details of the software and versions used within the supplied product as it provides a clear and direct link to the dependencies.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-8 INFORMATION SYSTEM COMPONENT INVENTORY
+              strength: 5
+              remarks: Reference to CM-8 INFORMATION SYSTEM COMPONENT INVENTORY
+    - id: CNSWP-175
+      title: Track dependencies between open source components
+      recommendations:
+        - to help trace any deployed artefacts with new vulnerabilities. One of the most popular open source inventory implementations is OWASP Dependency-Track.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-10 SOFTWARE USAGE RESTRICTIONS
+              strength: 5
+              remarks: Reference to CM-10 SOFTWARE USAGE RESTRICTIONS
+    - id: CNSWP-176
+      title: Build libraries based upon source code
+    - id: CNSWP-177
+      title: Define and prioritize trusted package managers and repositories
+      recommendations:
+        - to pull from only those sources.
+    - id: CNSWP-178
+      title: Generate an immutable SBOM of the code
+      recommendations:
+        - 'There are currently two well known SBOM specifications: SPDX34 and CycloneDX'
+    - id: CNSWP-179
+      title: Scan software for vulnerabilities
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: RA-5 VULNERABILITY MONITORING AND SCANNING
+              strength: 5
+              remarks: Reference to RA-5 VULNERABILITY MONITORING AND SCANNING
+    - id: CNSWP-180
+      title: Scan software for license implications
+      recommendations:
+        - the Open Compliance Program36 which hosts several tools to ensure released software meets legal and regulatory compliance requirements.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: CM-10 SOFTWARE USAGE RESTRICTIONS
+              strength: 5
+              remarks: Reference to CM-10 SOFTWARE USAGE RESTRICTIONS
+    - id: CNSWP-181
+      title: Run software composition analysis on ingested software
+      recommendations:
+        - also serve as verification of SBOM content. This data will then be matched against data from a number of data feeds containing vulnerability data to highlight any vulnerabilities in the dependent packages.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 (1) (8) & (9) DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 (1) (8) & (9) DEVELOPER TESTING AND EVALUATION

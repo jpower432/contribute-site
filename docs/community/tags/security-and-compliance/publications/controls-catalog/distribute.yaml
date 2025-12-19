@@ -1,0 +1,289 @@
+title: Distribute
+description: Distribute
+controls:
+    - id: CNSWP-100
+      title: Registries require mutually authenticated TLS for all registry connections
+      objective: Registries require mutually authenticated TLS for all registry connections
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: IA-3(1) CRYPTOGRAPHIC BIDIRECTIONAL AUTHENTICATION
+              strength: 5
+              remarks: Reference to IA-3(1) CRYPTOGRAPHIC BIDIRECTIONAL AUTHENTICATION
+    - id: CNSWP-101
+      title: image and metadata are signed
+      objective: image and metadata are signed
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+    - id: CNSWP-102
+      title: configuration is signed
+      objective: configuration is signed
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+    - id: CNSWP-103
+      title: package is signed
+      objective: package is signed
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+    - id: CNSWP-104
+      title: Validate integrity of images
+      objective: Validate integrity of images
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SYSTEM & INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SYSTEM & INFORMATION INTEGRITY
+    - id: CNSWP-105
+      title: Scan images for vulnerabilities and malware
+      objective: SA-3
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: RA-5 VULNERABILITY MONITORING AND SCANNING
+              strength: 5
+              remarks: Reference to RA-5 VULNERABILITY MONITORING AND SCANNING
+    - id: CNSWP-106
+      title: Enable image signing key revokation in the event of compromise
+      objective: Enable image signing key revokation in the event of compromise
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SYSTEM & INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SYSTEM & INFORMATION INTEGRITY
+    - id: CNSWP-107
+      title: Security updates are prioritized
+      objective: Security updates are prioritized
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-2(3) SYSTEM & INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY
+    - id: CNSWP-108
+      title: HSMs or credential managers should be used for protecting credentials
+      objective: HSMs or credential managers should be used for protecting credentials
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-12(3) SYSTEMS & COMMUNICATION PROTECTION
+              strength: 5
+              remarks: Reference to SC-12(3) SYSTEMS & COMMUNICATION PROTECTION
+    - id: CNSWP-109
+      title: Container image scanning findings are acted upon
+      objective: Container image scanning findings are acted upon
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-2(3) SYSTEM & INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY
+    - id: CNSWP-110
+      title: organizational compliance rules are enforced
+      objective: organizational compliance rules are enforced
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: PL-1 POLICY AND PROCEDURES
+              strength: 5
+              remarks: Reference to PL-1 POLICY AND PROCEDURES
+    - id: CNSWP-111
+      title: Incremental hardening of the infrastructure is employed
+      objective: Incremental hardening of the infrastructure is employed
+    - id: CNSWP-112
+      title: pulls from public registries are controlled and only from authorized engineers or internal registries
+      objective: pulls from public registries are controlled and only from authorized engineers or internal registries
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: AC-6(3) LEAST PRIVILEGE
+              strength: 5
+              remarks: Reference to AC-6(3) LEAST PRIVILEGE
+            - reference-id: NETWORK ACCESS TO PRIVILEGED COMMANDS
+              strength: 5
+              remarks: Reference to NETWORK ACCESS TO PRIVILEGED COMMANDS
+    - id: CNSWP-113
+      title: Image encryption is coupled with key management attestation and/or authorization and credential distribution
+      objective: SC-12(3)
+      recommendations:
+        - useful for compliance use cases such as geo-fencing or export control and digital rights media management
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT
+              strength: 5
+              remarks: Reference to SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT
+            - reference-id: SYMMETRIC & ASYMMETRIC KEYS
+              strength: 5
+              remarks: Reference to SYMMETRIC & ASYMMETRIC KEYS
+    - id: CNSWP-114
+      title: At-risk applications are prioritized for remediation by the exploit maturity and vulnerable path presence in addition to the CVSS score
+      objective: At-risk applications are prioritized for remediation by the exploit maturity and vulnerable path presence in addition to the CVSS score
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-2(3) SYSTEM & INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY
+    - id: CNSWP-79
+      title: Trust is verified
+      objective: Trust is verified
+    - id: CNSWP-80
+      title: Artifacts ready for deployment are managed in a staging or pre-prod registry
+      objective: Artifacts ready for deployment are managed in a staging or pre-prod registry
+    - id: CNSWP-81
+      title: container images are hardened following best practices
+      objective: container images are hardened following best practices
+      recommendations:
+        - Images contain least permissions to remain functional, do not allow for shell, do not include unnecessary libraries and dependencies, do not bind mount files in from the host, etc.
+    - id: CNSWP-82
+      title: Static application security testing (SAST) is performed
+      objective: Static application security testing (SAST) is performed
+      recommendations:
+        - Linting & fuzzing is performed
+    - id: CNSWP-83
+      title: Test suites follow the test pyramid
+      objective: Test suites follow the test pyramid
+    - id: CNSWP-84
+      title: Artifacts undergoing active development are held in a private registery
+      objective: Artifacts undergoing active development are held in a private registery
+    - id: CNSWP-85
+      title: Scan application manifests in CI pipeline
+      objective: Scan application manifests in CI pipeline
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: RA-5 VULNERABILITY MONITORING AND SCANNING
+              strength: 5
+              remarks: Reference to RA-5 VULNERABILITY MONITORING AND SCANNING
+    - id: CNSWP-86
+      title: CI server's for sensitive workloads are isolated from other workloads
+      objective: CI server's for sensitive workloads are isolated from other workloads
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-39 PROCESS ISOLATION
+              strength: 5
+              remarks: Reference to SC-39 PROCESS ISOLATION
+    - id: CNSWP-87
+      title: Builds requiring elevated privileges must run on dedicated servers
+      objective: Builds requiring elevated privileges must run on dedicated servers
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SC-39 PROCESS ISOLATION
+              strength: 5
+              remarks: Reference to SC-39 PROCESS ISOLATION
+    - id: CNSWP-88
+      title: Build policies are enforced on the CI pipeline
+      objective: Build policies are enforced on the CI pipeline
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-1 POLICY AND PROCEDURES
+              strength: 5
+              remarks: Reference to SA-1 POLICY AND PROCEDURES
+    - id: CNSWP-89
+      title: Sign pipeline metadata
+      objective: Sign pipeline metadata
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+    - id: CNSWP-90
+      title: Build stages are verified prior to the next stage executing
+      objective: Build stages are verified prior to the next stage executing
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+              strength: 5
+              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
+    - id: CNSWP-91
+      title: Images are scanned within the CI pipeline
+      objective: SA-3
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: RA-5 VULNERABILITY MONITORING AND SCANNING
+              strength: 5
+              remarks: Reference to RA-5 VULNERABILITY MONITORING AND SCANNING
+    - id: CNSWP-92
+      title: Vulnerability scans are coupled with pipeline compliance rules
+      objective: Vulnerability scans are coupled with pipeline compliance rules
+      recommendations:
+        - Prevent insecure images and artifacts from being deployed
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-1 POLICY AND PROCEDURES
+              strength: 5
+              remarks: Reference to SA-1 POLICY AND PROCEDURES
+    - id: CNSWP-93
+      title: Dynamic application security testing (DAST) is performed
+      objective: Dynamic application security testing (DAST) is performed
+      recommendations:
+        - mocking
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 (8) & (9) INTERACTIVE APPLICATION SECURITY TESTING
+              strength: 5
+              remarks: Reference to SA-11 (8) & (9) INTERACTIVE APPLICATION SECURITY TESTING
+    - id: CNSWP-94
+      title: Application instrumentation is employed
+      objective: Application instrumentation is employed
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-4 SYSTEM MONITORING
+              strength: 5
+              remarks: Reference to SI-4 SYSTEM MONITORING
+    - id: CNSWP-95
+      title: Automated test results map back to requirements
+      objective: Automated test results map back to requirements
+      recommendations:
+        - Requirements include feature, function, security, and complaince
+    - id: CNSWP-96
+      title: Infrastructure security tests must be employed
+      objective: Infrastructure security tests must be employed
+      recommendations:
+        - firewall rules open to the world, overprivileged Identity & Access Management (IAM) policies, unauthenticated endpoints, etc
+    - id: CNSWP-97
+      title: Tests to verify the security health are executed at time of build and at time of deploy
+      objective: Tests to verify the security health are executed at time of build and at time of deploy
+      recommendations:
+        - to evaluate any changes or regressions that may have occurred throughout the lifecycle.
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SI-4 SYSTEM MONITORING
+              strength: 5
+              remarks: Reference to SI-4 SYSTEM MONITORING
+    - id: CNSWP-98
+      title: IaC is subject to the same pipeline policy controls as application code
+      objective: IaC is subject to the same pipeline policy controls as application code
+    - id: CNSWP-99
+      title: Security testing is automated
+      objective: CA-8
+      guideline-mappings:
+        - reference-id: NIST-800-53
+          entries:
+            - reference-id: SA-11 DEVELOPER TESTING AND EVALUATION
+              strength: 5
+              remarks: Reference to SA-11 DEVELOPER TESTING AND EVALUATION
