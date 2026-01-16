@@ -1,17 +1,15 @@
 metadata:
-  id: CNSWP-v1.0-cloud-native-security-guidance
-  version: 1.0.0
-  description: Cloud Native Security Controls Catalog providing guidance for securing cloud-native applications and workloads.
-    This guidance document contains controls organized by security domains including Access, Build, Distribute, and other
-    critical areas.
+  id: CNSWP
+  description: Guidelines for access control, authentication, authorization, secrets management, and key management.
   author:
     id: tag-sc
     name: TAG Security and Compliance
     type: Software-Assisted
+  version: 1.0.0
   mapping-references:
-    - id: NIST-800-53
-      title: NIST SP 800-53r5
-      version: rev5
-      url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf
-title: Cloud Native Security Controls Catalog v1.0
+  - id: NIST-800-53
+    title: NIST SP 800-53r5
+    version: rev5
+    url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf
+title: Cloud Native Security Controls Catalog
 document-type: Best Practice

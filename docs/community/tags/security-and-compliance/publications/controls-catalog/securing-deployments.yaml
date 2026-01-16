@@ -1,25 +1,32 @@
-title: Securing Deployments
-description: Securing Deployments
-controls:
-    - id: CNSWP-170
-      title: Ensure clients can perform verification of artefacts and associated metadata
-      guideline-mappings:
-        - reference-id: NIST-800-53
-          entries:
-            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
-              strength: 5
-              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
-    - id: CNSWP-171
-      title: Ensure clients can verify the “freshness” of files
-      recommendations:
-        - Ensure clients can access latest versions and can veriify if the provided files are out of date
-      guideline-mappings:
-        - reference-id: NIST-800-53
-          entries:
-            - reference-id: SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
-              strength: 5
-              remarks: Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY
-    - id: CNSWP-172
-      title: Use a framework for managing software updates
-      recommendations:
-        - software updates in a secure, reliable and trusted way
+guidelines:
+- id: CNSWP-170
+  title: Ensure clients can perform verification of artefacts and associated metadata
+  guideline-mappings:
+  - reference-id: NIST-800-53
+    entries:
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
+  family: Securing Deployments
+  statements:
+  - id: CNSWP-170.1
+    title: Verification Capabilities
+    text: Provide mechanisms for clients to verify artifacts and associated metadata.
+- id: CNSWP-171
+  title: Ensure clients can verify the "freshness" of files
+  guideline-mappings:
+  - reference-id: NIST-800-53
+    entries:
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
+  family: Securing Deployments
+  statements:
+  - id: CNSWP-171.1
+    title: Freshness Verification
+    text: Ensure clients can access latest versions and can verify if the provided files are out of date.
+- id: CNSWP-172
+  title: Use a framework for managing software updates
+  family: Securing Deployments
+  statements:
+  - id: CNSWP-172.1
+    title: Update Framework Implementation
+    text: Use a framework for managing software updates in a secure, reliable and trusted way.
