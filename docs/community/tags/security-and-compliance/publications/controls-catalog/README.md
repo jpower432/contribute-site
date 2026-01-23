@@ -2,12 +2,7 @@
 
 This guide covers Gemara format, file organization, and CLI usage for the controls catalog.
 
-## Gemara Format
-
-This catalog uses **Gemara Layer 1** format (Guidance Document).
-See [Gemara Documentation](https://gemara.openssf.org/) for specification details.
-
-The converter tool merges the YAML files into a single Gemara schema-compliant artefact.
+This catalog is expressed in **Gemara Layer 1** (Guidance Document). See [Gemara Documentation](https://gemara.openssf.org/) for specification and schema details.
 
 ## File Breakdown by Family
 
@@ -32,11 +27,13 @@ Each guideline in a family file must have a `family` field matching the Family I
 
 ## CLI Usage
 
+The converter tool merges the YAML files into a single Gemara schema-compliant artefact.
+
 ### Prerequisites
 
 - Go 1.24 or later
 
-### Validate Gemara Format
+### Validate
 
 Validates YAML files and generates Gemara Layer 1 document:
 
@@ -44,7 +41,7 @@ Validates YAML files and generates Gemara Layer 1 document:
 go run cmd/catalog/main.go -yaml catalog.yaml
 ```
 
-**Output**: Creates `catalog.yaml` with a Gemara-compliant document. Exits with error if validation fails.
+**Output**: Creates `catalog.yaml` with a Gemara schema-compliant document. Exits with error if validation fails.
 
 ### Generate Markdown
 
@@ -74,8 +71,3 @@ go run cmd/catalog/main.go -dir /path/to/catalog -yaml catalog.yaml -md index.md
 - Statement ID: `CNSWP-{number}.{sub}` (e.g., `CNSWP-1.1`, `CNSWP-200.2`)
 
 IDs must be unique across all family files. Use sequential numbering within each family.
-
-## Resources
-
-- [Gemara Documentation](https://gemara.openssf.org/) - Gemara specification and format details
-- [NIST SP 800-53r5](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf) - NIST control framework reference
