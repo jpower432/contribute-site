@@ -13,7 +13,7 @@ func main() {
 	var (
 		catalogDir = flag.String("dir", ".", "Directory containing YAML files (metadata.yaml, families.yaml, and family files)")
 		outputYAML = flag.String("yaml", "", "Output YAML file (Gemara Layer 1 document). If empty, YAML output is skipped.")
-		outputMD   = flag.String("md", "", "Output markdown file. If empty, markdown output is skipped.")
+		outputMD   = flag.String("md", "index.md", "Output markdown file. Defaults to index.md. If empty, markdown output is skipped.")
 	)
 	flag.Parse()
 
@@ -61,7 +61,11 @@ func main() {
 	}
 
 	if *outputMD != "" {
-		markdown := converter.ToMarkdown(doc)
+		markdown, err := converter.ToMarkdown(doc)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error generating markdown: %v\n", err)
+			os.Exit(1)
+		}
 
 		if err := os.WriteFile(*outputMD, []byte(markdown), 0644); err != nil {
 			fmt.Fprintf(os.Stderr, "Error writing markdown output: %v\n", err)

@@ -2,7 +2,8 @@
 
 This guide covers Gemara format, file organization, and CLI usage for the controls catalog.
 
-This catalog is expressed in **Gemara Layer 1** (Guidance Document). See [Gemara Documentation](https://gemara.openssf.org/) for specification and schema details.
+This catalog is expressed in **Gemara Layer 1** (Guidance Document).
+See [Gemara Documentation](https://gemara.openssf.org/) for specification and schema details.
 
 ## File Breakdown by Family
 

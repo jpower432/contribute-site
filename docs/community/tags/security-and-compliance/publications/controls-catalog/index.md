@@ -1,40 +1,103 @@
 ---
 title: Cloud Native Security Controls Catalog
-sidebar_position: 1
+sidebar_position: 6
 ---
+
+<!--
+This file is auto-generated. Do not edit manually.
+
+To regenerate this file, run below from the controls-catalog directory:
+  go run cmd/catalog/main.go -md index.md
+-->
 
 # Cloud Native Security Controls Catalog
 
-The Cloud Native Security Controls Catalog provides comprehensive guidance for securing cloud-native applications and workloads.
+This catalog provides a structured framework for implementing security best practices in cloud-native environments.
+It synthesizes the foundational principles of the [Cloud Native Security Whitepaper](../security-white%20paper)  and the Software Supply Chain Best Practices Paper into discrete, actionable objectives.
 
-## Table of Contents
+> **Note**: While this catalog is historically called the "Cloud Native Security Controls Catalog," these security objectives are expressed as **guidelines**. Throughout this document, we use "guidelines" to refer to the individual security recommendations, while "catalog" refers to the overall collection.
 
-- [Access](#access)
-- [Compute](#compute)
-- [Deploy](#deploy)
-- [Develop](#develop)
-- [Distribute](#distribute)
-- [Securing Artefacts](#securing-artefacts)
-- [Securing Build Pipelines](#securing-build-pipelines)
-- [Securing Deployments](#securing-deployments)
-- [Securing Materials](#securing-materials)
-- [Securing the Source Code](#securing-the-source-code)
-- [Security Assurance](#security-assurance)
-- [Storage](#storage)
+Guidelines are organized into Families, each representing a specific security domain. These families help you navigate and understand the scope of security guidelines across different aspects of cloud native systems.
+
+Each entry contains the following components:
+- **Guideline ID**: A unique identifier for traceability and mapping.
+- **Objective**: The high-level security goal or intent of the guideline.
+- **Guideline Mappings**: Cross-references to frameworks (e.g., NIST SP800-53r5) to support compliance alignment.
+- **Statements**: Explanatory context and detailed descriptions of the guidelines requirements.
+- **Recommendations**: Practical, non-binding guidance for implementation.
+
+## Guideline Families
+
+The following families organize guidelines by security domain. Click on any family name to jump to its guidelines:
+
+
+### Access Control
+
+Guidelines for access control models and identity forwarding. [View guidelines →](#cnswp-1)
+
+
+### Compute
+
+Guidelines for securing compute infrastructure including bootstrapping, isolation, monitoring, and runtime security. [View guidelines →](#cnswp-22)
+
+
+### Deploy
+
+Guidelines for securing software deployments, ensuring artifact verification, freshness validation, and secure update management. [View guidelines →](#cnswp-57)
+
+
+### Distribute
+
+Guidelines for secure distribution of container images, packages, and artifacts including signing, scanning, and registry security. [View guidelines →](#cnswp-100)
+
+
+### Securing Artefacts
+
+Guidelines for securing artefacts, including signing, verification, and freshness validation. [View guidelines →](#cnswp-141)
+
+
+### Securing Build Pipelines
+
+Guidelines for securing build pipelines, ensuring cryptographic guarantees, validation, and secure build environments. [View guidelines →](#cnswp-149)
+
+
+### Securing Deployments
+
+Guidelines for securing software deployments, ensuring artifact verification, freshness validation, and secure update management. [View guidelines →](#cnswp-170)
+
+
+### Securing Materials
+
+Guidelines for securing materials, including signing, verification, and freshness validation. [View guidelines →](#cnswp-173)
+
+
+### Securing the Source Code
+
+Guidelines for securing the source code, including signing, verification, and freshness validation. [View guidelines →](#cnswp-182)
+
+
+### Security Assurance
+
+Guidelines for security assurance, including signing, verification, and freshness validation. [View guidelines →](#cnswp-115)
+
+
+### Storage
+
+Guidelines for securing storage, including signing, verification, and freshness validation. [View guidelines →](#cnswp-127)
+
+
 
 ---
 
-## Access {#access}
 
-Access
+## Access Control {#access}
+
+Guidelines for access control models and identity forwarding.
+
 
 ### Secrets are injected at runtime {#cnswp-1}
 
-**Control ID**: `CNSWP-1`
-
-#### Objective
-
-Secrets are injected at runtime
+**Guideline ID**: `CNSWP-1`
 
 #### Guideline Mappings
 
@@ -42,18 +105,19 @@ Secrets are injected at runtime
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-5(7) | 5 | Reference to IA-5(7) Authenticator Management |
-| No Embedded Unencrypted Static Authenticators | 5 | Reference to No Embedded Unencrypted Static Authenticators |
+| IA-5(7) |  | Authenticator Management |
+
+
+#### Statements
+
+Inject secrets at runtime rather than embedding them in code or configuration files.
 
 ---
+
 
 ### ABAC and RBAC are used {#cnswp-10}
 
-**Control ID**: `CNSWP-10`
-
-#### Objective
-
-AC-3(7) Access Enforcement | Role-Based Access Control
+**Guideline ID**: `CNSWP-10`
 
 #### Guideline Mappings
 
@@ -61,18 +125,19 @@ AC-3(7) Access Enforcement | Role-Based Access Control
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-3(13) | 5 | Reference to AC-3(13) Access Enforcement |
-| Attribute-Based Access Control | 5 | Reference to Attribute-Based Access Control |
+| AC-3(13) |  | Access Enforcement |
+
+
+#### Statements
+
+Implement abac and rbac are used.
 
 ---
+
 
 ### End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization {#cnswp-11}
 
-**Control ID**: `CNSWP-11`
-
-#### Objective
-
-End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
+**Guideline ID**: `CNSWP-11`
 
 #### Guideline Mappings
 
@@ -80,22 +145,21 @@ End user identity is capable of being accepted, consumed, and forwarded on for c
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7(19) | 5 | Reference to SC-7(19) Boundary Protection |
-| Block Communication from Non-Organizationally Configured Hosts | 5 | Reference to Block Communication from Non-Organizationally Configured Hosts |
+| SC-7(19) |  | Boundary Protection |
 
-#### Recommendations
 
-- This can be achieved through the use of identity documents and tokens.
+#### Statements
+
+**Identity Forwarding Implementation**
+
+Enable end user identity to be accepted, consumed, and forwarded.
 
 ---
+
 
 ### All cluster and workloads operators are authenticated {#cnswp-12}
 
-**Control ID**: `CNSWP-12`
-
-#### Objective
-
-All cluster and workloads operators are authenticated
+**Guideline ID**: `CNSWP-12`
 
 #### Guideline Mappings
 
@@ -103,17 +167,19 @@ All cluster and workloads operators are authenticated
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-7 Cryptographic Module Authentication | 5 | Reference to IA-7 Cryptographic Module Authentication |
+| IA-7 |  | Cryptographic Module Authentication |
+
+
+#### Statements
+
+Implement all cluster and workloads operators are authenticated.
 
 ---
+
 
 ### cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output {#cnswp-13}
 
-**Control ID**: `CNSWP-13`
-
-#### Objective
-
-cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output
+**Guideline ID**: `CNSWP-13`
 
 #### Guideline Mappings
 
@@ -121,17 +187,19 @@ cluster and worklods operate actions are evaluated against access control polici
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-7 Cryptographic Module Authentication | 5 | Reference to IA-7 Cryptographic Module Authentication |
+| IA-7 |  | Cryptographic Module Authentication |
+
+
+#### Statements
+
+Implement cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output.
 
 ---
+
 
 ### Identity federation uses multi-factor authentication {#cnswp-14}
 
-**Control ID**: `CNSWP-14`
-
-#### Objective
-
-Identity federation uses multi-factor authentication
+**Guideline ID**: `CNSWP-14`
 
 #### Guideline Mappings
 
@@ -139,18 +207,19 @@ Identity federation uses multi-factor authentication
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-2(1)(2) Identification and Authentication (organizational Users) | 5 | Reference to IA-2(1)(2) Identification and Authentication (organizational Users) |
-| Multi-Factor Authenticaiton to Priviledged & Non Priveledged Accounts | 5 | Reference to Multi-Factor Authenticaiton to Priviledged & Non Priveledged Accounts |
+| IA-2(1)(2) |  | Identification and Authentication (organizational Users) |
+
+
+#### Statements
+
+Enforce multi-factor authentication for repository access.
 
 ---
+
 
 ### HSMs are used to physically protect cryptographic secrets with an encryption key residing in the HSM {#cnswp-15}
 
-**Control ID**: `CNSWP-15`
-
-#### Objective
-
-SC-3(1) Security Function Isolation | Hardware Separation
+**Guideline ID**: `CNSWP-15`
 
 #### Guideline Mappings
 
@@ -158,22 +227,21 @@ SC-3(1) Security Function Isolation | Hardware Separation
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-4(4) Information Flow Enforcement | 5 | Reference to AC-4(4) Information Flow Enforcement |
-| Flow Control of Encrypted Information | 5 | Reference to Flow Control of Encrypted Information |
+| AC-4(4) |  | Information Flow Enforcement |
 
-#### Recommendations
 
-- If this is not possible, software-based credential managers should be used.
+#### Statements
+
+**HSM Implementation**
+
+Use HSMs to physically protect cryptographic secrets.
 
 ---
+
 
 ### Secrets should have a short expiration period or time to live {#cnswp-16}
 
-**Control ID**: `CNSWP-16`
-
-#### Objective
-
-Secrets should have a short expiration period or time to live
+**Guideline ID**: `CNSWP-16`
 
 #### Guideline Mappings
 
@@ -181,17 +249,19 @@ Secrets should have a short expiration period or time to live
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-12 Information Management and Retention | 5 | Reference to SI-12 Information Management and Retention |
+| SI-12 |  | Information Management and Retention |
+
+
+#### Statements
+
+Configure secrets with short expiration periods or time-to-live values.
 
 ---
 
-### time to live and expiration period on secrets is verfied to prevent reuse {#cnswp-17}
 
-**Control ID**: `CNSWP-17`
+### time to live and expiration period on secrets is verified to prevent reuse {#cnswp-17}
 
-#### Objective
-
-time to live and expiration period on secrets is verfied to prevent reuse
+**Guideline ID**: `CNSWP-17`
 
 #### Guideline Mappings
 
@@ -199,18 +269,19 @@ time to live and expiration period on secrets is verfied to prevent reuse
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-16(3) Security and Privacy Attributes | 5 | Reference to AC-16(3) Security and Privacy Attributes |
-| Maintenance of Attribute Associations by System | 5 | Reference to Maintenance of Attribute Associations by System |
+| AC-16(3) |  | Security and Privacy Attributes |
+
+
+#### Statements
+
+Verify secret expiration and time-to-live values to prevent reuse of expired secrets.
 
 ---
+
 
 ### secrets management systems are highly available {#cnswp-18}
 
-**Control ID**: `CNSWP-18`
-
-#### Objective
-
-secrets management systems are highly available
+**Guideline ID**: `CNSWP-18`
 
 #### Guideline Mappings
 
@@ -218,18 +289,19 @@ secrets management systems are highly available
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(1) Cryptographic Key Establishment and Management | 5 | Reference to SC-12(1) Cryptographic Key Establishment and Management |
-| Availability | 5 | Reference to Availability |
+| SC-12(1) |  | Cryptographic Key Establishment and Management |
+
+
+#### Statements
+
+Implement secrets management systems are highly available.
 
 ---
+
 
 ### long-lived secrets adhere to periodic rotation and revocation {#cnswp-19}
 
-**Control ID**: `CNSWP-19`
-
-#### Objective
-
-long-lived secrets adhere to periodic rotation and revocation
+**Guideline ID**: `CNSWP-19`
 
 #### Guideline Mappings
 
@@ -237,21 +309,21 @@ long-lived secrets adhere to periodic rotation and revocation
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-12 Information Management and Retention | 5 | Reference to SI-12 Information Management and Retention |
+| SI-12 |  | Information Management and Retention |
 
-#### Recommendations
 
-- Long-lived secrets are not recommended, but some capabilities require them
+#### Statements
+
+**Long-Lived Secret Management**
+
+Manage long-lived secrets through periodic rotation and revocation.
 
 ---
+
 
 ### Applications and workloads are explicitly authorized to communicate with each other using mutual authentication {#cnswp-2}
 
-**Control ID**: `CNSWP-2`
-
-#### Objective
-
-Applications and workloads are explicitly authorized to communicate with each other using mutual authentication
+**Guideline ID**: `CNSWP-2`
 
 #### Guideline Mappings
 
@@ -259,17 +331,19 @@ Applications and workloads are explicitly authorized to communicate with each ot
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-9 | 5 | Reference to IA-9 Service Identification and Authentication |
+| IA-9 |  |  |
+
+
+#### Statements
+
+Use mutual authentication to verify the identity of both communicating parties.
 
 ---
+
 
 ### Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting {#cnswp-20}
 
-**Control ID**: `CNSWP-20`
-
-#### Objective
-
-Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting
+**Guideline ID**: `CNSWP-20`
 
 #### Guideline Mappings
 
@@ -277,17 +351,19 @@ Secrets are distributed through secured communication channels protected commens
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-16 Security and Privacy Atributes | 5 | Reference to AC-16 Security and Privacy Atributes |
+| AC-16 |  | Security and Privacy Atributes |
+
+
+#### Statements
+
+Use secure communication channels for secret distribution with protection appropriate to the sensitivity level.
 
 ---
+
 
 ### Secrets injected are runtime are masqued or dropped from logs, audit, or system dumps {#cnswp-21}
 
-**Control ID**: `CNSWP-21`
-
-#### Objective
-
-Secrets injected are runtime are masqued or dropped from logs, audit, or system dumps
+**Guideline ID**: `CNSWP-21`
 
 #### Guideline Mappings
 
@@ -295,22 +371,21 @@ Secrets injected are runtime are masqued or dropped from logs, audit, or system 
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AU-9(3) Protection of Audit Information | 5 | Reference to AU-9(3) Protection of Audit Information |
-| Cryptographic Protection | 5 | Reference to Cryptographic Protection |
+| AU-9(3) |  | Protection of Audit Information |
 
-#### Recommendations
 
-- Even short lived secrets may be resused if caught in time by an interested attacker. Logs, audit, and systems dumps (i.e. in-memory shared volumes instead of environment variables) are all areas where runtime injected secrets show up
+#### Statements
+
+**Secret Masking**
+
+Mask or drop secrets from logs, audit, or system dumps.
 
 ---
+
 
 ### Keys are rotated frequently {#cnswp-3}
 
-**Control ID**: `CNSWP-3`
-
-#### Objective
-
-Keys are rotated frequently
+**Guideline ID**: `CNSWP-3`
 
 #### Guideline Mappings
 
@@ -318,17 +393,19 @@ Keys are rotated frequently
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12 | 5 | Reference to SC-12 Cryptographic Key Establishment and Management |
+| SC-12 |  | Cryptographic Key Establishment and Management |
+
+
+#### Statements
+
+Implement keys are rotated frequently.
 
 ---
+
 
 ### Key lifespan is short {#cnswp-4}
 
-**Control ID**: `CNSWP-4`
-
-#### Objective
-
-Key lifespan is short
+**Guideline ID**: `CNSWP-4`
 
 #### Guideline Mappings
 
@@ -336,18 +413,19 @@ Key lifespan is short
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(3) | 5 | Reference to SC-12(3) Cryptographic Key Establishment and Management |
-| Asymetric Key | 5 | Reference to Asymetric Key |
+| SC-12(3) |  | Cryptographic Key Establishment and Management |
+
+
+#### Statements
+
+Implement key lifespan is short.
 
 ---
+
 
 ### Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider {#cnswp-5}
 
-**Control ID**: `CNSWP-5`
-
-#### Objective
-
-Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider
+**Guideline ID**: `CNSWP-5`
 
 #### Guideline Mappings
 
@@ -355,22 +433,21 @@ Credentials and keys protecting sensitive workloads (health/finance/etc) are gen
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-2(12) | 5 | Reference to IA-2(12) Identification and Authentication (Organizational Users) |
-| Acceptance of PIV Credentials | 5 | Reference to Acceptance of PIV Credentials |
+| IA-2(12) |  | Identification and Authentication (Organizational Users) |
 
-#### Recommendations
 
-- KMS and HMS are common technologies to achive this. FIPS 140-2 complaince is strongly suggested. Cloud KMS tends to be FIPS 140-2 Level 2 or greater.
+#### Statements
+
+**Independent Key Management**
+
+Generate and manage credentials and keys independent of cloud service providers.
 
 ---
+
 
 ### Authentication and authorization are determined independently {#cnswp-6}
 
-**Control ID**: `CNSWP-6`
-
-#### Objective
-
-Authentication and authorization are determined independently
+**Guideline ID**: `CNSWP-6`
 
 #### Guideline Mappings
 
@@ -378,18 +455,19 @@ Authentication and authorization are determined independently
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-2(6) | 5 | Reference to IA-2(6) Identification and Authentication (Organizational Users) |
-| Access to Accounts - Separate Devices | 5 | Reference to Access to Accounts - Separate Devices |
+| IA-2(6) |  | Identification and Authentication (Organizational Users) |
+
+
+#### Statements
+
+Determine authentication and authorization independently.
 
 ---
+
 
 ### Authentication and authorization are enforced independently {#cnswp-7}
 
-**Control ID**: `CNSWP-7`
-
-#### Objective
-
-Authentication and authorization are enforced independently
+**Guideline ID**: `CNSWP-7`
 
 #### Guideline Mappings
 
@@ -397,18 +475,19 @@ Authentication and authorization are enforced independently
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-2(6) | 5 | Reference to IA-2(6) Identification and Authentication (Organizational Users) |
-| Access to Accounts - Separate Devices | 5 | Reference to Access to Accounts - Separate Devices |
+| IA-2(6) |  | Identification and Authentication (Organizational Users) |
+
+
+#### Statements
+
+Enforce authentication and authorization independently.
 
 ---
+
 
 ### access control and file permissions are updated in real-time {#cnswp-8}
 
-**Control ID**: `CNSWP-8`
-
-#### Objective
-
-access control and file permissions are updated in real-time
+**Guideline ID**: `CNSWP-8`
 
 #### Guideline Mappings
 
@@ -416,22 +495,21 @@ access control and file permissions are updated in real-time
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4(2) | 5 | Reference to SI-4(2) System Monitoring |
-| Automated Tools and Mechanisms for Real-Time Analysis | 5 | Reference to Automated Tools and Mechanisms for Real-Time Analysis |
+| SI-4(2) |  | System Monitoring |
 
-#### Recommendations
 
-- where possible as caching may permit unauthorized access
+#### Statements
+
+**Real-Time Access Control**
+
+Update access control and file permissions in real-time.
 
 ---
+
 
 ### authorization for workloads is granted based on attributs and roles/permissions previously assigned {#cnswp-9}
 
-**Control ID**: `CNSWP-9`
-
-#### Objective
-
-authorization for workloads is granted based on attributs and roles/permissions previously assigned
+**Guideline ID**: `CNSWP-9`
 
 #### Guideline Mappings
 
@@ -439,22 +517,26 @@ authorization for workloads is granted based on attributs and roles/permissions 
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-3(13) | 5 | Reference to AC-3(13) Access Enforcement |
-| Attribute-Based Access Control | 5 | Reference to Attribute-Based Access Control |
+| AC-3(13) |  | Access Enforcement |
+
+
+#### Statements
+
+Implement authorization for workloads is granted based on attributs and roles/permissions previously assigned.
 
 ---
+
+
+
 
 ## Compute {#compute}
 
-Compute
+Guidelines for securing compute infrastructure including bootstrapping, isolation, monitoring, and runtime security.
+
 
 ### Bootstrapping is employed to verify correct physical and logical location of compute {#cnswp-22}
 
-**Control ID**: `CNSWP-22`
-
-#### Objective
-
-Bootstrapping is employed to verify correct physical and logical location of compute
+**Guideline ID**: `CNSWP-22`
 
 #### Guideline Mappings
 
@@ -462,22 +544,21 @@ Bootstrapping is employed to verify correct physical and logical location of com
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7(9) Software, Firmware, and Information Integrity | 5 | Reference to SI-7(9) Software, Firmware, and Information Integrity |
-| Verify Boot Process | 5 | Reference to Verify Boot Process |
+| SI-7(9) |  | Software, Firmware, and Information Integrity |
 
-#### Recommendations
 
-- Secure Boot with TPM 2.0 or similar control
+#### Statements
+
+**Bootstrapping Implementation**
+
+Implement bootstrapping to verify compute location and boot integrity.
 
 ---
+
 
 ### Disparate data sensitive workloads are not run on the same OS kernel {#cnswp-23}
 
-**Control ID**: `CNSWP-23`
-
-#### Objective
-
-Disparate data sensitive workloads are not run on the same OS kernel
+**Guideline ID**: `CNSWP-23`
 
 #### Guideline Mappings
 
@@ -485,24 +566,21 @@ Disparate data sensitive workloads are not run on the same OS kernel
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 Boundary Protection | 5 | Reference to SC-7 Boundary Protection |
+| SC-7 |  | Boundary Protection |
 
-#### Recommendations
 
-- There are at least three implementing controls possible: workloads may be separated by running in a separate
-cluster, on a separate node, or by implementing pods in independent VMs. It is also possible to emulate the kernel via
-an application kernel (e.g. gvisor)
+#### Statements
 
+**Workload Separation**
+
+Separate disparate data sensitive workloads to prevent running on the same OS kernel.
 
 ---
+
 
 ### Monitor and detect any changes to the initial configurations made in runtime {#cnswp-24}
 
-**Control ID**: `CNSWP-24`
-
-#### Objective
-
-Monitor and detect any changes to the initial configurations made in runtime
+**Guideline ID**: `CNSWP-24`
 
 #### Guideline Mappings
 
@@ -510,23 +588,22 @@ Monitor and detect any changes to the initial configurations made in runtime
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2(2) Baseline Configuration | 5 | Reference to CM-2(2) Baseline Configuration |
-| CM-3(7) | 5 |  |
-| Review System Changes | 5 | Reference to Review System Changes |
+| CM-2(2) |  | Baseline Configuration |
+| CM-3(7) |  |  |
 
-#### Recommendations
 
-- Preventative controls should be the primary control. Detective controls monitoring filesystem changes should be used to verify primary controls are operating properly.
+#### Statements
+
+**Configuration Monitoring**
+
+Monitor and detect changes to initial configurations made at runtime.
 
 ---
+
 
 ### API auditing is enabled with a filter for a specific set of API Groups or verbs {#cnswp-25}
 
-**Control ID**: `CNSWP-25`
-
-#### Objective
-
-API auditing is enabled with a filter for a specific set of API Groups or verbs
+**Guideline ID**: `CNSWP-25`
 
 #### Guideline Mappings
 
@@ -534,21 +611,21 @@ API auditing is enabled with a filter for a specific set of API Groups or verbs
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AU-2 Event Logging | 5 | Reference to AU-2 Event Logging |
+| AU-2 |  | Event Logging |
 
-#### Recommendations
 
-- API audits of the application, kubernetes API server, and kernel should be implemented.
+#### Statements
+
+**API Auditing Implementation**
+
+Enable API auditing with filters for specific API Groups or verbs.
 
 ---
+
 
 ### Container specific operating systems are in use {#cnswp-26}
 
-**Control ID**: `CNSWP-26`
-
-#### Objective
-
-Container specific operating systems are in use
+**Guideline ID**: `CNSWP-26`
 
 #### Guideline Mappings
 
@@ -556,21 +633,21 @@ Container specific operating systems are in use
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2CM-7 | 5 |  |
+| CM-2 |  |  |
 
-#### Recommendations
 
-- a read-only OS with other services disabled. This provides isolation and resource confinement that enables developers to run isolated applications on a shared host kernel
+#### Statements
+
+**Container OS Implementation**
+
+Use container-specific operating systems.
 
 ---
+
 
 ### The hardware root of trust is based in a Trusted Platform Module (TPM) or virtual TPM (vTPM) {#cnswp-27}
 
-**Control ID**: `CNSWP-27`
-
-#### Objective
-
-The hardware root of trust is based in a Trusted Platform Module (TPM) or virtual TPM (vTPM)
+**Guideline ID**: `CNSWP-27`
 
 #### Guideline Mappings
 
@@ -578,21 +655,21 @@ The hardware root of trust is based in a Trusted Platform Module (TPM) or virtua
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 Software, Firmware, and Information Integrity | 5 | Reference to SI-7 Software, Firmware, and Information Integrity |
+| SI-7 |  | Software, Firmware, and Information Integrity |
 
-#### Recommendations
 
-- Ensure HW root of trust extends to the OS kernel, modules, system images, container runtimes, and all software on the system.
+#### Statements
+
+**Root of Trust Implementation**
+
+Base hardware root of trust in TPM or vTPM.
 
 ---
+
 
 ### Minimize administrative access to the control plane {#cnswp-28}
 
-**Control ID**: `CNSWP-28`
-
-#### Objective
-
-Minimize administrative access to the control plane
+**Guideline ID**: `CNSWP-28`
 
 #### Guideline Mappings
 
@@ -600,21 +677,21 @@ Minimize administrative access to the control plane
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6 Least Privilege | 5 | Reference to AC-6 Least Privilege |
+| AC-6 |  | Least Privilege |
 
-#### Recommendations
 
-- Enure both users and pods have the minimum necessary access
+#### Statements
+
+**Access Minimization**
+
+Minimize administrative access to the control plane.
 
 ---
+
 
 ### Object level and resource requests and limits are controlled through cgroups {#cnswp-29}
 
-**Control ID**: `CNSWP-29`
-
-#### Objective
-
-SI-7(17)
+**Guideline ID**: `CNSWP-29`
 
 #### Guideline Mappings
 
@@ -622,22 +699,21 @@ SI-7(17)
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7(16) Software, Firmware, and Information Integrity | 5 | Reference to SI-7(16) Software, Firmware, and Information Integrity |
-| Time Limit on Process Execution Without Supervision | 5 | Reference to Time Limit on Process Execution Without Supervision |
+| SI-7(16) |  | Software, Firmware, and Information Integrity |
 
-#### Recommendations
 
-- helps prevent exhaustion of node and cluster level resources by one misbehaving workload due to an intentional (e.g., fork bomb attack or cryptocurrency mining) or unintentional (e.g., reading a large file in memory without input validation, horizontal autoscaling to exhaust compute resources) issue
+#### Statements
+
+**Resource Control Implementation**
+
+Control object level and resource requests and limits through cgroups.
 
 ---
+
 
 ### Systems processing alerts are periodically tuned for false positives {#cnswp-30}
 
-**Control ID**: `CNSWP-30`
-
-#### Objective
-
-Systems processing alerts are periodically tuned for false positives
+**Guideline ID**: `CNSWP-30`
 
 #### Guideline Mappings
 
@@ -645,22 +721,21 @@ Systems processing alerts are periodically tuned for false positives
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4(13) System Monitoring | 5 | Reference to SI-4(13) System Monitoring |
-| Analyze Traffic and Event Patterns | 5 | Reference to Analyze Traffic and Event Patterns |
+| SI-4(13) |  | System Monitoring |
 
-#### Recommendations
 
-- to avoid alert flooding, fatigue, and false negatives after security incidents that were not detected by the system
+#### Statements
+
+**Alert Tuning**
+
+Periodically tune alert systems to reduce false positives.
 
 ---
+
 
 ### All orchestrator control plane components are configured to communicate via mutual authentication and certificate validation with a periodically rotated certificate {#cnswp-31}
 
-**Control ID**: `CNSWP-31`
-
-#### Objective
-
-All orchestrator control plane components are configured to communicate via mutual authentication and certificate validation with a periodically rotated certificate
+**Guideline ID**: `CNSWP-31`
 
 #### Guideline Mappings
 
@@ -668,21 +743,21 @@ All orchestrator control plane components are configured to communicate via mutu
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-3 Access Enforcement | 5 | Reference to AC-3 Access Enforcement |
+| AC-3 |  | Access Enforcement |
 
-#### Recommendations
 
-- In unfederated clusters, the CA should be used exclusively for the current cluster.
+#### Statements
+
+**Control Plane Communication**
+
+Configure all orchestrator control plane components for secure communication.
 
 ---
+
 
 ### Only sanctioned capabilities and system calls (e.g. seccomp filters), are allowed to execute or be invoked in a container by the host operating system {#cnswp-32}
 
-**Control ID**: `CNSWP-32`
-
-#### Objective
-
-Only sanctioned capabilities and system calls (e.g. seccomp filters), are allowed to execute or be invoked in a container by the host operating system
+**Guideline ID**: `CNSWP-32`
 
 #### Guideline Mappings
 
@@ -690,21 +765,21 @@ Only sanctioned capabilities and system calls (e.g. seccomp filters), are allowe
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2,CM-7 | 5 |  |
+| CM-2 |  |  |
 
-#### Recommendations
 
-- Additional tooling should be installed that go beyond k8s capabilities to limit system calls. E.g. Falco.
+#### Statements
+
+**System Call Restriction**
+
+Restrict capabilities and system calls allowed in containers.
 
 ---
+
 
 ### Changes to critical mount points and files are prevented, monitored, and alerted {#cnswp-33}
 
-**Control ID**: `CNSWP-33`
-
-#### Objective
-
-Changes to critical mount points and files are prevented, monitored, and alerted
+**Guideline ID**: `CNSWP-33`
 
 #### Guideline Mappings
 
@@ -712,17 +787,19 @@ Changes to critical mount points and files are prevented, monitored, and alerted
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-5 Access Restrictions for Change | 5 | Reference to CM-5 Access Restrictions for Change |
+| CM-5 |  | Access Restrictions for Change |
+
+
+#### Statements
+
+Implement changes to critical mount points and files are prevented, monitored, and alerted.
 
 ---
+
 
 ### Runtime configuration control prevents changes to binaries, certificates, and remote access configurations {#cnswp-34}
 
-**Control ID**: `CNSWP-34`
-
-#### Objective
-
-Runtime configuration control prevents changes to binaries, certificates, and remote access configurations
+**Guideline ID**: `CNSWP-34`
 
 #### Guideline Mappings
 
@@ -730,17 +807,19 @@ Runtime configuration control prevents changes to binaries, certificates, and re
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-5 Access Restrictions for Change | 5 | Reference to CM-5 Access Restrictions for Change |
+| CM-5 |  | Access Restrictions for Change |
+
+
+#### Statements
+
+Implement runtime configuration control prevents changes to binaries, certificates, and remote access configurations.
 
 ---
+
 
 ### Runtime configuration prevents ingress and egress network access for containers to only what is required to operate {#cnswp-35}
 
-**Control ID**: `CNSWP-35`
-
-#### Objective
-
-Runtime configuration prevents ingress and egress network access for containers to only what is required to operate
+**Guideline ID**: `CNSWP-35`
 
 #### Guideline Mappings
 
@@ -748,17 +827,19 @@ Runtime configuration prevents ingress and egress network access for containers 
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 Boundary Protection | 5 | Reference to SC-7 Boundary Protection |
+| SC-7 |  | Boundary Protection |
+
+
+#### Statements
+
+Implement runtime configuration prevents ingress and egress network access for containers to only what is required to operate.
 
 ---
+
 
 ### Policies are defined that restrict communications to only occur between sanctioned microservice pairs {#cnswp-36}
 
-**Control ID**: `CNSWP-36`
-
-#### Objective
-
-Policies are defined that restrict communications to only occur between sanctioned microservice pairs
+**Guideline ID**: `CNSWP-36`
 
 #### Guideline Mappings
 
@@ -766,17 +847,19 @@ Policies are defined that restrict communications to only occur between sanction
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 Boundary Protection | 5 | Reference to SC-7 Boundary Protection |
+| SC-7 |  | Boundary Protection |
+
+
+#### Statements
+
+Implement policies are defined that restrict communications to only occur between sanctioned microservice pairs.
 
 ---
+
 
 ### Use a policy agent to control and enforce authorized, signed container images {#cnswp-37}
 
-**Control ID**: `CNSWP-37`
-
-#### Objective
-
-Use a policy agent to control and enforce authorized, signed container images
+**Guideline ID**: `CNSWP-37`
 
 #### Guideline Mappings
 
@@ -784,17 +867,19 @@ Use a policy agent to control and enforce authorized, signed container images
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-5 Access Restrictions for Change | 5 | Reference to CM-5 Access Restrictions for Change |
+| CM-5 |  | Access Restrictions for Change |
+
+
+#### Statements
+
+Sign images and artifacts to ensure integrity and authenticity.
 
 ---
+
 
 ### Use a policy agent to control provenance assurance for operational workloads {#cnswp-38}
 
-**Control ID**: `CNSWP-38`
-
-#### Objective
-
-Use a policy agent to control provenance assurance for operational workloads
+**Guideline ID**: `CNSWP-38`
 
 #### Guideline Mappings
 
@@ -802,17 +887,19 @@ Use a policy agent to control provenance assurance for operational workloads
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-5 Access Restrictions for Change | 5 | Reference to CM-5 Access Restrictions for Change |
+| CM-5 |  | Access Restrictions for Change |
+
+
+#### Statements
+
+Implement use a policy agent to control provenance assurance for operational workloads.
 
 ---
+
 
 ### Use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit) {#cnswp-39}
 
-**Control ID**: `CNSWP-39`
-
-#### Objective
-
-Use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit)
+**Guideline ID**: `CNSWP-39`
 
 #### Guideline Mappings
 
@@ -820,17 +907,19 @@ Use a service mesh that eliminates implicit trust through data-in-motion encrypt
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 Boundary Protection | 5 | Reference to SC-7 Boundary Protection |
+| SC-7 |  | Boundary Protection |
+
+
+#### Statements
+
+Implement use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit).
 
 ---
+
 
 ### Use components that detect, track, aggregate and report system calls and network traffic from a container {#cnswp-40}
 
-**Control ID**: `CNSWP-40`
-
-#### Objective
-
-Use components that detect, track, aggregate and report system calls and network traffic from a container
+**Guideline ID**: `CNSWP-40`
 
 #### Guideline Mappings
 
@@ -838,21 +927,21 @@ Use components that detect, track, aggregate and report system calls and network
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 System Monitoring | 5 | Reference to SI-4 System Monitoring |
+| SI-4 |  | System Monitoring |
 
-#### Recommendations
 
-- should be leveraged to look for unexpected or malicious behavior
+#### Statements
+
+**Monitoring Implementation**
+
+Use components to detect, track, aggregate and report system calls and network traffic.
 
 ---
+
 
 ### Workloads should be dynamically scanned to detect malicious or insidious behavior for which no known occurrence yet exists {#cnswp-41}
 
-**Control ID**: `CNSWP-41`
-
-#### Objective
-
-Workloads should be dynamically scanned to detect malicious or insidious behavior for which no known occurrence yet exists
+**Guideline ID**: `CNSWP-41`
 
 #### Guideline Mappings
 
@@ -860,21 +949,21 @@ Workloads should be dynamically scanned to detect malicious or insidious behavio
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-3 Malicious Code Protection | 5 | Reference to SI-3 Malicious Code Protection |
+| SI-3 |  | Malicious Code Protection |
 
-#### Recommendations
 
-- Events such as an extended sleep command that executes data exfiltration from etcd after the workload has been running for X amount of days are not expected in the majority of environments and therefore are not included in security tests. The aspect that workloads can have time or event delayed trojan horses is only detectable by comparing to baseline expected behavior, often discovered during thorough activity and scan monitoring
+#### Statements
+
+**Dynamic Scanning**
+
+Dynamically scan workloads to detect malicious or insidious behavior.
 
 ---
+
 
 ### Environments are continuously scanned to detect new vulnerabilities in workloads {#cnswp-42}
 
-**Control ID**: `CNSWP-42`
-
-#### Objective
-
-Environments are continuously scanned to detect new vulnerabilities in workloads
+**Guideline ID**: `CNSWP-42`
 
 #### Guideline Mappings
 
@@ -882,21 +971,21 @@ Environments are continuously scanned to detect new vulnerabilities in workloads
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 Vulnerability Monitoring and Scanning | 5 | Reference to RA-5 Vulnerability Monitoring and Scanning |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
 
-#### Recommendations
 
-- Vulnerabilities are constantly being discovered, just because it wasnt vulnerable at deploy, doesn't mean it won't be vulnerable in two weeks
+#### Statements
+
+**Continuous Scanning**
+
+Continuously scan environments to detect new vulnerabilities.
 
 ---
+
 
 ### Actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response {#cnswp-43}
 
-**Control ID**: `CNSWP-43`
-
-#### Objective
-
-Actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response
+**Guideline ID**: `CNSWP-43`
 
 #### Guideline Mappings
 
@@ -904,17 +993,19 @@ Actionable audit events are generates that correlate/contextualize data from log
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AU-3 Content of Audit Records | 5 | Reference to AU-3 Content of Audit Records |
+| AU-3 |  | Content of Audit Records |
+
+
+#### Statements
+
+Implement actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response.
 
 ---
+
 
 ### segregation of duties and the principle of least privilege is enforced {#cnswp-44}
 
-**Control ID**: `CNSWP-44`
-
-#### Objective
-
-segregation of duties and the principle of least privilege is enforced
+**Guideline ID**: `CNSWP-44`
 
 #### Guideline Mappings
 
@@ -922,17 +1013,19 @@ segregation of duties and the principle of least privilege is enforced
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6 Least Privilege | 5 | Reference to AC-6 Least Privilege |
+| AC-6 |  | Least Privilege |
+
+
+#### Statements
+
+Implement segregation of duties and the principle of least privilege is enforced.
 
 ---
+
 
 ### Non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies {#cnswp-45}
 
-**Control ID**: `CNSWP-45`
-
-#### Objective
-
-Non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies
+**Guideline ID**: `CNSWP-45`
 
 #### Guideline Mappings
 
@@ -940,17 +1033,19 @@ Non-compliant violations are detected based on a pre-configured set of rules tha
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 Software, Firmware, and Information Integrity | 5 | Reference to SI-7 Software, Firmware, and Information Integrity |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Implement non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies.
 
 ---
+
 
 ### Native secret stores encrypt with keys from an external Key Management Store (KMS) {#cnswp-46}
 
-**Control ID**: `CNSWP-46`
-
-#### Objective
-
-Native secret stores encrypt with keys from an external Key Management Store (KMS)
+**Guideline ID**: `CNSWP-46`
 
 #### Guideline Mappings
 
@@ -958,17 +1053,19 @@ Native secret stores encrypt with keys from an external Key Management Store (KM
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(3) Systems & Communication Protection | 5 | Reference to SC-12(3) Systems & Communication Protection |
+| SC-12(3) |  | Systems & Communication Protection |
+
+
+#### Statements
+
+Implement native secret stores encrypt with keys from an external key management store (kms).
 
 ---
+
 
 ### Native secret stores are not configured for base64 encoding or stored in clear-text in the key-value store by default {#cnswp-47}
 
-**Control ID**: `CNSWP-47`
-
-#### Objective
-
-Native secret stores are not configured for base64 encoding or stored in clear-text in the key-value store by default
+**Guideline ID**: `CNSWP-47`
 
 #### Guideline Mappings
 
@@ -976,21 +1073,21 @@ Native secret stores are not configured for base64 encoding or stored in clear-t
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(3) Systems & Communication Protection | 5 | Reference to SC-12(3) Systems & Communication Protection |
+| SC-12(3) |  | Systems & Communication Protection |
 
-#### Recommendations
 
-- encoding is not encryption
+#### Statements
+
+**Secret Storage**
+
+Ensure native secret stores do not use base64 encoding or clear-text storage.
 
 ---
+
 
 ### Network traffic to malicious domains is detected and denied {#cnswp-48}
 
-**Control ID**: `CNSWP-48`
-
-#### Objective
-
-Network traffic to malicious domains is detected and denied
+**Guideline ID**: `CNSWP-48`
 
 #### Guideline Mappings
 
@@ -998,17 +1095,19 @@ Network traffic to malicious domains is detected and denied
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 System Monitoring | 5 | Reference to SI-4 System Monitoring |
+| SI-4 |  | System Monitoring |
+
+
+#### Statements
+
+Implement network traffic to malicious domains is detected and denied.
 
 ---
+
 
 ### Use encrypted containers for sensitive sources, methods, and data {#cnswp-49}
 
-**Control ID**: `CNSWP-49`
-
-#### Objective
-
-Use encrypted containers for sensitive sources, methods, and data
+**Guideline ID**: `CNSWP-49`
 
 #### Guideline Mappings
 
@@ -1016,17 +1115,19 @@ Use encrypted containers for sensitive sources, methods, and data
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-28 Protection of Information at Rest | 5 | Reference to SC-28 Protection of Information at Rest |
+| SC-28 |  | Protection of Information at Rest |
+
+
+#### Statements
+
+Implement use encrypted containers for sensitive sources, methods, and data.
 
 ---
+
 
 ### Use SBOMs to identify current deployments of vulnerable libraries, dependencies, and packages {#cnswp-50}
 
-**Control ID**: `CNSWP-50`
-
-#### Objective
-
-Use SBOMs to identify current deployments of vulnerable libraries, dependencies, and packages
+**Guideline ID**: `CNSWP-50`
 
 #### Guideline Mappings
 
@@ -1034,17 +1135,19 @@ Use SBOMs to identify current deployments of vulnerable libraries, dependencies,
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-8 System Component Inventory | 5 | Reference to CM-8 System Component Inventory |
+| CM-8 |  | System Component Inventory |
+
+
+#### Statements
+
+Implement use sboms to identify current deployments of vulnerable libraries, dependencies, and packages.
 
 ---
+
 
 ### Processes must execute only functions explicitly defined in an allow list {#cnswp-51}
 
-**Control ID**: `CNSWP-51`
-
-#### Objective
-
-Processes must execute only functions explicitly defined in an allow list
+**Guideline ID**: `CNSWP-51`
 
 #### Guideline Mappings
 
@@ -1052,17 +1155,19 @@ Processes must execute only functions explicitly defined in an allow list
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2, CM-7 | 5 |  |
+| CM-2 |  |  |
+
+
+#### Statements
+
+Implement processes must execute only functions explicitly defined in an allow list.
 
 ---
+
 
 ### Functions are not be allowed to make changes to critical file system mount points {#cnswp-52}
 
-**Control ID**: `CNSWP-52`
-
-#### Objective
-
-Functions are not be allowed to make changes to critical file system mount points
+**Guideline ID**: `CNSWP-52`
 
 #### Guideline Mappings
 
@@ -1070,17 +1175,19 @@ Functions are not be allowed to make changes to critical file system mount point
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-5 Access Restrictions for Change | 5 | Reference to CM-5 Access Restrictions for Change |
+| CM-5 |  | Access Restrictions for Change |
+
+
+#### Statements
+
+Implement functions are not be allowed to make changes to critical file system mount points.
 
 ---
+
 
 ### Function access is only permitted to sanctioned services {#cnswp-53}
 
-**Control ID**: `CNSWP-53`
-
-#### Objective
-
-Function access is only permitted to sanctioned services
+**Guideline ID**: `CNSWP-53`
 
 #### Guideline Mappings
 
@@ -1088,21 +1195,21 @@ Function access is only permitted to sanctioned services
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2, CM-7 | 5 |  |
+| CM-2 |  |  |
 
-#### Recommendations
 
-- Either through networking restrictions or least privilege in permission models
+#### Statements
+
+**Service Access Restriction**
+
+Restrict function access to only sanctioned services.
 
 ---
+
 
 ### Egress network connection is monitored to detect and prevent access to C&C (command and control) and other malicious network domains {#cnswp-54}
 
-**Control ID**: `CNSWP-54`
-
-#### Objective
-
-Egress network connection is monitored to detect and prevent access to C&C (command and control) and other malicious network domains
+**Guideline ID**: `CNSWP-54`
 
 #### Guideline Mappings
 
@@ -1110,17 +1217,19 @@ Egress network connection is monitored to detect and prevent access to C&C (comm
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 System Monitoring | 5 | Reference to SI-4 System Monitoring |
+| SI-4 |  | System Monitoring |
+
+
+#### Statements
+
+Implement egress network connection is monitored to detect and prevent access to c&c (command and control) and other malicious network domains.
 
 ---
+
 
 ### Ingress network inspection is employed detect and remove malicious payloads and commands {#cnswp-55}
 
-**Control ID**: `CNSWP-55`
-
-#### Objective
-
-Ingress network inspection is employed detect and remove malicious payloads and commands
+**Guideline ID**: `CNSWP-55`
 
 #### Guideline Mappings
 
@@ -1128,21 +1237,21 @@ Ingress network inspection is employed detect and remove malicious payloads and 
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 System Monitoring | 5 | Reference to SI-4 System Monitoring |
+| SI-4 |  | System Monitoring |
 
-#### Recommendations
 
-- For instance, SQL injection attacks can be detected using inspection.
+#### Statements
+
+**Network Inspection**
+
+Employ ingress network inspection to detect and remove malicious payloads.
 
 ---
+
 
 ### Serverless functions are run in tenant-based resource or performance isolation for similar data classifications {#cnswp-56}
 
-**Control ID**: `CNSWP-56`
-
-#### Objective
-
-Serverless functions are run in tenant-based resource or performance isolation for similar data classifications
+**Guideline ID**: `CNSWP-56`
 
 #### Guideline Mappings
 
@@ -1150,26 +1259,28 @@ Serverless functions are run in tenant-based resource or performance isolation f
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7(21) Boundary Protection | 5 | Reference to SC-7(21) Boundary Protection |
-| Isolation of System Components | 5 | Reference to Isolation of System Components |
+| SC-7(21) |  | Boundary Protection |
 
-#### Recommendations
 
-- This may impact the performance due to limitations in the address space available to the isolation environment and should be considered for only the most sensitive workloads.
+#### Statements
+
+**Serverless Isolation**
+
+Run serverless functions in tenant-based resource or performance isolation.
 
 ---
+
+
+
 
 ## Deploy {#deploy}
 
-Deploy
+Guidelines for securing software deployments, ensuring artifact verification, freshness validation, and secure update management.
+
 
 ### trust confirmation verifies the image has a valid signature from an authorized source {#cnswp-57}
 
-**Control ID**: `CNSWP-57`
-
-#### Objective
-
-SR-4 (4)
+**Guideline ID**: `CNSWP-57`
 
 #### Guideline Mappings
 
@@ -1177,18 +1288,19 @@ SR-4 (4)
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SR-4 (3) PROVENANCE | 5 | Reference to SR-4 (3) PROVENANCE |
-| VALIDATE AS GENUINE AND NOT ALTERED | 5 | Reference to VALIDATE AS GENUINE AND NOT ALTERED |
+| SR-4(3) |  | (3) Provenance |
+
+
+#### Statements
+
+Sign images and artifacts to ensure integrity and authenticity.
 
 ---
+
 
 ### Image runtime policies are enforced prior to deployment {#cnswp-58}
 
-**Control ID**: `CNSWP-58`
-
-#### Objective
-
-Image runtime policies are enforced prior to deployment
+**Guideline ID**: `CNSWP-58`
 
 #### Guideline Mappings
 
@@ -1196,18 +1308,19 @@ Image runtime policies are enforced prior to deployment
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 (17) SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 (17) SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
-| RUNTIME APPLICATION SELF-PROTECTION | 5 | Reference to RUNTIME APPLICATION SELF-PROTECTION |
+| SI-7(17) |  | (17) Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Implement image runtime policies are enforced prior to deployment.
 
 ---
+
 
 ### Image integrity and signature are verifying prior to deployment {#cnswp-59}
 
-**Control ID**: `CNSWP-59`
-
-#### Objective
-
-SR-4 (4)
+**Guideline ID**: `CNSWP-59`
 
 #### Guideline Mappings
 
@@ -1215,18 +1328,19 @@ SR-4 (4)
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SR-4 (3) PROVENANCE | 5 | Reference to SR-4 (3) PROVENANCE |
-| VALIDATE AS GENUINE AND NOT ALTERED | 5 | Reference to VALIDATE AS GENUINE AND NOT ALTERED |
+| SR-4(3) |  | (3) Provenance |
+
+
+#### Statements
+
+Sign images and artifacts to ensure integrity and authenticity.
 
 ---
+
 
 ### Applications provide logs regarding authentication, authorization, actions, and failures {#cnswp-60}
 
-**Control ID**: `CNSWP-60`
-
-#### Objective
-
-Applications provide logs regarding authentication, authorization, actions, and failures
+**Guideline ID**: `CNSWP-60`
 
 #### Guideline Mappings
 
@@ -1234,36 +1348,30 @@ Applications provide logs regarding authentication, authorization, actions, and 
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3 CONFIGURATION CHANGE CONTROL | 5 | Reference to CM-3 CONFIGURATION CHANGE CONTROL |
+| CM-3 |  | Configuration Change Control |
+
+
+#### Statements
+
+Implement applications provide logs regarding authentication, authorization, actions, and failures.
 
 ---
+
 
 ### Forensics capabilities are integrated into an incident response plan and procedures {#cnswp-61}
 
-**Control ID**: `CNSWP-61`
+**Guideline ID**: `CNSWP-61`
 
-#### Objective
+#### Statements
 
-Forensics capabilities are integrated into an incident response plan and procedures
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| INCIDENT HANDLING | 5 | Reference to INCIDENT HANDLING |
-| MALICIOUS CODE AND FORENSIC ANALYSIS | 5 | Reference to MALICIOUS CODE AND FORENSIC ANALYSIS |
+Integrate forensics capabilities into incident response plans and procedures.
 
 ---
+
 
 ### AI, ML, or statistical modeling are used for behavioural and heuristic environment analysis {#cnswp-62}
 
-**Control ID**: `CNSWP-62`
-
-#### Objective
-
-AI, ML, or statistical modeling are used for behavioural and heuristic environment analysis
+**Guideline ID**: `CNSWP-62`
 
 #### Guideline Mappings
 
@@ -1271,315 +1379,26 @@ AI, ML, or statistical modeling are used for behavioural and heuristic environme
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-3 SYSTEM AND INFORMATION INTEGRITY | 5 | Reference to SI-3 SYSTEM AND INFORMATION INTEGRITY |
+| SI-3 |  | System and Information Integrity |
+
+
+#### Statements
+
+Implement ai, ml, or statistical modeling are used for behavioural and heuristic environment analysis.
 
 ---
 
-## Develop {#develop}
 
-Develop
 
-### Establish a dedicated Production environment {#cnswp-63}
-
-**Control ID**: `CNSWP-63`
-
-#### Objective
-
-Establish a dedicated Production environment
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE | 5 | Reference to SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE |
-| MANAGE PREPRODUCTION ENVIRONMENT | 5 | Reference to MANAGE PREPRODUCTION ENVIRONMENT |
-
----
-
-### Leverage Dynamic deployments {#cnswp-64}
-
-**Control ID**: `CNSWP-64`
-
-#### Objective
-
-Leverage Dynamic deployments
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-8(31) SECURITY AND PRIVACY ENGINEERING PRINCIPLES | 5 | Reference to SA-8(31) SECURITY AND PRIVACY ENGINEERING PRINCIPLES |
-| SECURE SYSTEM MODIFICATION | 5 | Reference to SECURE SYSTEM MODIFICATION |
-
-#### Recommendations
-
-- Blue/Green, Alpha/Beta, Canary, red-black deployments
-
----
-
-### Integrate vulnerability and configuration scanning in the IDE or at the pull request {#cnswp-65}
-
-**Control ID**: `CNSWP-65`
-
-#### Objective
-
-Integrate vulnerability and configuration scanning in the IDE or at the pull request
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11(1) DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11(1) DEVELOPER TESTING AND EVALUATION |
-| STATIC CODE ANALYSIS | 5 | Reference to STATIC CODE ANALYSIS |
-
----
-
-### Establish dedicated development, testing, and production environment {#cnswp-66}
-
-**Control ID**: `CNSWP-66`
-
-#### Objective
-
-Establish dedicated development, testing, and production environment
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-15 DEVELOPMENT PROCESS, STANDARDS, AND TOOLS | 5 | Reference to SA-15 DEVELOPMENT PROCESS, STANDARDS, AND TOOLS |
-
----
-
-### Build tests for business-critical code {#cnswp-67}
-
-**Control ID**: `CNSWP-67`
-
-#### Objective
-
-Build tests for business-critical code
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Build tests for business-critical infrastructure {#cnswp-68}
-
-**Control ID**: `CNSWP-68`
-
-#### Objective
-
-Build tests for business-critical infrastructure
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Test suite able to be ran locally {#cnswp-69}
-
-**Control ID**: `CNSWP-69`
-
-#### Objective
-
-Test suite able to be ran locally
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Test suites should be available to run in a shared environment {#cnswp-70}
-
-**Control ID**: `CNSWP-70`
-
-#### Objective
-
-Test suites should be available to run in a shared environment
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Implement two non-author reviewers/approvers prior to merging {#cnswp-71}
-
-**Control ID**: `CNSWP-71`
-
-#### Objective
-
-Implement two non-author reviewers/approvers prior to merging
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11(4) DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11(4) DEVELOPER TESTING AND EVALUATION |
-| MANUAL CODE REVIEWS | 5 | Reference to MANUAL CODE REVIEWS |
-
----
-
-### Code should be clean and well commented {#cnswp-72}
-
-**Control ID**: `CNSWP-72`
-
-#### Objective
-
-Code should be clean and well commented
-
----
-
-### Full infrastructure tests are used {#cnswp-73}
-
-**Control ID**: `CNSWP-73`
-
-#### Objective
-
-Full infrastructure tests are used
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Regression tests are used {#cnswp-74}
-
-**Control ID**: `CNSWP-74`
-
-#### Objective
-
-Regression tests are used
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Test suites are updated against new and emerging threats and developed into security regressions tests {#cnswp-75}
-
-**Control ID**: `CNSWP-75`
-
-#### Objective
-
-Test suites are updated against new and emerging threats and developed into security regressions tests
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
-
----
-
-### Establish a dedicated Testing environment {#cnswp-76}
-
-**Control ID**: `CNSWP-76`
-
-#### Objective
-
-Establish a dedicated Testing environment
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE | 5 | Reference to SA-3(1) SYSTEM DEVELOPMENT LIFE CYCLE |
-| MANAGE PREPRODUCTION ENVIRONMENT | 5 | Reference to MANAGE PREPRODUCTION ENVIRONMENT |
-
----
-
-### Continuous integration server is isolated {#cnswp-77}
-
-**Control ID**: `CNSWP-77`
-
-#### Objective
-
-Continuous integration server is isolated
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SC-39 PROCESS ISOLATION | 5 | Reference to SC-39 PROCESS ISOLATION |
-
----
-
-### Use threat model results to determine ROI for test development {#cnswp-78}
-
-**Control ID**: `CNSWP-78`
-
-#### Objective
-
-Use threat model results to determine ROI for test development
-
-#### Guideline Mappings
-
-**NIST-800-53**
-
-| Reference ID | Strength | Remarks |
-|--------------|----------|----------|
-| SA-11(2) DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11(2) DEVELOPER TESTING AND EVALUATION |
-| THREAT MODELING AND VULNERABILITY ANALYSES | 5 | Reference to THREAT MODELING AND VULNERABILITY ANALYSES |
-
----
 
 ## Distribute {#distribute}
 
-Distribute
+Guidelines for secure distribution of container images, packages, and artifacts including signing, scanning, and registry security.
+
 
 ### Registries require mutually authenticated TLS for all registry connections {#cnswp-100}
 
-**Control ID**: `CNSWP-100`
-
-#### Objective
-
-Registries require mutually authenticated TLS for all registry connections
+**Guideline ID**: `CNSWP-100`
 
 #### Guideline Mappings
 
@@ -1587,17 +1406,19 @@ Registries require mutually authenticated TLS for all registry connections
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-3(1) CRYPTOGRAPHIC BIDIRECTIONAL AUTHENTICATION | 5 | Reference to IA-3(1) CRYPTOGRAPHIC BIDIRECTIONAL AUTHENTICATION |
+| IA-3(1) |  | Cryptographic Bidirectional Authentication |
+
+
+#### Statements
+
+Require mutually authenticated TLS for all registry connections.
 
 ---
+
 
 ### image and metadata are signed {#cnswp-101}
 
-**Control ID**: `CNSWP-101`
-
-#### Objective
-
-image and metadata are signed
+**Guideline ID**: `CNSWP-101`
 
 #### Guideline Mappings
 
@@ -1605,17 +1426,19 @@ image and metadata are signed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Sign images and artifacts to ensure integrity and authenticity.
 
 ---
+
 
 ### configuration is signed {#cnswp-102}
 
-**Control ID**: `CNSWP-102`
-
-#### Objective
-
-configuration is signed
+**Guideline ID**: `CNSWP-102`
 
 #### Guideline Mappings
 
@@ -1623,17 +1446,19 @@ configuration is signed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Sign configuration files to ensure integrity.
 
 ---
+
 
 ### package is signed {#cnswp-103}
 
-**Control ID**: `CNSWP-103`
-
-#### Objective
-
-package is signed
+**Guideline ID**: `CNSWP-103`
 
 #### Guideline Mappings
 
@@ -1641,17 +1466,19 @@ package is signed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Sign packages to verify integrity and authenticity.
 
 ---
+
 
 ### Validate integrity of images {#cnswp-104}
 
-**Control ID**: `CNSWP-104`
-
-#### Objective
-
-Validate integrity of images
+**Guideline ID**: `CNSWP-104`
 
 #### Guideline Mappings
 
@@ -1659,17 +1486,19 @@ Validate integrity of images
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SYSTEM & INFORMATION INTEGRITY | 5 | Reference to SI-7 SYSTEM & INFORMATION INTEGRITY |
+| SI-7 |  | System and Information Integrity |
+
+
+#### Statements
+
+Implement validate integrity of images.
 
 ---
+
 
 ### Scan images for vulnerabilities and malware {#cnswp-105}
 
-**Control ID**: `CNSWP-105`
-
-#### Objective
-
-SA-3
+**Guideline ID**: `CNSWP-105`
 
 #### Guideline Mappings
 
@@ -1677,17 +1506,19 @@ SA-3
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 VULNERABILITY MONITORING AND SCANNING | 5 | Reference to RA-5 VULNERABILITY MONITORING AND SCANNING |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
+
+
+#### Statements
+
+Scan artifacts for vulnerabilities before distribution or deployment.
 
 ---
+
 
 ### Enable image signing key revokation in the event of compromise {#cnswp-106}
 
-**Control ID**: `CNSWP-106`
-
-#### Objective
-
-Enable image signing key revokation in the event of compromise
+**Guideline ID**: `CNSWP-106`
 
 #### Guideline Mappings
 
@@ -1695,17 +1526,19 @@ Enable image signing key revokation in the event of compromise
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SYSTEM & INFORMATION INTEGRITY | 5 | Reference to SI-7 SYSTEM & INFORMATION INTEGRITY |
+| SI-7 |  | System and Information Integrity |
+
+
+#### Statements
+
+Implement enable image signing key revokation in the event of compromise.
 
 ---
+
 
 ### Security updates are prioritized {#cnswp-107}
 
-**Control ID**: `CNSWP-107`
-
-#### Objective
-
-Security updates are prioritized
+**Guideline ID**: `CNSWP-107`
 
 #### Guideline Mappings
 
@@ -1713,17 +1546,19 @@ Security updates are prioritized
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-2(3) SYSTEM & INFORMATION INTEGRITY | 5 | Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY |
+| SI-2(3) |  | System and Information Integrity |
+
+
+#### Statements
+
+Implement security updates are prioritized.
 
 ---
+
 
 ### HSMs or credential managers should be used for protecting credentials {#cnswp-108}
 
-**Control ID**: `CNSWP-108`
-
-#### Objective
-
-HSMs or credential managers should be used for protecting credentials
+**Guideline ID**: `CNSWP-108`
 
 #### Guideline Mappings
 
@@ -1731,17 +1566,19 @@ HSMs or credential managers should be used for protecting credentials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(3) SYSTEMS & COMMUNICATION PROTECTION | 5 | Reference to SC-12(3) SYSTEMS & COMMUNICATION PROTECTION |
+| SC-12(3) |  | Systems and Communication Protection |
+
+
+#### Statements
+
+Use hardware security modules to physically protect cryptographic secrets.
 
 ---
+
 
 ### Container image scanning findings are acted upon {#cnswp-109}
 
-**Control ID**: `CNSWP-109`
-
-#### Objective
-
-Container image scanning findings are acted upon
+**Guideline ID**: `CNSWP-109`
 
 #### Guideline Mappings
 
@@ -1749,17 +1586,19 @@ Container image scanning findings are acted upon
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-2(3) SYSTEM & INFORMATION INTEGRITY | 5 | Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY |
+| SI-2(3) |  | System and Information Integrity |
+
+
+#### Statements
+
+Scan artifacts for vulnerabilities before distribution or deployment.
 
 ---
+
 
 ### organizational compliance rules are enforced {#cnswp-110}
 
-**Control ID**: `CNSWP-110`
-
-#### Objective
-
-organizational compliance rules are enforced
+**Guideline ID**: `CNSWP-110`
 
 #### Guideline Mappings
 
@@ -1767,27 +1606,26 @@ organizational compliance rules are enforced
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| PL-1 POLICY AND PROCEDURES | 5 | Reference to PL-1 POLICY AND PROCEDURES |
+| PL-1 |  | Policy and Procedures |
+
+
+#### Statements
+
+Implement organizational compliance rules are enforced.
 
 ---
+
 
 ### Incremental hardening of the infrastructure is employed {#cnswp-111}
 
-**Control ID**: `CNSWP-111`
-
-#### Objective
-
-Incremental hardening of the infrastructure is employed
+**Guideline ID**: `CNSWP-111`
 
 ---
+
 
 ### pulls from public registries are controlled and only from authorized engineers or internal registries {#cnswp-112}
 
-**Control ID**: `CNSWP-112`
-
-#### Objective
-
-pulls from public registries are controlled and only from authorized engineers or internal registries
+**Guideline ID**: `CNSWP-112`
 
 #### Guideline Mappings
 
@@ -1795,18 +1633,19 @@ pulls from public registries are controlled and only from authorized engineers o
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6(3) LEAST PRIVILEGE | 5 | Reference to AC-6(3) LEAST PRIVILEGE |
-| NETWORK ACCESS TO PRIVILEGED COMMANDS | 5 | Reference to NETWORK ACCESS TO PRIVILEGED COMMANDS |
+| AC-6(3) |  | Least Privilege |
+
+
+#### Statements
+
+Implement pulls from public registries are controlled and only from authorized engineers or internal registries.
 
 ---
+
 
 ### Image encryption is coupled with key management attestation and/or authorization and credential distribution {#cnswp-113}
 
-**Control ID**: `CNSWP-113`
-
-#### Objective
-
-SC-12(3)
+**Guideline ID**: `CNSWP-113`
 
 #### Guideline Mappings
 
@@ -1814,22 +1653,21 @@ SC-12(3)
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | 5 | Reference to SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT |
-| SYMMETRIC & ASYMMETRIC KEYS | 5 | Reference to SYMMETRIC & ASYMMETRIC KEYS |
+| SC-12(2) |  | Cryptographic Key Establishment and Management |
 
-#### Recommendations
 
-- useful for compliance use cases such as geo-fencing or export control and digital rights media management
+#### Statements
+
+**Encryption and Key Management**
+
+Couple image encryption with key management, attestation, and authorization.
 
 ---
+
 
 ### At-risk applications are prioritized for remediation by the exploit maturity and vulnerable path presence in addition to the CVSS score {#cnswp-114}
 
-**Control ID**: `CNSWP-114`
-
-#### Objective
-
-At-risk applications are prioritized for remediation by the exploit maturity and vulnerable path presence in addition to the CVSS score
+**Guideline ID**: `CNSWP-114`
 
 #### Guideline Mappings
 
@@ -1837,85 +1675,73 @@ At-risk applications are prioritized for remediation by the exploit maturity and
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-2(3) SYSTEM & INFORMATION INTEGRITY | 5 | Reference to SI-2(3) SYSTEM & INFORMATION INTEGRITY |
+| SI-2(3) |  | System and Information Integrity |
+
+
+#### Statements
+
+Implement at-risk applications are prioritized for remediation by the exploit maturity and vulnerable path presence in addition to the cvss score.
 
 ---
+
 
 ### Trust is verified {#cnswp-79}
 
-**Control ID**: `CNSWP-79`
-
-#### Objective
-
-Trust is verified
+**Guideline ID**: `CNSWP-79`
 
 ---
+
 
 ### Artifacts ready for deployment are managed in a staging or pre-prod registry {#cnswp-80}
 
-**Control ID**: `CNSWP-80`
-
-#### Objective
-
-Artifacts ready for deployment are managed in a staging or pre-prod registry
+**Guideline ID**: `CNSWP-80`
 
 ---
+
 
 ### container images are hardened following best practices {#cnswp-81}
 
-**Control ID**: `CNSWP-81`
+**Guideline ID**: `CNSWP-81`
 
-#### Objective
+#### Statements
 
-container images are hardened following best practices
+**Image Hardening Practices**
 
-#### Recommendations
-
-- Images contain least permissions to remain functional, do not allow for shell, do not include unnecessary libraries and dependencies, do not bind mount files in from the host, etc.
+Harden container images following security best practices.
 
 ---
+
 
 ### Static application security testing (SAST) is performed {#cnswp-82}
 
-**Control ID**: `CNSWP-82`
+**Guideline ID**: `CNSWP-82`
 
-#### Objective
+#### Statements
 
-Static application security testing (SAST) is performed
+**SAST Implementation**
 
-#### Recommendations
-
-- Linting & fuzzing is performed
+Perform static application security testing.
 
 ---
+
 
 ### Test suites follow the test pyramid {#cnswp-83}
 
-**Control ID**: `CNSWP-83`
-
-#### Objective
-
-Test suites follow the test pyramid
+**Guideline ID**: `CNSWP-83`
 
 ---
+
 
 ### Artifacts undergoing active development are held in a private registery {#cnswp-84}
 
-**Control ID**: `CNSWP-84`
-
-#### Objective
-
-Artifacts undergoing active development are held in a private registery
+**Guideline ID**: `CNSWP-84`
 
 ---
+
 
 ### Scan application manifests in CI pipeline {#cnswp-85}
 
-**Control ID**: `CNSWP-85`
-
-#### Objective
-
-Scan application manifests in CI pipeline
+**Guideline ID**: `CNSWP-85`
 
 #### Guideline Mappings
 
@@ -1923,17 +1749,19 @@ Scan application manifests in CI pipeline
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 VULNERABILITY MONITORING AND SCANNING | 5 | Reference to RA-5 VULNERABILITY MONITORING AND SCANNING |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
+
+
+#### Statements
+
+Scan artifacts for vulnerabilities before distribution or deployment.
 
 ---
+
 
 ### CI server's for sensitive workloads are isolated from other workloads {#cnswp-86}
 
-**Control ID**: `CNSWP-86`
-
-#### Objective
-
-CI server's for sensitive workloads are isolated from other workloads
+**Guideline ID**: `CNSWP-86`
 
 #### Guideline Mappings
 
@@ -1941,17 +1769,19 @@ CI server's for sensitive workloads are isolated from other workloads
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-39 PROCESS ISOLATION | 5 | Reference to SC-39 PROCESS ISOLATION |
+| SC-39 |  | Process Isolation |
+
+
+#### Statements
+
+Implement ci server's for sensitive workloads are isolated from other workloads.
 
 ---
+
 
 ### Builds requiring elevated privileges must run on dedicated servers {#cnswp-87}
 
-**Control ID**: `CNSWP-87`
-
-#### Objective
-
-Builds requiring elevated privileges must run on dedicated servers
+**Guideline ID**: `CNSWP-87`
 
 #### Guideline Mappings
 
@@ -1959,17 +1789,19 @@ Builds requiring elevated privileges must run on dedicated servers
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-39 PROCESS ISOLATION | 5 | Reference to SC-39 PROCESS ISOLATION |
+| SC-39 |  | Process Isolation |
+
+
+#### Statements
+
+Implement builds requiring elevated privileges must run on dedicated servers.
 
 ---
+
 
 ### Build policies are enforced on the CI pipeline {#cnswp-88}
 
-**Control ID**: `CNSWP-88`
-
-#### Objective
-
-Build policies are enforced on the CI pipeline
+**Guideline ID**: `CNSWP-88`
 
 #### Guideline Mappings
 
@@ -1977,17 +1809,19 @@ Build policies are enforced on the CI pipeline
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-1 POLICY AND PROCEDURES | 5 | Reference to SA-1 POLICY AND PROCEDURES |
+| SA-1 |  | Policy and Procedures |
+
+
+#### Statements
+
+Implement build policies are enforced on the ci pipeline.
 
 ---
+
 
 ### Sign pipeline metadata {#cnswp-89}
 
-**Control ID**: `CNSWP-89`
-
-#### Objective
-
-Sign pipeline metadata
+**Guideline ID**: `CNSWP-89`
 
 #### Guideline Mappings
 
@@ -1995,17 +1829,19 @@ Sign pipeline metadata
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Sign pipeline metadata to ensure integrity.
 
 ---
+
 
 ### Build stages are verified prior to the next stage executing {#cnswp-90}
 
-**Control ID**: `CNSWP-90`
-
-#### Objective
-
-Build stages are verified prior to the next stage executing
+**Guideline ID**: `CNSWP-90`
 
 #### Guideline Mappings
 
@@ -2013,17 +1849,19 @@ Build stages are verified prior to the next stage executing
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+Implement build stages are verified prior to the next stage executing.
 
 ---
+
 
 ### Images are scanned within the CI pipeline {#cnswp-91}
 
-**Control ID**: `CNSWP-91`
-
-#### Objective
-
-SA-3
+**Guideline ID**: `CNSWP-91`
 
 #### Guideline Mappings
 
@@ -2031,17 +1869,19 @@ SA-3
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 VULNERABILITY MONITORING AND SCANNING | 5 | Reference to RA-5 VULNERABILITY MONITORING AND SCANNING |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
+
+
+#### Statements
+
+Scan artifacts for vulnerabilities before distribution or deployment.
 
 ---
+
 
 ### Vulnerability scans are coupled with pipeline compliance rules {#cnswp-92}
 
-**Control ID**: `CNSWP-92`
-
-#### Objective
-
-Vulnerability scans are coupled with pipeline compliance rules
+**Guideline ID**: `CNSWP-92`
 
 #### Guideline Mappings
 
@@ -2049,21 +1889,21 @@ Vulnerability scans are coupled with pipeline compliance rules
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-1 POLICY AND PROCEDURES | 5 | Reference to SA-1 POLICY AND PROCEDURES |
+| SA-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- Prevent insecure images and artifacts from being deployed
+#### Statements
+
+**Compliance Integration**
+
+Couple vulnerability scans with pipeline compliance rules.
 
 ---
+
 
 ### Dynamic application security testing (DAST) is performed {#cnswp-93}
 
-**Control ID**: `CNSWP-93`
-
-#### Objective
-
-Dynamic application security testing (DAST) is performed
+**Guideline ID**: `CNSWP-93`
 
 #### Guideline Mappings
 
@@ -2071,21 +1911,21 @@ Dynamic application security testing (DAST) is performed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11 (8) & (9) INTERACTIVE APPLICATION SECURITY TESTING | 5 | Reference to SA-11 (8) & (9) INTERACTIVE APPLICATION SECURITY TESTING |
+| SA-11(8) |  | (8) & (9) Interactive Application Security Testing |
 
-#### Recommendations
 
-- mocking
+#### Statements
+
+**DAST Implementation**
+
+Perform dynamic application security testing.
 
 ---
+
 
 ### Application instrumentation is employed {#cnswp-94}
 
-**Control ID**: `CNSWP-94`
-
-#### Objective
-
-Application instrumentation is employed
+**Guideline ID**: `CNSWP-94`
 
 #### Guideline Mappings
 
@@ -2093,45 +1933,45 @@ Application instrumentation is employed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 SYSTEM MONITORING | 5 | Reference to SI-4 SYSTEM MONITORING |
+| SI-4 |  | System Monitoring |
+
+
+#### Statements
+
+Implement application instrumentation is employed.
 
 ---
+
 
 ### Automated test results map back to requirements {#cnswp-95}
 
-**Control ID**: `CNSWP-95`
+**Guideline ID**: `CNSWP-95`
 
-#### Objective
+#### Statements
 
-Automated test results map back to requirements
+**Test Mapping**
 
-#### Recommendations
-
-- Requirements include feature, function, security, and complaince
+Map automated test results back to requirements.
 
 ---
+
 
 ### Infrastructure security tests must be employed {#cnswp-96}
 
-**Control ID**: `CNSWP-96`
+**Guideline ID**: `CNSWP-96`
 
-#### Objective
+#### Statements
 
-Infrastructure security tests must be employed
+**Infrastructure Testing**
 
-#### Recommendations
-
-- firewall rules open to the world, overprivileged Identity & Access Management (IAM) policies, unauthenticated endpoints, etc
+Employ infrastructure security tests.
 
 ---
+
 
 ### Tests to verify the security health are executed at time of build and at time of deploy {#cnswp-97}
 
-**Control ID**: `CNSWP-97`
-
-#### Objective
-
-Tests to verify the security health are executed at time of build and at time of deploy
+**Guideline ID**: `CNSWP-97`
 
 #### Guideline Mappings
 
@@ -2139,31 +1979,28 @@ Tests to verify the security health are executed at time of build and at time of
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-4 SYSTEM MONITORING | 5 | Reference to SI-4 SYSTEM MONITORING |
+| SI-4 |  | System Monitoring |
 
-#### Recommendations
 
-- to evaluate any changes or regressions that may have occurred throughout the lifecycle.
+#### Statements
+
+**Security Health Testing**
+
+Execute security health tests at build and deploy time.
 
 ---
+
 
 ### IaC is subject to the same pipeline policy controls as application code {#cnswp-98}
 
-**Control ID**: `CNSWP-98`
-
-#### Objective
-
-IaC is subject to the same pipeline policy controls as application code
+**Guideline ID**: `CNSWP-98`
 
 ---
+
 
 ### Security testing is automated {#cnswp-99}
 
-**Control ID**: `CNSWP-99`
-
-#### Objective
-
-CA-8
+**Guideline ID**: `CNSWP-99`
 
 #### Guideline Mappings
 
@@ -2171,21 +2008,26 @@ CA-8
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
+| SA-11 |  | Developer Testing and Evaluation |
+
+
+#### Statements
+
+Implement security testing is automated.
 
 ---
+
+
+
 
 ## Securing Artefacts {#securing-artefacts}
 
-Securing Artefacts
+Guidelines for securing artefacts, including signing, verification, and freshness validation.
+
 
 ### Every step in the build process should be signed/attested for process integrity {#cnswp-141}
 
-**Control ID**: `CNSWP-141`
-
-#### Objective
-
-SI-7
+**Guideline ID**: `CNSWP-141`
 
 #### Guideline Mappings
 
@@ -2193,21 +2035,21 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-1 POLICY AND PROCEDURES | 5 | Reference to SI-1 POLICY AND PROCEDURES |
+| SI-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- should include these collective signatures and itself be signed to give integrity to the completed artefact and all its associated metadata.
+#### Statements
+
+**Build Step Signing**
+
+Every step in the build process should be signed and attested, with collective signatures included and the completed artifact itself signed.
 
 ---
+
 
 ### Every step in the build process should verify the previously generated signatures {#cnswp-142}
 
-**Control ID**: `CNSWP-142`
-
-#### Objective
-
-SI-7
+**Guideline ID**: `CNSWP-142`
 
 #### Guideline Mappings
 
@@ -2215,17 +2057,21 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-1 POLICY AND PROCEDURES | 5 | Reference to SI-1 POLICY AND PROCEDURES |
+| SI-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- artefacts should all be validated using the signatures generated by each step in its build process to ensure compliance
+#### Statements
+
+**Signature Verification Process**
+
+Every step in the build process should verify previously generated signatures to ensure compliance.
 
 ---
 
-### Use a framework to manage signing of artefacts. {#cnswp-143}
 
-**Control ID**: `CNSWP-143`
+### Use a framework to manage signing of artefacts {#cnswp-143}
+
+**Guideline ID**: `CNSWP-143`
 
 #### Guideline Mappings
 
@@ -2233,17 +2079,21 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-5 AUTHENTICATOR MANAGEMENT | 5 | Reference to IA-5 AUTHENTICATOR MANAGEMENT |
+| IA-5 |  | Authenticator Management |
 
-#### Recommendations
 
-- from a single root to the individual teams or developers who sign artefacts. It uses additional metadata to allow clients to verify the freshness of content in a repository and protect against common attacks on update systems48. Clients can make use of public keys to verify the contents of the repository.
+#### Statements
+
+**Signing Framework Implementation**
+
+Use a framework to manage signing of artifacts from a single root to individual teams or developers.
 
 ---
+
 
 ### Use a store to manage attestations {#cnswp-144}
 
-**Control ID**: `CNSWP-144`
+**Guideline ID**: `CNSWP-144`
 
 #### Guideline Mappings
 
@@ -2251,18 +2101,21 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-4(6)	INFORMATION FLOW ENFORCEMENT | 5 | Reference to AC-4(6)	INFORMATION FLOW ENFORCEMENT |
-| METADATA | 5 | Reference to METADATA |
+| AC-4(6) |  | Information Flow Enforcement |
 
-#### Recommendations
 
-- needs to be stored and tracked for which a database or a dedicated store such as Grafeas can be used.
+#### Statements
+
+**Attestation Store Implementation**
+
+Use a dedicated store to manage and track attestations.
 
 ---
+
 
 ### Limit which artefacts any given party is authorized to certify {#cnswp-145}
 
-**Control ID**: `CNSWP-145`
+**Guideline ID**: `CNSWP-145`
 
 #### Guideline Mappings
 
@@ -2270,17 +2123,21 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6 LEAST PRIVILEGE | 5 | Reference to AC-6 LEAST PRIVILEGE |
+| AC-6 |  | Least Privilege |
 
-#### Recommendations
 
-- to certify should be restricted using selective trust delegations. Trust must expire at predefined intervals, unless renewed as weel as a party must only be trusted to perform the tasks assigned to it to ensure compartmentatlization
+#### Statements
+
+**Certification Authorization**
+
+Limit which artifacts any given party is authorized to certify using selective trust delegations.
 
 ---
+
 
 ### Rotation and revokation of private keys should be supported {#cnswp-146}
 
-**Control ID**: `CNSWP-146`
+**Guideline ID**: `CNSWP-146`
 
 #### Guideline Mappings
 
@@ -2288,35 +2145,34 @@ SI-7
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12 CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | 5 | Reference to SC-12 CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT |
+| SC-12 |  | Cryptographic Key Establishment and Management |
 
-#### Recommendations
 
-- and revoke private keys must be built into the distribution mechanism. Additionally, multiple keys must be used for different tasks or roles, and a threshold of keys must be required for important roles. Finally, minimal trust must be placed in high-risk keys like those that are stored online or used in automated roles.
+#### Statements
+
+**Key Rotation and Revocation**
+
+Support rotation and revocation of private keys in the distribution mechanism.
 
 ---
+
 
 ### Use a container registry that supports OCI image-spec images {#cnswp-147}
 
-**Control ID**: `CNSWP-147`
+**Guideline ID**: `CNSWP-147`
 
-#### Recommendations
+#### Statements
 
-- with the security properties described in this section.
+**OCI Registry Selection**
+
+Use a container registry that supports OCI image-spec images with the security properties described in this section.
 
 ---
+
 
 ### Encrypt artefacts before distribution & ensure only authorized platforms have decryption capabilities {#cnswp-148}
 
-**Control ID**: `CNSWP-148`
-
-#### Objective
-
-SC-13 CRYPTOGRAPHIC PROTECTION
-SC-8 TRANSMISSION CONFIDENTIALITY AND INTEGRITY
-IA-5 AUTHENTICATOR MANAGEMENT
-SC-12 CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT
-
+**Guideline ID**: `CNSWP-148`
 
 #### Guideline Mappings
 
@@ -2324,22 +2180,28 @@ SC-12 CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-28(1)" | 5 |  |
-| CRYPTOGRAPHIC PROTECTION | 5 | Reference to CRYPTOGRAPHIC PROTECTION |
+| SC-28(1) |  |  |
 
-#### Recommendations
 
-- artefacts can be encrypted so that they are accessible by authorized parties, such as the clusters, vulnerability scanners, etc. t is recommended organizations use key management and distribution systems with identity and attestation mechanisms (e.g. SPIFFE/SPIRE)
+#### Statements
+
+**Artifact Encryption**
+
+Encrypt artifacts before distribution so they are accessible only by authorized parties.
 
 ---
+
+
+
 
 ## Securing Build Pipelines {#securing-build-pipelines}
 
-Securing Build Pipelines
+Guidelines for securing build pipelines, ensuring cryptographic guarantees, validation, and secure build environments.
+
 
 ### Cryptographically guarantee policy adherence {#cnswp-149}
 
-**Control ID**: `CNSWP-149`
+**Guideline ID**: `CNSWP-149`
 
 #### Guideline Mappings
 
@@ -2347,18 +2209,21 @@ Securing Build Pipelines
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(6)	CONFIGURATION CHANGE CONTROL | 5 | Reference to CM-3(6)	CONFIGURATION CHANGE CONTROL |
-| CRYPTOGRAPHY MANAGEMENT | 5 | Reference to CRYPTOGRAPHY MANAGEMENT |
+| CM-3(6) |  | Configuration Change Control |
 
-#### Recommendations
 
-- in-toto project that can be used to secure a chain of pipeline stages end-to-end with cryptographic guarantees. Build metadata should be evaluated against the policy template by using tools such as Open Policy Agent.
+#### Statements
+
+**Cryptographic Policy Implementation**
+
+Use frameworks like in-toto to secure a chain of pipeline stages end-to-end with cryptographic guarantees.
 
 ---
+
 
 ### Validate environments and dependencies before usage {#cnswp-150}
 
-**Control ID**: `CNSWP-150`
+**Guideline ID**: `CNSWP-150`
 
 #### Guideline Mappings
 
@@ -2366,18 +2231,21 @@ Securing Build Pipelines
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(2)	CONFIGURATION CHANGE CONTROL | 5 | Reference to CM-3(2)	CONFIGURATION CHANGE CONTROL |
-| TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES | 5 | Reference to TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES |
+| CM-3(2) |  | Configuration Change Control |
 
-#### Recommendations
 
-- and any signatures should be validated both in the downloading or ingestion process, and again by the build worker. This should include validating package manager signatures, checking out specific Git commit hashes, and verifying SHA sums of input sources and binaries. After completing this validation, the downloading process should sign all binaries or libraries it is adding to the secure source
+#### Statements
+
+**Validation Process**
+
+Validate environments and dependencies, including signatures, both in the downloading or ingestion process, and again by the build worker.
 
 ---
+
 
 ### Validate runtime security of build workers {#cnswp-151}
 
-**Control ID**: `CNSWP-151`
+**Guideline ID**: `CNSWP-151`
 
 #### Guideline Mappings
 
@@ -2385,28 +2253,21 @@ Securing Build Pipelines
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(4) | 5 |  |
-| SECURITY AND PRIVACY REPRESENTATIVES | 5 | Reference to SECURITY AND PRIVACY REPRESENTATIVES |
+| CM-3(4) |  |  |
 
-#### Recommendations
 
-- such as seccomp, AppArmor, and SELinux, provides defense in depth against attacks on build infrastructure. High privilege kernel capabilities such as debugger, device, and network attachments should be restricted and monitored.
+#### Statements
+
+**Runtime Security Implementation**
+
+Use security mechanisms such as seccomp, AppArmor, and SELinux to provide defense in depth.
 
 ---
+
 
 ### Validate build artefacts through verifiably reproducible builds {#cnswp-152}
 
-**Control ID**: `CNSWP-152`
-
-#### Objective
-
-Validate build artefacts through verifiably reproducible builds
-
-CM-3(5)	CONFIGURATION CHANGE CONTROL | AUTOMATED SECURITY RESPONSE
-
-Assurance Level: High
-
-Risk Categories: High
+**Guideline ID**: `CNSWP-152`
 
 #### Guideline Mappings
 
@@ -2414,18 +2275,21 @@ Risk Categories: High
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(4)" | 5 |  |
-| SECURITY AND PRIVACY REPRESENTATIVES | 5 | Reference to SECURITY AND PRIVACY REPRESENTATIVES |
+| CM-3(4) |  |  |
 
-#### Recommendations
 
-- build instructions, an end user should be able to reproduce the built artefact bit for bit.
+#### Statements
+
+**Reproducible Build Requirements**
+
+With build instructions, an end user should be able to reproduce the built artefact bit for bit.
 
 ---
+
 
 ### Lock and Verify External Requirements from the build process {#cnswp-153}
 
-**Control ID**: `CNSWP-153`
+**Guideline ID**: `CNSWP-153`
 
 #### Guideline Mappings
 
@@ -2433,24 +2297,32 @@ Risk Categories: High
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(2) | 5 |  |
-| TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES | 5 | Reference to TESTING, VALIDATION, AND DOCUMENTATION OF CHANGES |
+| CM-3(2) |  |  |
+
+
+#### Statements
+
+Implement lock and verify external requirements from the build process.
 
 ---
+
 
 ### Find and Eliminate Sources of Non-Determinism {#cnswp-154}
 
-**Control ID**: `CNSWP-154`
+**Guideline ID**: `CNSWP-154`
 
-#### Recommendations
+#### Statements
 
-- to dig in and find the cause of differences when tracking down sources of non-determinism.
+**Non-Determinism Elimination**
+
+Investigate and eliminate sources of non-determinism in build processes.
 
 ---
+
 
 ### Record the Build Environment {#cnswp-155}
 
-**Control ID**: `CNSWP-155`
+**Guideline ID**: `CNSWP-155`
 
 #### Guideline Mappings
 
@@ -2458,18 +2330,21 @@ Risk Categories: High
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(1) | 5 |  |
-| AUTOMATED DOCUMENTATION, NOTIFICATION, AND PROHIBITION OF CHANGES | 5 | Reference to AUTOMATED DOCUMENTATION, NOTIFICATION, AND PROHIBITION OF CHANGES |
+| CM-3(1) |  |  |
 
-#### Recommendations
 
-- layer
+#### Statements
+
+**Environment Recording**
+
+Record all aspects of the build environment including base layers.
 
 ---
+
 
 ### Automate Creation of the Build Environment {#cnswp-156}
 
-**Control ID**: `CNSWP-156`
+**Guideline ID**: `CNSWP-156`
 
 #### Guideline Mappings
 
@@ -2477,14 +2352,19 @@ Risk Categories: High
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(3) | 5 |  |
-| AUTOMATED CHANGE IMPLEMENTATION | 5 | Reference to AUTOMATED CHANGE IMPLEMENTATION |
+| CM-3(3) |  |  |
+
+
+#### Statements
+
+Implement automate creation of the build environment.
 
 ---
+
 
 ### Distribute Builds across different infrastructure {#cnswp-157}
 
-**Control ID**: `CNSWP-157`
+**Guideline ID**: `CNSWP-157`
 
 #### Guideline Mappings
 
@@ -2492,18 +2372,19 @@ Risk Categories: High
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-3(3) | 5 |  |
-| AUTOMATED CHANGE IMPLEMENTATION | 5 | Reference to AUTOMATED CHANGE IMPLEMENTATION |
+| CM-3(3) |  |  |
+
+
+#### Statements
+
+Implement distribute builds across different infrastructure.
 
 ---
+
 
 ### Build and related CI/CD steps should be automated through a pipeline delivered as code {#cnswp-158}
 
-**Control ID**: `CNSWP-158`
-
-#### Objective
-
-SA-11
+**Guideline ID**: `CNSWP-158`
 
 #### Guideline Mappings
 
@@ -2511,25 +2392,33 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-3 SYSTEM DEVELOPMENT LIFE CYCLE | 5 | Reference to SA-3 SYSTEM DEVELOPMENT LIFE CYCLE |
+| SA-3 |  | System Development Life Cycle |
+
+
+#### Statements
+
+Implement build and related ci/cd steps should be automated through a pipeline delivered as code.
 
 ---
+
 
 ### Standardize pipelines across projects {#cnswp-159}
 
-**Control ID**: `CNSWP-159`
+**Guideline ID**: `CNSWP-159`
 
 ---
+
 
 ### Provision a secured orchestration platform to host software factory {#cnswp-160}
 
-**Control ID**: `CNSWP-160`
+**Guideline ID**: `CNSWP-160`
 
 ---
+
 
 ### Build workers should be single use {#cnswp-161}
 
-**Control ID**: `CNSWP-161`
+**Guideline ID**: `CNSWP-161`
 
 #### Guideline Mappings
 
@@ -2537,13 +2426,19 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-2 ACCOUNT MANAGEMENT | 5 | Reference to AC-2 ACCOUNT MANAGEMENT |
+| AC-2 |  | Account Management |
+
+
+#### Statements
+
+Implement build workers should be single use.
 
 ---
+
 
 ### Ensure software factory has minimal network connectivity {#cnswp-162}
 
-**Control ID**: `CNSWP-162`
+**Guideline ID**: `CNSWP-162`
 
 #### Guideline Mappings
 
@@ -2551,18 +2446,21 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7(3)	BOUNDARY PROTECTION | 5 | Reference to SC-7(3)	BOUNDARY PROTECTION |
-| ACCESS POINTS | 5 | Reference to ACCESS POINTS |
+| SC-7(3) |  | Boundary Protection |
 
-#### Recommendations
 
-- of hardened source code, the dependency repository and code signing infrastructure.
+#### Statements
+
+**Network Isolation**
+
+Ensure software factory has minimal network connectivity to only essential services.
 
 ---
+
 
 ### Segregate the duties of each build worker {#cnswp-163}
 
-**Control ID**: `CNSWP-163`
+**Guideline ID**: `CNSWP-163`
 
 #### Guideline Mappings
 
@@ -2570,13 +2468,19 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-5 SEPARATION OF DUTIES | 5 | Reference to AC-5 SEPARATION OF DUTIES |
+| AC-5 |  | Separation of Duties |
+
+
+#### Statements
+
+Implement segregate the duties of each build worker.
 
 ---
+
 
 ### Pass in build worker environment and commands {#cnswp-164}
 
-**Control ID**: `CNSWP-164`
+**Guideline ID**: `CNSWP-164`
 
 #### Guideline Mappings
 
@@ -2584,18 +2488,21 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-2(2) BASELINE CONFIGURATION | 5 | Reference to CM-2(2) BASELINE CONFIGURATION |
-| AUTOMATION SUPPORT FOR ACCURACY / CURRENC | 5 | Reference to AUTOMATION SUPPORT FOR ACCURACY / CURRENC |
+| CM-2(2) |  | Baseline Configuration |
 
-#### Recommendations
 
-- a clean and isolated environmment. It should not be able to pull its own environment. Ensure environment variables and commands are explicitly passed to avoid any complicated and opaque build process
+#### Statements
+
+**Environment and Command Management**
+
+Build workers should operate in a clean and isolated environment and not be able to pull their own environment.
 
 ---
+
 
 ### Write output to separate secured storage repo {#cnswp-165}
 
-**Control ID**: `CNSWP-165`
+**Guideline ID**: `CNSWP-165`
 
 #### Guideline Mappings
 
@@ -2603,28 +2510,34 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AU-9(2) PROTECTION OF AUDIT INFORMATION | 5 | Reference to AU-9(2) PROTECTION OF AUDIT INFORMATION |
-| STORE ON SEPARATE PHYSICAL SYSTEMS OR COMPONENTS | 5 | Reference to STORE ON SEPARATE PHYSICAL SYSTEMS OR COMPONENTS |
+| AU-9(2) |  | Protection of Audit Information |
 
-#### Recommendations
 
-- from the Build Worker should then upload that artefact to an appropriate repository.
+#### Statements
+
+**Artifact Storage**
+
+Build workers should upload artifacts to appropriate secured repositories.
+
+---
+
+
+### Only allow pipeline modification through "pipeline as code" {#cnswp-166}
+
+**Guideline ID**: `CNSWP-166`
+
+#### Statements
+
+**Pipeline as Code Enforcement**
+
+Only allow pipeline modification through pipeline as code to prevent attackers from interacting and modifying the configuration.
 
 ---
 
-### Only allow pipeline modification through “pipeline as code” {#cnswp-166}
-
-**Control ID**: `CNSWP-166`
-
-#### Recommendations
-
-- This prevents attackers from interacting and modifying the configuration. This model then requires appropriate authentication and authorization to be in place for the software and configuration of the pipeline
-
----
 
 ### Define user roles {#cnswp-167}
 
-**Control ID**: `CNSWP-167`
+**Guideline ID**: `CNSWP-167`
 
 #### Guideline Mappings
 
@@ -2632,20 +2545,19 @@ SA-11
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-2 ACCOUNT MANAGEMENT | 5 | Reference to AC-2 ACCOUNT MANAGEMENT |
+| AC-2 |  | Account Management |
+
+
+#### Statements
+
+Implement define user roles.
 
 ---
+
 
 ### Follow established practices for establishing a root of trust from an offline source {#cnswp-168}
 
-**Control ID**: `CNSWP-168`
-
-#### Objective
-
-IA-5(2) AUTHENTICATOR MANAGEMENT | PUBLIC KEY-BASED AUTHENTICATION
-SA-8(10) SECURITY AND PRIVACY ENGINEERING PRINCIPLES | HIERARCHICAL TRUST
-SR-4(4)        PROVENANCE | SUPPLY CHAIN INTEGRITY — PEDIGREE
-
+**Guideline ID**: `CNSWP-168`
 
 #### Guideline Mappings
 
@@ -2653,18 +2565,19 @@ SR-4(4)        PROVENANCE | SUPPLY CHAIN INTEGRITY — PEDIGREE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES | 5 | Reference to SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES |
+| SC-17 |  | Public Key Infrastructure Certificates |
+
+
+#### Statements
+
+Implement bootstrapping to verify compute location and boot integrity.
 
 ---
+
 
 ### Use short-lived workload certificates {#cnswp-169}
 
-**Control ID**: `CNSWP-169`
-
-#### Objective
-
-SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES
-
+**Guideline ID**: `CNSWP-169`
 
 #### Guideline Mappings
 
@@ -2672,18 +2585,26 @@ SC-17 PUBLIC KEY INFRASTRUCTURE CERTIFICATES
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-23(5) SESSION AUTHENTICITY | 5 | Reference to SC-23(5) SESSION AUTHENTICITY |
-| ALLOWED CERTIFICATE AUTHORITIES | 5 | Reference to ALLOWED CERTIFICATE AUTHORITIES |
+| SC-23(5) |  | Session Authenticity |
+
+
+#### Statements
+
+Implement use short-lived workload certificates.
 
 ---
+
+
+
 
 ## Securing Deployments {#securing-deployments}
 
-Securing Deployments
+Guidelines for securing software deployments, ensuring artifact verification, freshness validation, and secure update management.
+
 
 ### Ensure clients can perform verification of artefacts and associated metadata {#cnswp-170}
 
-**Control ID**: `CNSWP-170`
+**Guideline ID**: `CNSWP-170`
 
 #### Guideline Mappings
 
@@ -2691,13 +2612,21 @@ Securing Deployments
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
+
+
+#### Statements
+
+**Verification Capabilities**
+
+Provide mechanisms for clients to verify artifacts and associated metadata.
 
 ---
 
-### Ensure clients can verify the “freshness” of files {#cnswp-171}
 
-**Control ID**: `CNSWP-171`
+### Ensure clients can verify the "freshness" of files {#cnswp-171}
+
+**Guideline ID**: `CNSWP-171`
 
 #### Guideline Mappings
 
@@ -2705,31 +2634,41 @@ Securing Deployments
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and Information Integrity |
 
-#### Recommendations
 
-- Ensure clients can access latest versions and can veriify if the provided files are out of date
+#### Statements
+
+**Freshness Verification**
+
+Ensure clients can access latest versions and can verify if the provided files are out of date.
 
 ---
+
 
 ### Use a framework for managing software updates {#cnswp-172}
 
-**Control ID**: `CNSWP-172`
+**Guideline ID**: `CNSWP-172`
 
-#### Recommendations
+#### Statements
 
-- software updates in a secure, reliable and trusted way
+**Update Framework Implementation**
+
+Use a framework for managing software updates in a secure, reliable and trusted way.
 
 ---
+
+
+
 
 ## Securing Materials {#securing-materials}
 
-Securing Materials
+Guidelines for securing materials, including signing, verification, and freshness validation.
+
 
 ### Verify third party artefacts and open source libraries {#cnswp-173}
 
-**Control ID**: `CNSWP-173`
+**Guideline ID**: `CNSWP-173`
 
 #### Guideline Mappings
 
@@ -2737,17 +2676,21 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
+| SA-11 |  | Developer Testing and Evaluation |
 
-#### Recommendations
 
-- of the continuous integration pipeline by validating their checksums against a known good source and validating any cryptographic signatures. Any software ingested must be scanned using Software Composition Analysis (SCA) and pentesting tools to detect whether any vulnerable open-source software is used in the final product.
+#### Statements
+
+**Verification Process**
+
+Verify third-party artifacts and open source libraries as part of the continuous integration pipeline by validating their checksums against a known good source and validating any cryptographic signatures.
 
 ---
+
 
 ### Require SBOM from third party suppliers {#cnswp-174}
 
-**Control ID**: `CNSWP-174`
+**Guideline ID**: `CNSWP-174`
 
 #### Guideline Mappings
 
@@ -2755,17 +2698,21 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-8 INFORMATION SYSTEM COMPONENT INVENTORY | 5 | Reference to CM-8 INFORMATION SYSTEM COMPONENT INVENTORY |
+| CM-8 |  | Information System Component Inventory |
 
-#### Recommendations
 
-- explicit details of the software and versions used within the supplied product as it provides a clear and direct link to the dependencies.
+#### Statements
+
+**SBOM Requirements**
+
+Require SBOM from third-party suppliers with explicit details of the software and versions used within the supplied product.
 
 ---
+
 
 ### Track dependencies between open source components {#cnswp-175}
 
-**Control ID**: `CNSWP-175`
+**Guideline ID**: `CNSWP-175`
 
 #### Guideline Mappings
 
@@ -2773,43 +2720,60 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-10 SOFTWARE USAGE RESTRICTIONS | 5 | Reference to CM-10 SOFTWARE USAGE RESTRICTIONS |
+| CM-10 |  | Software Usage Restrictions |
 
-#### Recommendations
 
-- to help trace any deployed artefacts with new vulnerabilities. One of the most popular open source inventory implementations is OWASP Dependency-Track.
+#### Statements
+
+**Dependency Tracking Implementation**
+
+Track dependencies between open source components to help trace any deployed artifacts with new vulnerabilities.
 
 ---
+
 
 ### Build libraries based upon source code {#cnswp-176}
 
-**Control ID**: `CNSWP-176`
+**Guideline ID**: `CNSWP-176`
+
+#### Statements
+
+**Source-Based Building**
+
+Build libraries from source code to ensure integrity and enable verification of the build process.
 
 ---
+
 
 ### Define and prioritize trusted package managers and repositories {#cnswp-177}
 
-**Control ID**: `CNSWP-177`
+**Guideline ID**: `CNSWP-177`
 
-#### Recommendations
+#### Statements
 
-- to pull from only those sources.
+**Trusted Sources Management**
+
+Define and prioritize trusted package managers and repositories to pull from only those sources.
 
 ---
+
 
 ### Generate an immutable SBOM of the code {#cnswp-178}
 
-**Control ID**: `CNSWP-178`
+**Guideline ID**: `CNSWP-178`
 
-#### Recommendations
+#### Statements
 
-- There are currently two well known SBOM specifications: SPDX34 and CycloneDX
+**SBOM Generation**
+
+Generate an immutable SBOM of the code for all software artifacts.
 
 ---
+
 
 ### Scan software for vulnerabilities {#cnswp-179}
 
-**Control ID**: `CNSWP-179`
+**Guideline ID**: `CNSWP-179`
 
 #### Guideline Mappings
 
@@ -2817,13 +2781,21 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 VULNERABILITY MONITORING AND SCANNING | 5 | Reference to RA-5 VULNERABILITY MONITORING AND SCANNING |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
+
+
+#### Statements
+
+**Vulnerability Scanning Process**
+
+Scan software for vulnerabilities as part of the development and build process.
 
 ---
+
 
 ### Scan software for license implications {#cnswp-180}
 
-**Control ID**: `CNSWP-180`
+**Guideline ID**: `CNSWP-180`
 
 #### Guideline Mappings
 
@@ -2831,17 +2803,21 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-10 SOFTWARE USAGE RESTRICTIONS | 5 | Reference to CM-10 SOFTWARE USAGE RESTRICTIONS |
+| CM-10 |  | Software Usage Restrictions |
 
-#### Recommendations
 
-- the Open Compliance Program36 which hosts several tools to ensure released software meets legal and regulatory compliance requirements.
+#### Statements
+
+**License Scanning Implementation**
+
+Scan software for license implications to ensure released software meets legal and regulatory compliance requirements.
 
 ---
+
 
 ### Run software composition analysis on ingested software {#cnswp-181}
 
-**Control ID**: `CNSWP-181`
+**Guideline ID**: `CNSWP-181`
 
 #### Guideline Mappings
 
@@ -2849,21 +2825,28 @@ Securing Materials
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11 (1) (8) & (9) DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 (1) (8) & (9) DEVELOPER TESTING AND EVALUATION |
+| SA-11(1)(8) |  | (1) (8) & (9) Developer Testing and Evaluation |
 
-#### Recommendations
 
-- also serve as verification of SBOM content. This data will then be matched against data from a number of data feeds containing vulnerability data to highlight any vulnerabilities in the dependent packages.
+#### Statements
+
+**Software Composition Analysis Process**
+
+Run software composition analysis on ingested software to identify components and verify SBOM content.
 
 ---
+
+
+
 
 ## Securing the Source Code {#securing-the-source-code}
 
-Securing the Source Code
+Guidelines for securing the source code, including signing, verification, and freshness validation.
+
 
 ### Commits and tags are signed {#cnswp-182}
 
-**Control ID**: `CNSWP-182`
+**Guideline ID**: `CNSWP-182`
 
 #### Guideline Mappings
 
@@ -2871,17 +2854,21 @@ Securing the Source Code
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY | 5 | Reference to SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY |
+| SI-7 |  | Software, Firmware, and information integrity |
 
-#### Recommendations
 
-- GPG keys or S/MIME certificates are used to sign the source code
+#### Statements
+
+**Signing Implementation**
+
+GPG keys or S/MIME certificates are used to sign the source code.
 
 ---
+
 
 ### Enforce full attestation and verification for protected branches {#cnswp-183}
 
-**Control ID**: `CNSWP-183`
+**Guideline ID**: `CNSWP-183`
 
 #### Guideline Mappings
 
@@ -2889,23 +2876,21 @@ Securing the Source Code
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6(3) LEAST PRIVILEGE | 5 | Reference to AC-6(3) LEAST PRIVILEGE |
-| NETWORK ACCESS TO PRIVILEGED COMMANDS | 5 | Reference to NETWORK ACCESS TO PRIVILEGED COMMANDS |
+| AC-6(3) |  | Least Privilege |
 
-#### Recommendations
 
-- Branch protection is enabled on the mainline and release branches with force push disabled
+#### Statements
+
+**Branch Protection Configuration**
+
+Branch protection is enabled on the mainline and release branches with force push disabled.
 
 ---
+
 
 ### Secrets are not committed to the source code repository unless encrypted {#cnswp-184}
 
-**Control ID**: `CNSWP-184`
-
-#### Objective
-
-SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | SYMMETRIC & ASYMMETRIC KEYS
-
+**Guideline ID**: `CNSWP-184`
 
 #### Guideline Mappings
 
@@ -2913,22 +2898,21 @@ SC-12(2) CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT | SYMMETRIC & ASYMMETRIC
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-12(3) SYSTEMS & COMMUNICATION PROTECTION | 5 | Reference to SC-12(3) SYSTEMS & COMMUNICATION PROTECTION |
+| SC-12(3) |  | Systems and Communication Protection |
 
-#### Recommendations
 
-- Implement tooling to detect secrets or to prevent certain files from being pushed which may contain plaintext sensitive materials, such as via a .gitignore and/or .gitattributes file, client-side hook (pre-commit), server-side hook (pre-receive or update), and/or as a step in the CI process
+#### Statements
+
+**Secret Detection and Prevention**
+
+Implement tooling to detect secrets or to prevent certain files from being pushed which may contain plaintext sensitive materials.
 
 ---
+
 
 ### The individuals or teams with write access to a repository are defined {#cnswp-185}
 
-**Control ID**: `CNSWP-185`
-
-#### Objective
-
-AC-3 ACCESS ENFORCEMENT
-
+**Guideline ID**: `CNSWP-185`
 
 #### Guideline Mappings
 
@@ -2936,22 +2920,21 @@ AC-3 ACCESS ENFORCEMENT
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| PL-1 POLICY AND PROCEDURES | 5 | Reference to PL-1 POLICY AND PROCEDURES |
+| PL-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- Implement codeowners (or equivalent)
+#### Statements
+
+**Access Definition**
+
+Implement CODEOWNERS (or equivalent) to define who has write access and responsibility for different parts of the codebase.
 
 ---
+
 
 ### Automate software security scanning and testing {#cnswp-186}
 
-**Control ID**: `CNSWP-186`
-
-#### Objective
-
-SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
-
+**Guideline ID**: `CNSWP-186`
 
 #### Guideline Mappings
 
@@ -2959,17 +2942,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| RA-5 VULNERABILITY MONITORING AND SCANNING | 5 | Reference to RA-5 VULNERABILITY MONITORING AND SCANNING |
+| RA-5 |  | Vulnerability Monitoring and Scanning |
 
-#### Recommendations
 
-- Security specific scans should be performed, including Static Application Security Tests (SAST) and Dynamic Application Security Tests (DAST). Both the coverage and results of these tests should be published as part of the repository information to help downstream consumers of software better assess the stability, reliability, and/or suitability of a product or library.
+#### Statements
+
+**Security Scanning Implementation**
+
+Security specific scans should be performed, including Static Application Security Tests (SAST) and Dynamic Application Security Tests (DAST).
 
 ---
+
 
 ### Establish and adhere to contribution policies {#cnswp-187}
 
-**Control ID**: `CNSWP-187`
+**Guideline ID**: `CNSWP-187`
 
 #### Guideline Mappings
 
@@ -2977,17 +2964,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| PL-1 POLICY AND PROCEDURES | 5 | Reference to PL-1 POLICY AND PROCEDURES |
+| PL-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- Define configuration options or configuration rules witthin SCM platforms allow repository administrators to enforce security, hygiene and operational policies.
+#### Statements
+
+**Policy Definition**
+
+Define configuration options or configuration rules within SCM platforms allow repository administrators to enforce security, hygiene and operational policies.
 
 ---
+
 
 ### Define roles aligned to functional responsibilities {#cnswp-188}
 
-**Control ID**: `CNSWP-188`
+**Guideline ID**: `CNSWP-188`
 
 #### Guideline Mappings
 
@@ -2995,17 +2986,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| PL-1 POLICY AND PROCEDURES | 5 | Reference to PL-1 POLICY AND PROCEDURES |
+| PL-1 |  | Policy and Procedures |
 
-#### Recommendations
 
-- Maintainer, Owner, Reviewer, Approver, and Guest
+#### Statements
+
+**Role Definitions**
+
+Define and document roles with specific responsibilities and access levels.
 
 ---
+
 
 ### Enforce an independent four-eyes principle {#cnswp-189}
 
-**Control ID**: `CNSWP-189`
+**Guideline ID**: `CNSWP-189`
 
 #### Guideline Mappings
 
@@ -3013,17 +3008,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11 DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11 DEVELOPER TESTING AND EVALUATION |
+| SA-11 |  | Developer Testing and Evaluation |
 
-#### Recommendations
 
-- or greater expertise should review & approve the request.
+#### Statements
+
+**Review Requirements**
+
+Require independent review and approval by reviewers with equal or greater expertise.
 
 ---
+
 
 ### Use branch protection rules {#cnswp-190}
 
-**Control ID**: `CNSWP-190`
+**Guideline ID**: `CNSWP-190`
 
 #### Guideline Mappings
 
@@ -3031,17 +3030,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-8 SECURITY ENGINEERING PRINCIPLES | 5 | Reference to SA-8 SECURITY ENGINEERING PRINCIPLES |
+| SA-8 |  | Security Engineering Principles |
 
-#### Recommendations
 
-- Protection rules can be used to enforce the usage of pull requests with specified precondition and approval rules, ensuring that a human code review process is followed or an automated status checking of a branch occurs. Additionally, protected branches can be used to disallow dangerous use of force pushes26, preventing the overwrite of commit histories and potential obfuscation of code changes.
+#### Statements
+
+**Branch Protection Configuration**
+
+Protection rules can be used to enforce the usage of pull requests with specified precondition and approval rules.
 
 ---
+
 
 ### Enforce MFA for accessing source code repositories {#cnswp-191}
 
-**Control ID**: `CNSWP-191`
+**Guideline ID**: `CNSWP-191`
 
 #### Guideline Mappings
 
@@ -3049,14 +3052,19 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-2(1) Identification and Authentication (organizational Users) | 5 | Reference to IA-2(1) Identification and Authentication (organizational Users) |
-| Multi-Factor Authenticaiton to Priviledged Accounts | 5 | Reference to Multi-Factor Authenticaiton to Priviledged Accounts |
+| IA-2(1) |  | Identification and Authentication (organizational Users) |
+
+
+#### Statements
+
+Implement enforce mfa for accessing source code repositories.
 
 ---
+
 
 ### Use SSH keys to provide developers access to source code repositories {#cnswp-192}
 
-**Control ID**: `CNSWP-192`
+**Guideline ID**: `CNSWP-192`
 
 #### Guideline Mappings
 
@@ -3064,13 +3072,19 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-1 REMOTE ACCESS | 5 | Reference to AC-1 REMOTE ACCESS |
+| AC-1 |  | Remote Access |
+
+
+#### Statements
+
+Implement use ssh keys to provide developers access to source code repositories.
 
 ---
+
 
 ### Have a key rotation policy {#cnswp-193}
 
-**Control ID**: `CNSWP-193`
+**Guideline ID**: `CNSWP-193`
 
 #### Guideline Mappings
 
@@ -3078,18 +3092,21 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-2(1) ACCOUNT MANAGEMENT | 5 | Reference to AC-2(1) ACCOUNT MANAGEMENT |
-| AUTOMATED SYSTEM ACCOUNT MANAGEMENT | 5 | Reference to AUTOMATED SYSTEM ACCOUNT MANAGEMENT |
+| AC-2(1) |  | Prerequisites and criteria for group and role membership are defined. |
 
-#### Recommendations
 
-- usable after a certain period of time. When a private key is known to have been compromised, it should be revoked and replaced immediately to shut off access for any unauthorized user. Organizations may also consider using short lived certificates or keys, which reduces the reliance on certificate revocation systems.
+#### Statements
+
+**Key Rotation Requirements**
+
+Keys should be rotated after a certain period of time or when compromised.
 
 ---
+
 
 ### Use short-lived/ephemeral credentials for machine/service access {#cnswp-194}
 
-**Control ID**: `CNSWP-194`
+**Guideline ID**: `CNSWP-194`
 
 #### Guideline Mappings
 
@@ -3097,26 +3114,28 @@ SA-3 SYSTEM DEVELOPMENT LIFE CYCLE
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-2(1) ACCOUNT MANAGEMENT | 5 | Reference to AC-2(1) ACCOUNT MANAGEMENT |
-| AUTOMATED SYSTEM ACCOUNT MANAGEMENT | 5 | Reference to AUTOMATED SYSTEM ACCOUNT MANAGEMENT |
+| AC-2(1) |  | Usage of automated mechanisms to create, enable, modify, disable, and remove accounts. |
 
-#### Recommendations
 
-- access tokens. For CI/CD pipeline agents, short-lived access tokens should be considered instead of password-based credentials. The use of very short-lived tokens like OAuth 2.0, OpenID Connect, etc., will help to implement more secure access and increase the security assurance.
+#### Statements
+
+**Ephemeral Credential Implementation**
+
+Use short-lived access tokens for CI/CD pipeline agents and service access.
 
 ---
+
+
+
 
 ## Security Assurance {#security-assurance}
 
-Security Assurance
+Guidelines for security assurance, including signing, verification, and freshness validation.
+
 
 ### Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access {#cnswp-115}
 
-**Control ID**: `CNSWP-115`
-
-#### Objective
-
-Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access
+**Guideline ID**: `CNSWP-115`
 
 #### Guideline Mappings
 
@@ -3124,14 +3143,19 @@ Network policies enforce east-west network communication within the container de
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-6(3) LEAST PRIVILEGE | 5 | Reference to AC-6(3) LEAST PRIVILEGE |
-| NETWORK ACCESS TO PRIVILEGED COMMANDS | 5 | Reference to NETWORK ACCESS TO PRIVILEGED COMMANDS |
+| AC-6(3) |  | Least Privilege |
+
+
+#### Statements
+
+Implement network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access.
 
 ---
+
 
 ### Incident reponse considers cloud native workloads {#cnswp-116}
 
-**Control ID**: `CNSWP-116`
+**Guideline ID**: `CNSWP-116`
 
 #### Guideline Mappings
 
@@ -3139,22 +3163,21 @@ Network policies enforce east-west network communication within the container de
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IR-4 INCIDENT HANDLING | 5 | Reference to IR-4 INCIDENT HANDLING |
-| AUTOMATED INCIDENT HANDLING PROCESSES | 5 | Reference to AUTOMATED INCIDENT HANDLING PROCESSES |
+| IR-4 |  | Incident Handling |
 
-#### Recommendations
 
-- instances could run on a different server), networking (e.g. IP addresses are assigned dynamically) and immutability (e.g. runtime changes to container are not persisted across restarts)
+#### Statements
+
+**Cloud Native Considerations**
+
+Incident response must consider cloud native workload characteristics.
 
 ---
+
 
 ### Incident response accounts for appropriate evidence handling and collection of coud native workloads {#cnswp-117}
 
-**Control ID**: `CNSWP-117`
-
-#### Objective
-
-Incident response accounts for appropriate evidence handling and collection of coud native workloads
+**Guideline ID**: `CNSWP-117`
 
 #### Guideline Mappings
 
@@ -3162,38 +3185,33 @@ Incident response accounts for appropriate evidence handling and collection of c
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IR-5(1) INCIDENT MONITORING | 5 | Reference to IR-5(1) INCIDENT MONITORING |
-| AUTOMATED TRACKING, DATA COLLECTION, AND ANALYSIS | 5 | Reference to AUTOMATED TRACKING, DATA COLLECTION, AND ANALYSIS |
+| IR-5(1) |  | Incident Monitoring |
+
+
+#### Statements
+
+Implement incident response accounts for appropriate evidence handling and collection of coud native workloads.
 
 ---
+
 
 ### Rootless builds are employed {#cnswp-118}
 
-**Control ID**: `CNSWP-118`
-
-#### Objective
-
-Rootless builds are employed
+**Guideline ID**: `CNSWP-118`
 
 ---
+
 
 ### cgroups and system groups are used to isolate workloads and deployments {#cnswp-119}
 
-**Control ID**: `CNSWP-119`
-
-#### Objective
-
-cgroups and system groups are used to isolate workloads and deployments
+**Guideline ID**: `CNSWP-119`
 
 ---
+
 
 ### MAC implementations are employed {#cnswp-120}
 
-**Control ID**: `CNSWP-120`
-
-#### Objective
-
-MAC implementations are employed
+**Guideline ID**: `CNSWP-120`
 
 #### Guideline Mappings
 
@@ -3201,22 +3219,21 @@ MAC implementations are employed
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-3(3) ACCESS ENFORCEMENT | 5 | Reference to AC-3(3) ACCESS ENFORCEMENT |
-| MANDATORY ACCESS CONTROL | 5 | Reference to MANDATORY ACCESS CONTROL |
+| AC-3(3) |  | Access Enforcement |
 
-#### Recommendations
 
-- SELinux, AppArmor
+#### Statements
+
+**MAC Implementation**
+
+Use Mandatory Access Control (MAC) implementations for workload security.
 
 ---
+
 
 ### Threat model code and infrastructure {#cnswp-121}
 
-**Control ID**: `CNSWP-121`
-
-#### Objective
-
-Threat model code and infrastructure
+**Guideline ID**: `CNSWP-121`
 
 #### Guideline Mappings
 
@@ -3224,18 +3241,19 @@ Threat model code and infrastructure
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-11(2) DEVELOPER TESTING AND EVALUATION | 5 | Reference to SA-11(2) DEVELOPER TESTING AND EVALUATION |
-| THREAT MODELING AND VULNERABILITY ANALYSES | 5 | Reference to THREAT MODELING AND VULNERABILITY ANALYSES |
+| SA-11(2) |  | Developer Testing and Evaluation |
+
+
+#### Statements
+
+Implement threat model code and infrastructure.
 
 ---
+
 
 ### Entities are able to independently authenticate other identities {#cnswp-122}
 
-**Control ID**: `CNSWP-122`
-
-#### Objective
-
-Entities are able to independently authenticate other identities
+**Guideline ID**: `CNSWP-122`
 
 #### Guideline Mappings
 
@@ -3243,21 +3261,21 @@ Entities are able to independently authenticate other identities
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION | 5 | Reference to IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION |
+| IA-9 |  | Service Identification and Authentication |
 
-#### Recommendations
 
-- Public Key Infrastructure
+#### Statements
+
+**Independent Authentication**
+
+Entities should be able to independently authenticate other identities.
 
 ---
+
 
 ### Each entity can create proof of who the identity is {#cnswp-123}
 
-**Control ID**: `CNSWP-123`
-
-#### Objective
-
-Each entity can create proof of who the identity is
+**Guideline ID**: `CNSWP-123`
 
 #### Guideline Mappings
 
@@ -3265,17 +3283,19 @@ Each entity can create proof of who the identity is
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION | 5 | Reference to IA-9 SERVICE IDENTIFICATION AND AUTHENTICATION |
+| IA-9 |  | Service Identification and Authentication |
+
+
+#### Statements
+
+Implement each entity can create proof of who the identity is.
 
 ---
+
 
 ### Orchestrator is running on an a trusted OS, BIOS, etc {#cnswp-124}
 
-**Control ID**: `CNSWP-124`
-
-#### Objective
-
-Orchestrator is running on an a trusted OS, BIOS, etc
+**Guideline ID**: `CNSWP-124`
 
 #### Guideline Mappings
 
@@ -3283,17 +3303,19 @@ Orchestrator is running on an a trusted OS, BIOS, etc
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-14 SIGNED COMPONENTS | 5 | Reference to CM-14 SIGNED COMPONENTS |
+| CM-14 |  | Signed Components |
+
+
+#### Statements
+
+Implement orchestrator is running on an a trusted os, bios, etc.
 
 ---
+
 
 ### Orchestrator verifies the claims of a container {#cnswp-125}
 
-**Control ID**: `CNSWP-125`
-
-#### Objective
-
-Orchestrator verifies the claims of a container
+**Guideline ID**: `CNSWP-125`
 
 #### Guideline Mappings
 
@@ -3301,31 +3323,33 @@ Orchestrator verifies the claims of a container
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-6 SECURITY AND PRIVACY FUNCTION VERIFICATION | 5 | Reference to SI-6 SECURITY AND PRIVACY FUNCTION VERIFICATION |
+| SI-6 |  | Security and Privacy Function Verification |
+
+
+#### Statements
+
+Implement orchestrator verifies the claims of a container.
 
 ---
+
 
 ### Orchestrator network policies are used in conjunction with a service mesh {#cnswp-126}
 
-**Control ID**: `CNSWP-126`
-
-#### Objective
-
-Orchestrator network policies are used in conjunction with a service mesh
+**Guideline ID**: `CNSWP-126`
 
 ---
+
+
+
 
 ## Storage {#storage}
 
-Storage
+Guidelines for securing storage, including signing, verification, and freshness validation.
+
 
 ### Storage control plane management interface requires mutual authentication and TLS for connections {#cnswp-127}
 
-**Control ID**: `CNSWP-127`
-
-#### Objective
-
-Storage control plane management interface requires mutual authentication and TLS for connections
+**Guideline ID**: `CNSWP-127`
 
 #### Guideline Mappings
 
@@ -3333,17 +3357,19 @@ Storage control plane management interface requires mutual authentication and TL
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-8 TRANSMISSION CONFIDENTIALITY AND INTEGRITY | 5 | Reference to SC-8 TRANSMISSION CONFIDENTIALITY AND INTEGRITY |
+| SC-8 |  | Transmission Confidentiality and Integrity |
+
+
+#### Statements
+
+Use mutual authentication to verify the identity of both communicating parties.
 
 ---
+
 
 ### Data availability is achieved through parity or mirroring, erasure coding or replicas {#cnswp-128}
 
-**Control ID**: `CNSWP-128`
-
-#### Objective
-
-Data availability is achieved through parity or mirroring, erasure coding or replicas
+**Guideline ID**: `CNSWP-128`
 
 #### Guideline Mappings
 
@@ -3351,18 +3377,19 @@ Data availability is achieved through parity or mirroring, erasure coding or rep
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SI-13 PREDICTABLE FAILURE PREVENTION | 5 | Reference to SI-13 PREDICTABLE FAILURE PREVENTION |
+| SI-13 |  | Predictable Failure Prevention |
+
+
+#### Statements
+
+Implement data availability is achieved through parity or mirroring, erasure coding or replicas.
 
 ---
+
 
 ### Hashing and checksums are added to blocks, objects or files {#cnswp-129}
 
-**Control ID**: `CNSWP-129`
-
-#### Objective
-
-SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
-
+**Guideline ID**: `CNSWP-129`
 
 #### Guideline Mappings
 
@@ -3370,22 +3397,21 @@ SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-7 LEAST FUNCTIONALITY | 5 | Reference to CM-7 LEAST FUNCTIONALITY |
+| CM-7 |  | Least Functionality |
 
-#### Recommendations
 
-- the tampering of data.
+#### Statements
+
+**Integrity Protection**
+
+Add hashing and checksums to blocks, objects or files to detect tampering of data.
 
 ---
+
 
 ### Data backup storage locations employ like access controls and security policies to that of the data storage source {#cnswp-130}
 
-**Control ID**: `CNSWP-130`
-
-#### Objective
-
-SC-30 CONCEALMENT AND MISDIRECTION'
-
+**Guideline ID**: `CNSWP-130`
 
 #### Guideline Mappings
 
@@ -3393,18 +3419,19 @@ SC-30 CONCEALMENT AND MISDIRECTION'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SA-9 EXTERNAL SYSTEM SERVICES | 5 | Reference to SA-9 EXTERNAL SYSTEM SERVICES |
+| SA-9 |  | External System Services |
+
+
+#### Statements
+
+Implement data backup storage locations employ like access controls and security policies to that of the data storage source.
 
 ---
+
 
 ### Secure erasure adhering to OPAL standards is employed for returned or non-functional devices {#cnswp-131}
 
-**Control ID**: `CNSWP-131`
-
-#### Objective
-
-MP-6 MEDIA SANITIZATION'
-
+**Guideline ID**: `CNSWP-131`
 
 #### Guideline Mappings
 
@@ -3412,17 +3439,19 @@ MP-6 MEDIA SANITIZATION'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CP-9 SYSTEM BACKUP | 5 | Reference to CP-9 SYSTEM BACKUP |
+| CP-9 |  | System Backup |
+
+
+#### Statements
+
+Implement secure erasure adhering to opal standards is employed for returned or non-functional devices.
 
 ---
+
 
 ### Encryption at rest considers data path, size, and frequency of access when determing additional security protections and cryptographic algorithms to employ {#cnswp-132}
 
-**Control ID**: `CNSWP-132`
-
-#### Objective
-
-Encryption at rest considers data path, size, and frequency of access when determing additional security protections and cryptographic algorithms to employ
+**Guideline ID**: `CNSWP-132`
 
 #### Guideline Mappings
 
@@ -3430,43 +3459,35 @@ Encryption at rest considers data path, size, and frequency of access when deter
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-28 PROTECTION OF INFORMATION AT REST | 5 | Reference to SC-28 PROTECTION OF INFORMATION AT REST |
+| SC-28 |  | Protection of Information at Rest |
 
-#### Recommendations
 
-- will vary by system (e.g. per volume, per group or global keys)
+#### Statements
+
+**Encryption Strategy**
+
+Consider data path, size, and frequency of access when determining encryption approach.
 
 ---
+
 
 ### Caching is considered for determining encryption requirements in archictures {#cnswp-133}
 
-**Control ID**: `CNSWP-133`
-
-#### Objective
-
-Caching is considered for determining encryption requirements in archictures
+**Guideline ID**: `CNSWP-133`
 
 ---
+
 
 ### Namespaces have defined trust boundaries to cordon access to volumes {#cnswp-134}
 
-**Control ID**: `CNSWP-134`
-
-#### Objective
-
-Namespaces have defined trust boundaries to cordon access to volumes
+**Guideline ID**: `CNSWP-134`
 
 ---
+
 
 ### Security policies are used to prevent containers from accessing volume mounts on worker nodes {#cnswp-135}
 
-**Control ID**: `CNSWP-135`
-
-#### Objective
-
-SA-8 SECURITY AND PRIVACY ENGINEERING PRINCIPLES
-CM-6 CONFIGURATION SETTINGS'
-
+**Guideline ID**: `CNSWP-135`
 
 #### Guideline Mappings
 
@@ -3474,19 +3495,19 @@ CM-6 CONFIGURATION SETTINGS'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 BOUNDARY PROTECTION | 5 | Reference to SC-7 BOUNDARY PROTECTION |
+| SC-7 |  | Boundary Protection |
+
+
+#### Statements
+
+Implement security policies are used to prevent containers from accessing volume mounts on worker nodes.
 
 ---
+
 
 ### Security policies are used enforce authorized worker node access to volumes {#cnswp-136}
 
-**Control ID**: `CNSWP-136`
-
-#### Objective
-
-SA-8 SECURITY AND PRIVACY ENGINEERING PRINCIPLES
-CM-6 CONFIGURATION SETTINGS'
-
+**Guideline ID**: `CNSWP-136`
 
 #### Guideline Mappings
 
@@ -3494,19 +3515,19 @@ CM-6 CONFIGURATION SETTINGS'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| SC-7 BOUNDARY PROTECTION | 5 | Reference to SC-7 BOUNDARY PROTECTION |
+| SC-7 |  | Boundary Protection |
+
+
+#### Statements
+
+Implement security policies are used enforce authorized worker node access to volumes.
 
 ---
+
 
 ### Volume UID and GID are inaccessible to containers {#cnswp-137}
 
-**Control ID**: `CNSWP-137`
-
-#### Objective
-
-AC-16 SECURITY AND PRIVACY ATTRIBUTES
-SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
-
+**Guideline ID**: `CNSWP-137`
 
 #### Guideline Mappings
 
@@ -3514,27 +3535,26 @@ SI-7 SOFTWARE, FIRMWARE, AND INFORMATION INTEGRITY'
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AC-4 INFORMATION FLOW ENFORCEMENT | 5 | Reference to AC-4 INFORMATION FLOW ENFORCEMENT |
+| AC-4 |  | Information Flow Enforcement |
+
+
+#### Statements
+
+Implement volume uid and gid are inaccessible to containers.
 
 ---
+
 
 ### Artifact registry supports OCI artifacts {#cnswp-138}
 
-**Control ID**: `CNSWP-138`
-
-#### Objective
-
-Artifact registry supports OCI artifacts
+**Guideline ID**: `CNSWP-138`
 
 ---
+
 
 ### Artifact registry supports signed artifacts {#cnswp-139}
 
-**Control ID**: `CNSWP-139`
-
-#### Objective
-
-Artifact registry supports signed artifacts
+**Guideline ID**: `CNSWP-139`
 
 #### Guideline Mappings
 
@@ -3542,19 +3562,19 @@ Artifact registry supports signed artifacts
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| CM-14 SIGNED COMPONENTS | 5 | Reference to CM-14 SIGNED COMPONENTS |
+| CM-14 |  | Signed Components |
+
+
+#### Statements
+
+Sign images and artifacts to ensure integrity and authenticity.
 
 ---
+
 
 ### Artifact registry verifies artifacts against organizational policies {#cnswp-140}
 
-**Control ID**: `CNSWP-140`
-
-#### Objective
-
-Artifact registry verifies artifacts against organizational policies
-CM-6 CONFIGURATION SETTINGS
-
+**Guideline ID**: `CNSWP-140`
 
 #### Guideline Mappings
 
@@ -3562,7 +3582,20 @@ CM-6 CONFIGURATION SETTINGS
 
 | Reference ID | Strength | Remarks |
 |--------------|----------|----------|
-| AU-10 NON-REPUDIATION | 5 | Reference to AU-10 NON-REPUDIATION |
+| AU-10 |  | Non-repudiation |
+
+
+#### Statements
+
+Implement artifact registry verifies artifacts against organizational policies.
 
 ---
 
+
+
+
+
+## Acknowledgements
+This representation of the catalog builds upon the original [Cloud Native Security Controls Catalog initiative](https://www.cncf.io/blog/2022/06/07/introduction-to-the-cloud-native-security-controls-catalog/), which produced the foundational artifact.
+
+This catalog is expressed in **Gemara Layer 1** (Guidance Document) format, where security objectives are represented as guidelines. See [Gemara Documentation](https://gemara.openssf.org/) for details.

@@ -1,15 +1,20 @@
 package converter
 
 import (
+	_ "embed"
 	"fmt"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+	"text/template"
 
 	"github.com/gemaraproj/go-gemara"
 	"gopkg.in/yaml.v3"
 )
+
+//go:embed markdown.tmpl
+var markdownTemplate string
 
 // ToGemara loads all family YAML files and concatenates them into a single GuidanceDocument.
 func ToGemara(catalogDir string, familyOrder []string) (*gemara.GuidanceDocument, error) {
@@ -41,7 +46,6 @@ func ToGemara(catalogDir string, familyOrder []string) (*gemara.GuidanceDocument
 			continue
 		}
 
-		// Read YAML file
 		data, err := os.ReadFile(familyFilePath)
 		if err != nil {
 			return nil, fmt.Errorf("failed to read %s: %w", familyFilePath, err)
@@ -72,23 +76,19 @@ func ToGemara(catalogDir string, familyOrder []string) (*gemara.GuidanceDocument
 	return doc, nil
 }
 
+// familyWithGuidelines represents a family with its associated guidelines for template rendering.
+type familyWithGuidelines struct {
+	gemara.Family
+	Guidelines []gemara.Guideline
+}
+
+// templateData holds the data structure for the markdown template.
+type templateData struct {
+	FamiliesWithGuidelines []familyWithGuidelines
+}
+
 // ToMarkdown converts a GuidanceDocument to Markdown format for website rendering.
-func ToMarkdown(doc *gemara.GuidanceDocument) string {
-	var b strings.Builder
-
-	b.WriteString("---\n")
-	b.WriteString("title: Cloud Native Security Controls Catalog\n")
-	b.WriteString("sidebar_position: 1\n")
-	b.WriteString("---\n\n")
-
-	b.WriteString("# Cloud Native Security Controls Catalog\n\n")
-	b.WriteString("The Cloud Native Security Controls Catalog provides comprehensive guidance for securing cloud-native applications and workloads.\n\n")
-
-	familyMap := make(map[string]gemara.Family)
-	for _, family := range doc.Families {
-		familyMap[family.Id] = family
-	}
-
+func ToMarkdown(doc *gemara.GuidanceDocument) (string, error) {
 	familyGuidelines := make(map[string][]gemara.Guideline)
 	for _, guideline := range doc.Guidelines {
 		if guideline.Family != "" {
@@ -96,85 +96,43 @@ func ToMarkdown(doc *gemara.GuidanceDocument) string {
 		}
 	}
 
-	// Sort guidelines within each family by ID
 	for familyID := range familyGuidelines {
 		sort.Slice(familyGuidelines[familyID], func(i, j int) bool {
 			return familyGuidelines[familyID][i].Id < familyGuidelines[familyID][j].Id
 		})
 	}
 
-	b.WriteString("## Table of Contents\n\n")
-	for _, family := range doc.Families {
-		if _, hasGuidelines := familyGuidelines[family.Id]; hasGuidelines {
-			anchor := strings.ToLower(strings.ReplaceAll(family.Id, " ", "-"))
-			b.WriteString(fmt.Sprintf("- [%s](#%s)\n", family.Title, anchor))
-		}
-	}
-	b.WriteString("\n---\n\n")
-
+	var familiesWithGuidelines []familyWithGuidelines
 	for _, family := range doc.Families {
 		guidelines, hasGuidelines := familyGuidelines[family.Id]
-		if !hasGuidelines || len(guidelines) == 0 {
-			continue
-		}
-
-		anchor := strings.ToLower(strings.ReplaceAll(family.Id, " ", "-"))
-		b.WriteString(fmt.Sprintf("## %s {#%s}\n\n", family.Title, anchor))
-		if family.Description != "" {
-			b.WriteString(fmt.Sprintf("%s\n\n", family.Description))
-		}
-
-		for _, guideline := range guidelines {
-			b.WriteString(fmt.Sprintf("### %s {#%s}\n\n", guideline.Title, strings.ToLower(guideline.Id)))
-			b.WriteString(fmt.Sprintf("**Guideline ID**: `%s`\n\n", guideline.Id))
-
-			if guideline.Objective != "" {
-				b.WriteString("#### Objective\n\n")
-				b.WriteString(fmt.Sprintf("%s\n\n", guideline.Objective))
-			}
-
-			// Guideline Mappings
-			if len(guideline.GuidelineMappings) > 0 {
-				b.WriteString("#### Guideline Mappings\n\n")
-				for _, mapping := range guideline.GuidelineMappings {
-					b.WriteString(fmt.Sprintf("**%s**\n\n", mapping.ReferenceId))
-					if len(mapping.Entries) > 0 {
-						b.WriteString("| Reference ID | Strength | Remarks |\n")
-						b.WriteString("|--------------|----------|----------|\n")
-						for _, entry := range mapping.Entries {
-							strength := ""
-							if entry.Strength > 0 {
-								strength = fmt.Sprintf("%d", entry.Strength)
-							}
-							b.WriteString(fmt.Sprintf("| %s | %s | %s |\n",
-								entry.ReferenceId, strength, entry.Remarks))
-						}
-						b.WriteString("\n")
-					}
-				}
-			}
-
-			if len(guideline.Statements) > 0 {
-				b.WriteString("#### Statements\n\n")
-				for _, stmt := range guideline.Statements {
-					if stmt.Title != "" {
-						b.WriteString(fmt.Sprintf("**%s**\n\n", stmt.Title))
-					}
-					b.WriteString(fmt.Sprintf("%s\n\n", stmt.Text))
-				}
-			}
-
-			if len(guideline.Recommendations) > 0 {
-				b.WriteString("#### Recommendations\n\n")
-				for _, rec := range guideline.Recommendations {
-					b.WriteString(fmt.Sprintf("- %s\n", rec))
-				}
-				b.WriteString("\n")
-			}
-
-			b.WriteString("---\n\n")
+		if hasGuidelines && len(guidelines) > 0 {
+			familiesWithGuidelines = append(familiesWithGuidelines, familyWithGuidelines{
+				Family:     family,
+				Guidelines: guidelines,
+			})
 		}
 	}
 
-	return b.String()
+	data := templateData{
+		FamiliesWithGuidelines: familiesWithGuidelines,
+	}
+
+	tmpl, err := template.New("markdown").Funcs(template.FuncMap{
+		"anchor": func(s string) string {
+			return strings.ToLower(strings.ReplaceAll(s, " ", "-"))
+		},
+		"lower": func(s string) string {
+			return strings.ToLower(s)
+		},
+	}).Parse(markdownTemplate)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse template: %w", err)
+	}
+
+	var b strings.Builder
+	if err := tmpl.Execute(&b, data); err != nil {
+		return "", fmt.Errorf("failed to execute template: %w", err)
+	}
+
+	return b.String(), nil
 }
