@@ -1,6 +1,7 @@
 guidelines:
 - id: CNSWP-115
   title: Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access
+  objective: Network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -11,10 +12,12 @@ guidelines:
   - id: CNSWP-115.1
     text: Implement network policies enforce east-west network communication within the container deployment is limited to only that which is authorized for access.
 - id: CNSWP-126
-  title: Orchestrator network policies are used in conjunction with a service mesh
+  title: Network Policy Management
+  objective: Orchestrator network policies are used in conjunction with a service mesh
   family: Security Assurance
 - id: CNSWP-116
-  title: Incident response considers cloud native workloads
+  title: Incident Response
+  objective: Incident response considers cloud native workloads
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -30,7 +33,8 @@ guidelines:
     title: Cloud Native Considerations
     text: Incident response must consider cloud native workload characteristics.
 - id: CNSWP-117
-  title: Incident response accounts for appropriate evidence handling and collection of coud native workloads
+  title:  Incident Monitoring
+  objective: Incident response accounts for appropriate evidence handling and collection of cloud native workloads
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -39,15 +43,18 @@ guidelines:
   family: Security Assurance
   statements:
   - id: CNSWP-117.1
-    text: Implement incident response accounts for appropriate evidence handling and collection of coud native workloads.
+    text: Implement incident response accounts for appropriate evidence handling and collection of cloud native workloads.
 - id: CNSWP-118
-  title: Rootless builds are employed
+  title: Security Assurance Management
+  objective: Rootless builds are employed
   family: Security Assurance
 - id: CNSWP-119
-  title: Cgroups and system groups are used to isolate workloads and deployments
+  title: Workload and Deployment Isolation
+  objective: Cgroups and system groups are used to isolate workloads and deployments
   family: Security Assurance
 - id: CNSWP-120
-  title: MAC implementations are employed
+  title: Mandatory Access Controls
+  objective: MAC implementations are employed
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -59,7 +66,8 @@ guidelines:
     title: MAC Implementation
     text: Use Mandatory Access Control (MAC) implementations for workload security.
 - id: CNSWP-121
-  title: Threat model code and infrastructure
+  title: Threat Modeling and Vulnerability Analysis
+  objective: Threat model code and infrastructure
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -70,7 +78,8 @@ guidelines:
   - id: CNSWP-121.1
     text: Implement threat model code and infrastructure.
 - id: CNSWP-122
-  title: Entities are able to independently authenticate other identities
+  title: Authentication Management
+  objective: Entities are able to independently authenticate other identities
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -82,7 +91,8 @@ guidelines:
     title: Independent Authentication
     text: Entities should be able to independently authenticate other identities.
 - id: CNSWP-123
-  title: Each entity can create proof of who the identity is
+  title: Identity Management
+  objective: Each entity can create proof of who the identity is
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -93,7 +103,8 @@ guidelines:
   - id: CNSWP-123.1
     text: Implement each entity can create proof of who the identity is.
 - id: CNSWP-124
-  title: Orchestrator is running on an a trusted OS, BIOS, etc
+  title: Trusted Components
+  objective: Orchestrator is running on a trusted OS, BIOS, etc
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -102,9 +113,10 @@ guidelines:
   family: Security Assurance
   statements:
   - id: CNSWP-124.1
-    text: Implement orchestrator is running on an a trusted os, bios, etc.
+    text: Implement orchestrator is running on a trusted os, bios, etc.
 - id: CNSWP-125
-  title: Orchestrator verifies the claims of a container
+  title: Security Verification
+  objective: Orchestrator verifies the claims of a container
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:

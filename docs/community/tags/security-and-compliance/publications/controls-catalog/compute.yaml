@@ -12,7 +12,8 @@ guidelines:
     title: Bootstrapping Implementation
     text: Implement bootstrapping to verify compute location and boot integrity.
 - id: CNSWP-27
-  title: The hardware root of trust is based in a Trusted Platform Module (TPM) or virtual TPM (vTPM)
+  title: Trust Implementation
+  objective: The hardware root of trust is based in a Trusted Platform Module (TPM) or virtual TPM (vTPM)
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -24,7 +25,8 @@ guidelines:
     title: Root of Trust Implementation
     text: Base hardware root of trust in TPM or vTPM.
 - id: CNSWP-23
-  title: Disparate data sensitive workloads are not run on the same OS kernel
+  title: Boundary Management
+  objective: Disparate data sensitive workloads are not run on the same OS kernel
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -36,7 +38,8 @@ guidelines:
     title: Workload Separation
     text: Separate disparate data sensitive workloads to prevent running on the same OS kernel.
 - id: CNSWP-26
-  title: Container specific operating systems are in use
+  title: Operating System Configuration
+  objective: Container specific operating systems are in use
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -50,7 +53,8 @@ guidelines:
     title: Container OS Implementation
     text: Use container-specific operating systems.
 - id: CNSWP-56
-  title: Serverless functions are run in tenant-based resource or performance isolation for similar data classifications
+  title: System Component Isolation
+  objective: Serverless functions are run in tenant-based resource or performance isolation for similar data classifications
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -62,7 +66,8 @@ guidelines:
     title: Serverless Isolation
     text: Run serverless functions in tenant-based resource or performance isolation.
 - id: CNSWP-24
-  title: Monitor and detect any changes to the initial configurations made in runtime
+  title: Runtime Configuration Monitoring
+  objective: Monitor and detect any changes to the initial configurations made in runtime
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -76,7 +81,8 @@ guidelines:
     title: Configuration Monitoring
     text: Monitor and detect changes to initial configurations made at runtime.
 - id: CNSWP-25
-  title: API auditing is enabled with a filter for a specific set of API Groups or verbs
+  title: API Auditing Implementation
+  objective: API auditing is enabled with a filter for a specific set of API Groups or verbs
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -88,7 +94,8 @@ guidelines:
     title: API Auditing Implementation
     text: Enable API auditing with filters for specific API Groups or verbs.
 - id: CNSWP-30
-  title: Systems processing alerts are periodically tuned for false positives
+  title: System Alert Monitoring
+  objective: Systems processing alerts are periodically tuned for false positives
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -100,7 +107,8 @@ guidelines:
     title: Alert Tuning
     text: Periodically tune alert systems to reduce false positives.
 - id: CNSWP-43
-  title: Actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response
+  title: Audit Event Logging
+  objective: Actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -111,7 +119,8 @@ guidelines:
   - id: CNSWP-43.1
     text: Implement actionable audit events are generates that correlate/contextualize data from logs into "information" that can drive decision trees/incident response.
 - id: CNSWP-28
-  title: Minimize administrative access to the control plane
+  title: Least Privilege
+  objective: Minimize administrative access to the control plane
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -123,7 +132,8 @@ guidelines:
     title: Access Minimization
     text: Minimize administrative access to the control plane.
 - id: CNSWP-44
-  title: Segregation of duties and the principle of least privilege is enforced
+  title: Privilege Management
+  objective: Segregation of duties and the principle of least privilege is enforced
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -134,7 +144,8 @@ guidelines:
   - id: CNSWP-44.1
     text: Implement segregation of duties and the principle of least privilege is enforced.
 - id: CNSWP-29
-  title: Object level and resource requests and limits are controlled through cgroups
+  title: Resource Control Management
+  objective: Object level and resource requests and limits are controlled through cgroups
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -148,7 +159,8 @@ guidelines:
     title: Resource Control Implementation
     text: Control object level and resource requests and limits through cgroups.
 - id: CNSWP-31
-  title: All orchestrator control plane components are configured to communicate via mutual authentication and certificate validation with a periodically rotated certificate
+  title: Control Plane Configuration
+  objective: All orchestrator control plane components are configured to communicate via mutual authentication and certificate validation with a periodically rotated certificate
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -160,7 +172,8 @@ guidelines:
     title: Control Plane Communication
     text: Configure all orchestrator control plane components for secure communication.
 - id: CNSWP-32
-  title: Only sanctioned capabilities and system calls (e.g. seccomp filters), are allowed to execute or be invoked in a container by the host operating system
+  title:  Baseline Configured Functionality
+  objective: Only sanctioned capabilities and system calls (e.g. seccomp filters), are allowed to execute or be invoked in a container by the host operating system
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -174,7 +187,8 @@ guidelines:
     title: System Call Restriction
     text: Restrict capabilities and system calls allowed in containers.
 - id: CNSWP-51
-  title: Processes must execute only functions explicitly defined in an allow list
+  title: Functionality Management
+  objective: Processes must execute only functions explicitly defined in an allow list
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -187,7 +201,8 @@ guidelines:
   - id: CNSWP-51.1
     text: Implement processes must execute only functions explicitly defined in an allow list.
 - id: CNSWP-33
-  title: Changes to critical mount points and files are prevented, monitored, and alerted
+  title: Critical Change Management
+  objective: Changes to critical mount points and files are prevented, monitored, and alerted
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -198,7 +213,8 @@ guidelines:
   - id: CNSWP-33.1
     text: Implement changes to critical mount points and files are prevented, monitored, and alerted.
 - id: CNSWP-34
-  title: Runtime configuration control prevents changes to binaries, certificates, and remote access configurations
+  title: Runtime Configuration for Change Management
+  objective: Runtime configuration control prevents changes to binaries, certificates, and remote access configurations
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -209,7 +225,8 @@ guidelines:
   - id: CNSWP-34.1
     text: Implement runtime configuration control prevents changes to binaries, certificates, and remote access configurations.
 - id: CNSWP-52
-  title: Functions are not be allowed to make changes to critical file system mount points
+  title: Access and Change Restrictions
+  objective: Functions are not be allowed to make changes to critical file system mount points
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -220,7 +237,8 @@ guidelines:
   - id: CNSWP-52.1
     text: Implement functions are not be allowed to make changes to critical file system mount points.
 - id: CNSWP-35
-  title: Runtime configuration prevents ingress and egress network access for containers to only what is required to operate
+  title: Runtime Boundary Protection Management
+  objective: Runtime configuration prevents ingress and egress network access for containers to only what is required to operate
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -231,7 +249,8 @@ guidelines:
   - id: CNSWP-35.1
     text: Implement runtime configuration prevents ingress and egress network access for containers to only what is required to operate.
 - id: CNSWP-36
-  title: Policies are defined that restrict communications to only occur between sanctioned microservice pairs
+  title: Boundary Protection Management
+  objective: Policies are defined that restrict communications to only occur between sanctioned microservice pairs
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -242,7 +261,8 @@ guidelines:
   - id: CNSWP-36.1
     text: Implement policies are defined that restrict communications to only occur between sanctioned microservice pairs.
 - id: CNSWP-39
-  title: Use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit)
+  title: Data Trust Management
+  objective: Use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit)
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -253,7 +273,8 @@ guidelines:
   - id: CNSWP-39.1
     text: Implement use a service mesh that eliminates implicit trust through data-in-motion encryption (data in transit).
 - id: CNSWP-48
-  title: Network traffic to malicious domains is detected and denied
+  title: System Monitoring
+  objective: Network traffic to malicious domains is detected and denied
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -264,7 +285,8 @@ guidelines:
   - id: CNSWP-48.1
     text: Implement network traffic to malicious domains is detected and denied.
 - id: CNSWP-54
-  title: Egress network connection is monitored to detect and prevent access to C&C (command and control) and other malicious network domains
+  title: System Monitoring
+  objective: Egress network connection is monitored to detect and prevent access to C&C (command and control) and other malicious network domains
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -275,7 +297,8 @@ guidelines:
   - id: CNSWP-54.1
     text: Implement egress network connection is monitored to detect and prevent access to c&c (command and control) and other malicious network domains.
 - id: CNSWP-55
-  title: Ingress network inspection is employed detect and remove malicious payloads and commands
+  title: System Monitoring Management
+  objective: Ingress network inspection is employed detect and remove malicious payloads and commands
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -287,7 +310,8 @@ guidelines:
     title: Network Inspection
     text: Employ ingress network inspection to detect and remove malicious payloads.
 - id: CNSWP-37
-  title: Use a policy agent to control and enforce authorized, signed container images
+  title: Policy Enforcement Management
+  objective: Use a policy agent to control and enforce authorized, signed container images
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -298,7 +322,8 @@ guidelines:
   - id: CNSWP-37.1
     text: Sign images and artifacts to ensure integrity and authenticity.
 - id: CNSWP-38
-  title: Use a policy agent to control provenance assurance for operational workloads
+  title: Policy Enforcement Management
+  objective: Use a policy agent to control provenance assurance for operational workloads
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -309,7 +334,8 @@ guidelines:
   - id: CNSWP-38.1
     text: Implement use a policy agent to control provenance assurance for operational workloads.
 - id: CNSWP-45
-  title: Non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies
+  title: Information Integrity
+  objective: Non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -320,7 +346,8 @@ guidelines:
   - id: CNSWP-45.1
     text: Implement non-compliant violations are detected based on a pre-configured set of rules that filter violations of the organization's policies.
 - id: CNSWP-53
-  title: Function access is only permitted to sanctioned services
+  title: Access Configuration
+  objective: Function access is only permitted to sanctioned services
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -334,7 +361,8 @@ guidelines:
     title: Service Access Restriction
     text: Restrict function access to only sanctioned services.
 - id: CNSWP-40
-  title: Use components that detect, track, aggregate and report system calls and network traffic from a container
+  title: System Monitoring Components
+  objective: Use components that detect, track, aggregate and report system calls and network traffic from a container
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -346,7 +374,8 @@ guidelines:
     title: Monitoring Implementation
     text: Use components to detect, track, aggregate and report system calls and network traffic.
 - id: CNSWP-41
-  title: Workloads should be dynamically scanned to detect malicious or insidious behavior for which no known occurrence yet exists
+  title: Dynamic Workload Scanning
+  objective: Workloads should be dynamically scanned to detect malicious or insidious behavior for which no known occurrence yet exists
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -358,7 +387,8 @@ guidelines:
     title: Dynamic Scanning
     text: Dynamically scan workloads to detect malicious or insidious behavior.
 - id: CNSWP-42
-  title: Environments are continuously scanned to detect new vulnerabilities in workloads
+  title: Continuous Monitoring and Scanning
+  objective: Environments are continuously scanned to detect new vulnerabilities in workloads
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -370,7 +400,8 @@ guidelines:
     title: Continuous Scanning
     text: Continuously scan environments to detect new vulnerabilities.
 - id: CNSWP-46
-  title: Native secret stores encrypt with keys from an external Key Management Store (KMS)
+  title: Key Management Storage
+  objective: Native secret stores encrypt with keys from an external Key Management Store (KMS)
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -381,7 +412,8 @@ guidelines:
   - id: CNSWP-46.1
     text: Implement native secret stores encrypt with keys from an external key management store (kms).
 - id: CNSWP-47
-  title: Native secret stores are not configured for base64 encoding or stored in clear-text in the key-value store by default
+  title: Secret Storage Configuration
+  objective: Native secret stores are not configured for base64 encoding or stored in clear-text in the key-value store by default
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -393,7 +425,8 @@ guidelines:
     title: Secret Storage
     text: Ensure native secret stores do not use base64 encoding or clear-text storage.
 - id: CNSWP-49
-  title: Use encrypted containers for sensitive sources, methods, and data
+  title: Sensitive Data Encryption
+  objective: Use encrypted containers for sensitive sources, methods, and data
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -404,7 +437,8 @@ guidelines:
   - id: CNSWP-49.1
     text: Implement use encrypted containers for sensitive sources, methods, and data.
 - id: CNSWP-50
-  title: Use SBOMs to identify current deployments of vulnerable libraries, dependencies, and packages
+  title: SBOM Management
+  objective: Use SBOMs to identify current deployments of vulnerable libraries, dependencies, and packages
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:

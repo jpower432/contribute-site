@@ -1,6 +1,7 @@
 guidelines:
 - id: CNSWP-127
   title: Storage control plane management interface requires mutual authentication and TLS for connections
+  objective: Storage control plane management interface requires mutual authentication and TLS for connections
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -11,7 +12,8 @@ guidelines:
   - id: CNSWP-127.1
     text: Use mutual authentication to verify the identity of both communicating parties.
 - id: CNSWP-128
-  title: Data availability is achieved through parity or mirroring, erasure coding or replicas
+  title: Data Availability Mechanism
+  objective: Data availability is achieved through parity or mirroring, erasure coding or replicas
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -22,7 +24,8 @@ guidelines:
   - id: CNSWP-128.1
     text: Implement data availability is achieved through parity or mirroring, erasure coding or replicas.
 - id: CNSWP-129
-  title: Hashing and checksums are added to blocks, objects or files
+  title: Integrity Validation
+  objective: Hashing and checksums are added to blocks, objects or files
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -36,7 +39,8 @@ guidelines:
     title: Integrity Protection
     text: Add hashing and checksums to blocks, objects or files to detect tampering of data.
 - id: CNSWP-130
-  title: Data backup storage locations employ like access controls and security policies to that of the data storage source
+  title: Data Source Storage Management
+  objective: Data backup storage locations employ like access controls and security policies to that of the data storage source
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -49,7 +53,8 @@ guidelines:
   - id: CNSWP-130.1
     text: Implement data backup storage locations employ like access controls and security policies to that of the data storage source.
 - id: CNSWP-131
-  title: Secure erasure adhering to OPAL standards is employed for returned or non-functional devices
+  title: System Backup
+  objective: Secure erasure adhering to OPAL standards is employed for returned or non-functional devices
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -62,7 +67,8 @@ guidelines:
   - id: CNSWP-131.1
     text: Implement secure erasure adhering to opal standards is employed for returned or non-functional devices.
 - id: CNSWP-132
-  title: Encryption at rest considers data path, size, and frequency of access when determining additional security protections and cryptographic algorithms to employ
+  title: Encryption of Data at Rest
+  objective: Encryption at rest considers data path, size, and frequency of access when determining additional security protections and cryptographic algorithms to employ
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -74,13 +80,16 @@ guidelines:
     title: Encryption Strategy
     text: Consider data path, size, and frequency of access when determining encryption approach.
 - id: CNSWP-133
-  title: Caching is considered for determining encryption requirements in architectures
+  title: Encryption Requirements
+  objective: Caching is considered for determining encryption requirements in architectures
   family: Storage
 - id: CNSWP-134
-  title: Namespaces have defined trust boundaries to cordon access to volumes
+  title: Boundary Protection
+  objective: Namespaces have defined trust boundaries to cordon access to volumes
   family: Storage
 - id: CNSWP-135
-  title: Security policies are used to prevent containers from accessing volume mounts on worker nodes
+  title: Security Policy Management
+  objective: Security policies are used to prevent containers from accessing volume mounts on worker nodes
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -95,7 +104,8 @@ guidelines:
   - id: CNSWP-135.1
     text: Implement security policies are used to prevent containers from accessing volume mounts on worker nodes.
 - id: CNSWP-136
-  title: Security policies are used enforce authorized worker node access to volumes
+  title: Security Policy Enforcement
+  objective: Security policies are used enforce authorized worker node access to volumes
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -110,7 +120,8 @@ guidelines:
   - id: CNSWP-136.1
     text: Implement security policies are used enforce authorized worker node access to volumes.
 - id: CNSWP-137
-  title: Volume UID and GID are inaccessible to containers
+  title: Information Flow Management
+  objective: Volume UID and GID are inaccessible to containers
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -125,10 +136,12 @@ guidelines:
   - id: CNSWP-137.1
     text: Implement volume uid and gid are inaccessible to containers.
 - id: CNSWP-138
-  title: Artifact registry supports OCI artifacts
+  title: Artifact Registry Management
+  objective: Artifact registry supports OCI artifacts
   family: Storage
 - id: CNSWP-139
   title: Artifact registry supports signed artifacts
+  objective: Artifact registry supports signed artifacts
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -139,7 +152,8 @@ guidelines:
   - id: CNSWP-139.1
     text: Sign images and artifacts to ensure integrity and authenticity.
 - id: CNSWP-140
-  title: Artifact registry verifies artifacts against organizational policies
+  title: Artifact Registry Policy Verification
+  objective: Artifact registry verifies artifacts against organizational policies
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:

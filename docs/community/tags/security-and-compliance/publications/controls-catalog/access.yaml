@@ -11,7 +11,8 @@ guidelines:
   - id: CNSWP-1.1
     text: Inject secrets at runtime rather than embedding them in code or configuration files.
 - id: CNSWP-15
-  title: HSMs are used to physically protect cryptographic secrets with an encryption key residing in the HSM
+  title: HSMs Protection of Cryptographic Secrets
+  objective: HSMs are used to physically protect cryptographic secrets with an encryption key residing in the HSM
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -23,7 +24,8 @@ guidelines:
     title: HSM Implementation
     text: Use HSMs to physically protect cryptographic secrets.
 - id: CNSWP-16
-  title: Secrets should have a short expiration period or time to live
+  title: Secrets Management
+  objective: Secrets should have a short expiration period or time to live
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -34,7 +36,8 @@ guidelines:
   - id: CNSWP-16.1
     text: Configure secrets with short expiration periods or time-to-live values.
 - id: CNSWP-17
-  title: time to live and expiration period on secrets is verified to prevent reuse
+  title: Secrets Lifecycle Management
+  objective: Time to live and expiration period on secrets is verified to prevent reuse
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -45,7 +48,8 @@ guidelines:
   - id: CNSWP-17.1
     text: Verify secret expiration and time-to-live values to prevent reuse of expired secrets.
 - id: CNSWP-18
-  title: secrets management systems are highly available
+  title: Secrets Management System
+  objective: Secrets management systems are highly available
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -56,7 +60,8 @@ guidelines:
   - id: CNSWP-18.1
     text: Implement secrets management systems are highly available.
 - id: CNSWP-19
-  title: long-lived secrets adhere to periodic rotation and revocation
+  title: Secrets Rotation Management
+  objective: Long-lived secrets adhere to periodic rotation and revocation
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -68,18 +73,20 @@ guidelines:
     title: Long-Lived Secret Management
     text: Manage long-lived secrets through periodic rotation and revocation.
 - id: CNSWP-20
-  title: Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting
+  title: Secrets Protection
+  objective: Secrets are distributed through secured communication channels protected commensurate with the level of access or data they are protecting
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-16
-      remarks: Security and Privacy Atributes
+      remarks: Security and Privacy Attributes
   family: Access
   statements:
   - id: CNSWP-20.1
     text: Use secure communication channels for secret distribution with protection appropriate to the sensitivity level.
 - id: CNSWP-21
-  title: Secrets injected are runtime are masqued or dropped from logs, audit, or system dumps
+  title: Secret Injection Lifecycle
+  objective: Secrets injected are runtime are masked or dropped from logs, audit, or system dumps
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -91,7 +98,8 @@ guidelines:
     title: Secret Masking
     text: Mask or drop secrets from logs, audit, or system dumps.
 - id: CNSWP-2
-  title: Applications and workloads are explicitly authorized to communicate with each other using mutual authentication
+  title: Mutual Authentication
+  objective: Applications and workloads are explicitly authorized to communicate with each other using mutual authentication
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -101,7 +109,8 @@ guidelines:
   - id: CNSWP-2.1
     text: Use mutual authentication to verify the identity of both communicating parties.
 - id: CNSWP-6
-  title: Authentication and authorization are determined independently
+  title: Identification and Authentication
+  objective: Authentication and authorization are determined independently
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -111,19 +120,9 @@ guidelines:
   statements:
   - id: CNSWP-6.1
     text: Determine authentication and authorization independently.
-- id: CNSWP-7
-  title: Authentication and authorization are enforced independently
-  guideline-mappings:
-  - reference-id: NIST-800-53
-    entries:
-    - reference-id: IA-2(6)
-      remarks: Identification and Authentication (Organizational Users)
-  family: Access
-  statements:
-  - id: CNSWP-7.1
-    text: Enforce authentication and authorization independently.
 - id: CNSWP-12
-  title: All cluster and workloads operators are authenticated
+  title: Cluster Authentication Management
+  objective: All cluster and workloads operators are authenticated
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -134,7 +133,8 @@ guidelines:
   - id: CNSWP-12.1
     text: Implement all cluster and workloads operators are authenticated.
 - id: CNSWP-13
-  title: cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output
+  title: Authentication Policy Management
+  objective: Cluster and workloads operate actions are evaluated against access control policies governing context, purpose, and output
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -143,9 +143,10 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-13.1
-    text: Implement cluster and worklods operate actions are evaluated against access control policies governing context, purpose, and output.
+    text: Implement cluster and workloads operate actions are evaluated against access control policies governing context, purpose, and output.
 - id: CNSWP-14
-  title: Identity federation uses multi-factor authentication
+  title: Multi-factor Authentication
+  objective: Identity federation uses multi-factor authentication
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -156,7 +157,8 @@ guidelines:
   - id: CNSWP-14.1
     text: Enforce multi-factor authentication for repository access.
 - id: CNSWP-10
-  title: ABAC and RBAC are used
+  title: ABAC and RBAC
+  objective: ABAC and RBAC are used
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -167,7 +169,8 @@ guidelines:
   - id: CNSWP-10.1
     text: Implement abac and rbac are used.
 - id: CNSWP-11
-  title: End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
+  title: Authorization and Identity Management
+  objective: End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -179,7 +182,8 @@ guidelines:
     title: Identity Forwarding Implementation
     text: Enable end user identity to be accepted, consumed, and forwarded.
 - id: CNSWP-8
-  title: access control and file permissions are updated in real-time
+  title: Continuous System Monitoring
+  objective: Access control and file permissions are updated in real-time
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -191,7 +195,8 @@ guidelines:
     title: Real-Time Access Control
     text: Update access control and file permissions in real-time.
 - id: CNSWP-9
-  title: authorization for workloads is granted based on attributs and roles/permissions previously assigned
+  title: Privileged-based Authorization
+  objective: Authorization for workloads is granted based on attributes and roles/permissions previously assigned
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -200,9 +205,10 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-9.1
-    text: Implement authorization for workloads is granted based on attributs and roles/permissions previously assigned.
+    text: Implement authorization for workloads is granted based on attributes and roles/permissions previously assigned.
 - id: CNSWP-3
-  title: Keys are rotated frequently
+  title: Cryptographic Key Management
+  objective: Keys are rotated frequently
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -213,7 +219,8 @@ guidelines:
   - id: CNSWP-3.1
     text: Implement keys are rotated frequently.
 - id: CNSWP-4
-  title: Key lifespan is short
+  title: Cryptographic Key Lifecycle Management
+  objective: Key lifespan is short
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -224,7 +231,8 @@ guidelines:
   - id: CNSWP-4.1
     text: Implement key lifespan is short.
 - id: CNSWP-5
-  title: Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider
+  title: Sensitive Credential Management
+  objective: Credentials and keys protecting sensitive workloads (health/finance/etc) are generated and managed independent of a cloud service provider
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
