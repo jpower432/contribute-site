@@ -41,6 +41,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2
+      remarks: Baseline Configuration
+    - reference-id: CM-7
+      remarks: Least Functionality
   family: Compute
   statements:
   - id: CNSWP-26.1
@@ -52,7 +55,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-7(21)
-      remarks: Boundary Protection
+      remarks: Boundary Protection | Isolation of System Components
   family: Compute
   statements:
   - id: CNSWP-56.1
@@ -64,8 +67,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2(2)
-      remarks: Baseline Configuration
+      remarks: Baseline Configuration | Automation Support for Accuracy and Currency
     - reference-id: CM-3(7)
+      remarks: Configuration Change Control | Review System Changes
   family: Compute
   statements:
   - id: CNSWP-24.1
@@ -89,7 +93,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SI-4(13)
-      remarks: System Monitoring
+      remarks: System Monitoring | Analyze Traffic and Event Patterns
   family: Compute
   statements:
   - id: CNSWP-30.1
@@ -119,7 +123,7 @@ guidelines:
     title: Access Minimization
     text: Minimize administrative access to the control plane.
 - id: CNSWP-44
-  title: segregation of duties and the principle of least privilege is enforced
+  title: Segregation of duties and the principle of least privilege is enforced
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -135,7 +139,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SI-7(16)
-      remarks: Software, Firmware, and Information Integrity
+      remarks: Software, Firmware, and Information Integrity | Time Limit on Process Execution Without Supervision
+    - reference-id: SI-7(17)
+      remarks: Software, Firmware, and Information Integrity | Runtime Application Self-protection
   family: Compute
   statements:
   - id: CNSWP-29.1
@@ -159,6 +165,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2
+      remarks: Baseline Configuration
+    - reference-id: CM-7
+      remarks: Least Functionality
   family: Compute
   statements:
   - id: CNSWP-32.1
@@ -170,6 +179,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2
+      remarks: Baseline Configuration
+    - reference-id: CM-7
+      remarks: Least Functionality
   family: Compute
   statements:
   - id: CNSWP-51.1
@@ -313,6 +325,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2
+      remarks: Baseline Configuration
+    - reference-id: CM-7
+      remarks: Least Functionality
   family: Compute
   statements:
   - id: CNSWP-53.1
@@ -360,7 +375,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-12(3)
-      remarks: Systems & Communication Protection
+      remarks: Systems and Communication Protection
   family: Compute
   statements:
   - id: CNSWP-46.1
@@ -371,7 +386,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-12(3)
-      remarks: Systems & Communication Protection
+      remarks: Systems and Communication Protection
   family: Compute
   statements:
   - id: CNSWP-47.1

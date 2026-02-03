@@ -28,6 +28,8 @@ guidelines:
     entries:
     - reference-id: CM-7
       remarks: Least Functionality
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
   family: Storage
   statements:
   - id: CNSWP-129.1
@@ -40,6 +42,8 @@ guidelines:
     entries:
     - reference-id: SA-9
       remarks: External System Services
+    - reference-id: SC-30
+      remarks: Concealment and Misdirection
   family: Storage
   statements:
   - id: CNSWP-130.1
@@ -51,12 +55,14 @@ guidelines:
     entries:
     - reference-id: CP-9
       remarks: System Backup
+    - reference-id: MP-6
+      remarks: Media Sanitization
   family: Storage
   statements:
   - id: CNSWP-131.1
     text: Implement secure erasure adhering to opal standards is employed for returned or non-functional devices.
 - id: CNSWP-132
-  title: Encryption at rest considers data path, size, and frequency of access when determing additional security protections and cryptographic algorithms to employ
+  title: Encryption at rest considers data path, size, and frequency of access when determining additional security protections and cryptographic algorithms to employ
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -68,7 +74,7 @@ guidelines:
     title: Encryption Strategy
     text: Consider data path, size, and frequency of access when determining encryption approach.
 - id: CNSWP-133
-  title: Caching is considered for determining encryption requirements in archictures
+  title: Caching is considered for determining encryption requirements in architectures
   family: Storage
 - id: CNSWP-134
   title: Namespaces have defined trust boundaries to cordon access to volumes
@@ -80,6 +86,10 @@ guidelines:
     entries:
     - reference-id: SC-7
       remarks: Boundary Protection
+    - reference-id: SA-8
+      remarks: Security and Privacy Engineering Principles
+    - reference-id: CM-6
+      remarks: Configuration Settings
   family: Storage
   statements:
   - id: CNSWP-135.1
@@ -91,6 +101,10 @@ guidelines:
     entries:
     - reference-id: SC-7
       remarks: Boundary Protection
+    - reference-id: SA-8
+      remarks: Security and Privacy Engineering Principles
+    - reference-id: CM-6
+      remarks: Configuration Settings
   family: Storage
   statements:
   - id: CNSWP-136.1
@@ -102,6 +116,10 @@ guidelines:
     entries:
     - reference-id: AC-4
       remarks: Information Flow Enforcement
+    - reference-id: AC-16
+      remarks: Security and Privacy Attributes
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
   family: Storage
   statements:
   - id: CNSWP-137.1
@@ -127,6 +145,8 @@ guidelines:
     entries:
     - reference-id: AU-10
       remarks: Non-repudiation
+    - reference-id: CM-6
+      remarks: Configuration Settings
   family: Storage
   statements:
   - id: CNSWP-140.1

@@ -5,7 +5,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-6(3)
-      remarks: Least Privilege
+      remarks: Least Privilege | Network Access to Privileged Commands
   family: Security Assurance
   statements:
   - id: CNSWP-115.1
@@ -14,12 +14,16 @@ guidelines:
   title: Orchestrator network policies are used in conjunction with a service mesh
   family: Security Assurance
 - id: CNSWP-116
-  title: Incident reponse considers cloud native workloads
+  title: Incident response considers cloud native workloads
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
     - reference-id: IR-4
-      remarks: Incident Handling
+      remarks: Incident Handling | Automated Incident Handling Processes
+    - reference-id: IR-4(5)
+      remarks: Incident Handling | Automated Disabling of System
+    - reference-id: CA-7
+      remarks: Continuous Monitoring
   family: Security Assurance
   statements:
   - id: CNSWP-116.1
@@ -31,7 +35,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: IR-5(1)
-      remarks: Incident Monitoring
+      remarks: Incident Monitoring | Automated Tracking, Data Collection, and Analysis
   family: Security Assurance
   statements:
   - id: CNSWP-117.1
@@ -40,7 +44,7 @@ guidelines:
   title: Rootless builds are employed
   family: Security Assurance
 - id: CNSWP-119
-  title: cgroups and system groups are used to isolate workloads and deployments
+  title: Cgroups and system groups are used to isolate workloads and deployments
   family: Security Assurance
 - id: CNSWP-120
   title: MAC implementations are employed
@@ -48,7 +52,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-3(3)
-      remarks: Access Enforcement
+      remarks: Access Enforcement | Mandatory Access Control
   family: Security Assurance
   statements:
   - id: CNSWP-120.1
@@ -60,7 +64,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(2)
-      remarks: Developer Testing and Evaluation
+      remarks: Developer Testing and Evaluation | Threat Modeling and Vulnerability Analyses
   family: Security Assurance
   statements:
   - id: CNSWP-121.1

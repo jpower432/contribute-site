@@ -11,7 +11,7 @@ guidelines:
   - id: CNSWP-100.1
     text: Require mutually authenticated TLS for all registry connections.
 - id: CNSWP-112
-  title: pulls from public registries are controlled and only from authorized engineers or internal registries
+  title: Pulls from public registries are controlled and only from authorized engineers or internal registries
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -28,10 +28,10 @@ guidelines:
   title: Artifacts ready for deployment are managed in a staging or pre-prod registry
   family: Distribute
 - id: CNSWP-84
-  title: Artifacts undergoing active development are held in a private registery
+  title: Artifacts undergoing active development are held in a private registry
   family: Distribute
 - id: CNSWP-101
-  title: image and metadata are signed
+  title: Image and metadata are signed
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -42,7 +42,7 @@ guidelines:
   - id: CNSWP-101.1
     text: Sign images and artifacts to ensure integrity and authenticity.
 - id: CNSWP-102
-  title: configuration is signed
+  title: Configuration is signed
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -53,7 +53,7 @@ guidelines:
   - id: CNSWP-102.1
     text: Sign configuration files to ensure integrity.
 - id: CNSWP-103
-  title: package is signed
+  title: Package is signed
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -75,7 +75,7 @@ guidelines:
   - id: CNSWP-104.1
     text: Implement validate integrity of images.
 - id: CNSWP-106
-  title: Enable image signing key revokation in the event of compromise
+  title: Enable image signing key revocation in the event of compromise
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -84,7 +84,7 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-106.1
-    text: Implement enable image signing key revokation in the event of compromise.
+    text: Implement enable image signing key revocation in the event of compromise.
 - id: CNSWP-89
   title: Sign pipeline metadata
   guideline-mappings:
@@ -103,6 +103,8 @@ guidelines:
     entries:
     - reference-id: RA-5
       remarks: Vulnerability Monitoring and Scanning
+    - reference-id: SA-3
+      remarks: System Development Life Cycle
   family: Distribute
   statements:
   - id: CNSWP-105.1
@@ -168,14 +170,16 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-12(2)
-      remarks: Cryptographic Key Establishment and Management
+      remarks: Cryptographic Key Establishment and Management | Symmetric and Asymmetric Keys
+    - reference-id: SC-12(3)
+      remarks: Cryptographic Key Establishment and Management | Symmetric and Asymmetric Keys
   family: Distribute
   statements:
   - id: CNSWP-113.1
     title: Encryption and Key Management
     text: Couple image encryption with key management, attestation, and authorization.
 - id: CNSWP-110
-  title: organizational compliance rules are enforced
+  title: Organizational compliance rules are enforced
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -275,7 +279,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(8)
-      remarks: (8) & (9) Interactive Application Security Testing
+      remarks: (8) and (9) Interactive Application Security Testing
   family: Distribute
   statements:
   - id: CNSWP-93.1
@@ -328,6 +332,8 @@ guidelines:
     entries:
     - reference-id: SA-11
       remarks: Developer Testing and Evaluation
+    - reference-id: CA-8
+      remarks: Penetration Testing
   family: Distribute
   statements:
   - id: CNSWP-99.1

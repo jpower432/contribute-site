@@ -5,7 +5,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-3(1)
-      remarks: System Development Life Cycle
+      remarks: System Development Life Cycle | Manage preproduction environment
   family: Develop
   statements:
   - id: CNSWP-63.1
@@ -27,7 +27,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-3(1)
-      remarks: System Development Life Cycle
+      remarks: System Development Life Cycle | Manage preproduction environment
   family: Develop
   statements:
   - id: CNSWP-76.1
@@ -38,7 +38,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-8(31)
-      remarks: Security and Privacy Engineering Principles
+      remarks: Security and Privacy Engineering Principles | Secure System Modification
   family: Develop
   statements:
   - id: CNSWP-64.1
@@ -50,7 +50,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(1)
-      remarks: Developer Testing and Evaluation
+      remarks: Developer Testing and Evaluation | Static Code Analysis
   family: Develop
   statements:
   - id: CNSWP-65.1
@@ -138,7 +138,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(4)
-      remarks: Developer Testing and Evaluation
+      remarks: Developer Testing and Evaluation | Manual Code Reviews
   family: Develop
   statements:
   - id: CNSWP-71.1
@@ -163,7 +163,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(2)
-      remarks: Developer Testing and Evaluation
+      remarks: Developer Testing and Evaluation | Threat Modeling and Vulnerability Analyses
   family: Develop
   statements:
   - id: CNSWP-78.1

@@ -6,6 +6,8 @@ guidelines:
     entries:
     - reference-id: SI-1
       remarks: Policy and Procedures
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
   family: Securing Artefacts
   statements:
   - id: CNSWP-141.1
@@ -18,6 +20,8 @@ guidelines:
     entries:
     - reference-id: SI-1
       remarks: Policy and Procedures
+    - reference-id: SI-7
+      remarks: Software, Firmware, and Information Integrity
   family: Securing Artefacts
   statements:
   - id: CNSWP-142.1
@@ -41,7 +45,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-4(6)
-      remarks: Information Flow Enforcement
+      remarks: Information Flow Enforcement | Metadata
   family: Securing Artefacts
   statements:
   - id: CNSWP-144.1
@@ -60,7 +64,7 @@ guidelines:
     title: Certification Authorization
     text: Limit which artifacts any given party is authorized to certify using selective trust delegations.
 - id: CNSWP-146
-  title: Rotation and revokation of private keys should be supported
+  title: Rotation and revocation of private keys should be supported
   guideline-mappings:
   - reference-id: NIST-800-53
     entries:
@@ -84,6 +88,15 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-28(1)
+      remarks: Protection of Information at Rest | Cryptographic Protection
+    - reference-id: SC-13
+      remarks: Cryptographic Protection
+    - reference-id: SC-8
+      remarks: Transmission Confidentiality and Integrity
+    - reference-id: IA-5
+      remarks: Authenticator Management
+    - reference-id: SC-12
+      remarks: Cryptographic Key Establishment and Management
   family: Securing Artefacts
   statements:
   - id: CNSWP-148.1
