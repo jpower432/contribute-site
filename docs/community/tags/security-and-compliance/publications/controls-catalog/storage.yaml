@@ -36,7 +36,6 @@ guidelines:
   family: Storage
   statements:
   - id: CNSWP-129.1
-    title: Integrity Protection
     text: Add hashing and checksums to blocks, objects or files to detect tampering of data.
 - id: CNSWP-130
   title: Data Source Storage Management
@@ -77,7 +76,6 @@ guidelines:
   family: Storage
   statements:
   - id: CNSWP-132.1
-    title: Encryption Strategy
     text: Consider data path, size, and frequency of access when determining encryption approach.
 - id: CNSWP-133
   title: Encryption Requirements

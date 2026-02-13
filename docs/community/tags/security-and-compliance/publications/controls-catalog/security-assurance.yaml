@@ -6,7 +6,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-6(3)
-      remarks: Least Privilege | Network Access to Privileged Commands
+      remarks: Least Privilege, Network Access to Privileged Commands
   family: Security Assurance
   statements:
   - id: CNSWP-115.1
@@ -22,15 +22,14 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: IR-4
-      remarks: Incident Handling | Automated Incident Handling Processes
+      remarks: Incident Handling, Automated Incident Handling Processes
     - reference-id: IR-4(5)
-      remarks: Incident Handling | Automated Disabling of System
+      remarks: Incident Handling, Automated Disabling of System
     - reference-id: CA-7
       remarks: Continuous Monitoring
   family: Security Assurance
   statements:
   - id: CNSWP-116.1
-    title: Cloud Native Considerations
     text: Incident response must consider cloud native workload characteristics.
 - id: CNSWP-117
   title:  Incident Monitoring
@@ -39,7 +38,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: IR-5(1)
-      remarks: Incident Monitoring | Automated Tracking, Data Collection, and Analysis
+      remarks: Incident Monitoring, Automated Tracking, Data Collection, and Analysis
   family: Security Assurance
   statements:
   - id: CNSWP-117.1
@@ -59,11 +58,10 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-3(3)
-      remarks: Access Enforcement | Mandatory Access Control
+      remarks: Access Enforcement, Mandatory Access Control
   family: Security Assurance
   statements:
   - id: CNSWP-120.1
-    title: MAC Implementation
     text: Use Mandatory Access Control (MAC) implementations for workload security.
 - id: CNSWP-121
   title: Threat Modeling and Vulnerability Analysis
@@ -72,7 +70,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(2)
-      remarks: Developer Testing and Evaluation | Threat Modeling and Vulnerability Analyses
+      remarks: Developer Testing and Evaluation, Threat Modeling and Vulnerability Analyses
   family: Security Assurance
   statements:
   - id: CNSWP-121.1
@@ -88,7 +86,6 @@ guidelines:
   family: Security Assurance
   statements:
   - id: CNSWP-122.1
-    title: Independent Authentication
     text: Entities should be able to independently authenticate other identities.
 - id: CNSWP-123
   title: Identity Management

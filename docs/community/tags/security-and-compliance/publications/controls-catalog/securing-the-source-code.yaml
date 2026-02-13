@@ -9,7 +9,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-182.1
-    title: Signing Implementation
     text: GPG keys or S/MIME certificates are used to sign the source code.
 - id: CNSWP-183
   title: Enforce full attestation and verification for protected branches
@@ -21,7 +20,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-183.1
-    title: Branch Protection Configuration
     text: Branch protection is enabled on the mainline and release branches with force push disabled.
 - id: CNSWP-184
   title: Secrets are not committed to the source code repository unless encrypted
@@ -33,7 +31,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-184.1
-    title: Secret Detection and Prevention
     text: Implement tooling to detect secrets or to prevent certain files from being pushed which may contain plaintext sensitive materials.
 - id: CNSWP-185
   title: The individuals or teams with write access to a repository are defined
@@ -45,7 +42,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-185.1
-    title: Access Definition
     text: Implement CODEOWNERS (or equivalent) to define who has write access and responsibility for different parts of the codebase.
 - id: CNSWP-188
   title: Define roles aligned to functional responsibilities
@@ -57,7 +53,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-188.1
-    title: Role Definitions
     text: Define and document roles with specific responsibilities and access levels.
 - id: CNSWP-191
   title: Enforce MFA for accessing source code repositories
@@ -91,7 +86,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-186.1
-    title: Security Scanning Implementation
     text: Security specific scans should be performed, including Static Application Security Tests (SAST) and Dynamic Application Security Tests (DAST).
 - id: CNSWP-187
   title: Establish and adhere to contribution policies
@@ -103,7 +97,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-187.1
-    title: Policy Definition
     text: Define configuration options or configuration rules within SCM platforms allow repository administrators to enforce security, hygiene and operational policies.
 - id: CNSWP-189
   title: Enforce an independent four-eyes principle
@@ -115,7 +108,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-189.1
-    title: Review Requirements
     text: Require independent review and approval by reviewers with equal or greater expertise.
 - id: CNSWP-190
   title: Use branch protection rules
@@ -127,7 +119,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-190.1
-    title: Branch Protection Configuration
     text: Protection rules can be used to enforce the usage of pull requests with specified precondition and approval rules.
 - id: CNSWP-193
   title: Have a key rotation policy
@@ -139,7 +130,6 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-193.1
-    title: Key Rotation Requirements
     text: Keys should be rotated after a certain period of time or when compromised.
 - id: CNSWP-194
   title: Use short-lived/ephemeral credentials for machine/service access
@@ -151,5 +141,4 @@ guidelines:
   family: Securing the Source Code
   statements:
   - id: CNSWP-194.1
-    title: Ephemeral Credential Implementation
     text: Use short-lived access tokens for CI/CD pipeline agents and service access.

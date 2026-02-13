@@ -9,21 +9,18 @@ guidelines:
   family: Securing Materials
   statements:
   - id: CNSWP-173.1
-    title: Verification Process
     text: Verify third-party artifacts and open source libraries as part of the continuous integration pipeline by validating their checksums against a known good source and validating any cryptographic signatures.
 - id: CNSWP-176
   title: Build libraries based upon source code
   family: Securing Materials
   statements:
   - id: CNSWP-176.1
-    title: Source-Based Building
     text: Build libraries from source code to ensure integrity and enable verification of the build process.
 - id: CNSWP-177
   title: Define and prioritize trusted package managers and repositories
   family: Securing Materials
   statements:
   - id: CNSWP-177.1
-    title: Trusted Sources Management
     text: Define and prioritize trusted package managers and repositories to pull from only those sources.
 - id: CNSWP-174
   title: Require SBOM from third party suppliers
@@ -35,14 +32,12 @@ guidelines:
   family: Securing Materials
   statements:
   - id: CNSWP-174.1
-    title: SBOM Requirements
     text: Require SBOM from third-party suppliers with explicit details of the software and versions used within the supplied product.
 - id: CNSWP-178
   title: Generate an immutable SBOM of the code
   family: Securing Materials
   statements:
   - id: CNSWP-178.1
-    title: SBOM Generation
     text: Generate an immutable SBOM of the code for all software artifacts.
 - id: CNSWP-175
   title: Track dependencies between open source components
@@ -54,7 +49,6 @@ guidelines:
   family: Securing Materials
   statements:
   - id: CNSWP-175.1
-    title: Dependency Tracking Implementation
     text: Track dependencies between open source components to help trace any deployed artifacts with new vulnerabilities.
 - id: CNSWP-179
   title: Scan software for vulnerabilities
@@ -66,7 +60,6 @@ guidelines:
   family: Securing Materials
   statements:
   - id: CNSWP-179.1
-    title: Vulnerability Scanning Process
     text: Scan software for vulnerabilities as part of the development and build process.
 - id: CNSWP-180
   title: Scan software for license implications
@@ -78,7 +71,6 @@ guidelines:
   family: Securing Materials
   statements:
   - id: CNSWP-180.1
-    title: License Scanning Implementation
     text: Scan software for license implications to ensure released software meets legal and regulatory compliance requirements.
 - id: CNSWP-181
   title: Run software composition analysis on ingested software
@@ -86,9 +78,8 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(1)(8)
-      remarks: (1) (8) & (9) Developer Testing and Evaluation
+      remarks: Developer Testing and Evaluation
   family: Securing Materials
   statements:
   - id: CNSWP-181.1
-    title: Software Composition Analysis Process
     text: Run software composition analysis on ingested software to identify components and verify SBOM content.

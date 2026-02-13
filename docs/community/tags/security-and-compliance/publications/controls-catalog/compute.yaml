@@ -9,7 +9,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-22.1
-    title: Bootstrapping Implementation
     text: Implement bootstrapping to verify compute location and boot integrity.
 - id: CNSWP-27
   title: Trust Implementation
@@ -22,7 +21,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-27.1
-    title: Root of Trust Implementation
     text: Base hardware root of trust in TPM or vTPM.
 - id: CNSWP-23
   title: Boundary Management
@@ -35,7 +33,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-23.1
-    title: Workload Separation
     text: Separate disparate data sensitive workloads to prevent running on the same OS kernel.
 - id: CNSWP-26
   title: Operating System Configuration
@@ -50,7 +47,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-26.1
-    title: Container OS Implementation
     text: Use container-specific operating systems.
 - id: CNSWP-56
   title: System Component Isolation
@@ -59,11 +55,10 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-7(21)
-      remarks: Boundary Protection | Isolation of System Components
+      remarks: Boundary Protection, Isolation of System Components
   family: Compute
   statements:
   - id: CNSWP-56.1
-    title: Serverless Isolation
     text: Run serverless functions in tenant-based resource or performance isolation.
 - id: CNSWP-24
   title: Runtime Configuration Monitoring
@@ -72,13 +67,12 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: CM-2(2)
-      remarks: Baseline Configuration | Automation Support for Accuracy and Currency
+      remarks: Baseline Configuration, Automation Support for Accuracy and Currency
     - reference-id: CM-3(7)
-      remarks: Configuration Change Control | Review System Changes
+      remarks: Configuration Change Control, Review System Changes
   family: Compute
   statements:
   - id: CNSWP-24.1
-    title: Configuration Monitoring
     text: Monitor and detect changes to initial configurations made at runtime.
 - id: CNSWP-25
   title: API Auditing Implementation
@@ -91,7 +85,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-25.1
-    title: API Auditing Implementation
     text: Enable API auditing with filters for specific API Groups or verbs.
 - id: CNSWP-30
   title: System Alert Monitoring
@@ -100,11 +93,10 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SI-4(13)
-      remarks: System Monitoring | Analyze Traffic and Event Patterns
+      remarks: System Monitoring, Analyze Traffic and Event Patterns
   family: Compute
   statements:
   - id: CNSWP-30.1
-    title: Alert Tuning
     text: Periodically tune alert systems to reduce false positives.
 - id: CNSWP-43
   title: Audit Event Logging
@@ -129,7 +121,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-28.1
-    title: Access Minimization
     text: Minimize administrative access to the control plane.
 - id: CNSWP-44
   title: Privilege Management
@@ -150,13 +141,12 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SI-7(16)
-      remarks: Software, Firmware, and Information Integrity | Time Limit on Process Execution Without Supervision
+      remarks: Software, Firmware, and Information Integrity, Time Limit on Process Execution Without Supervision
     - reference-id: SI-7(17)
-      remarks: Software, Firmware, and Information Integrity | Runtime Application Self-protection
+      remarks: Software, Firmware, and Information Integrity, Runtime Application Self-protection
   family: Compute
   statements:
   - id: CNSWP-29.1
-    title: Resource Control Implementation
     text: Control object level and resource requests and limits through cgroups.
 - id: CNSWP-31
   title: Control Plane Configuration
@@ -169,7 +159,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-31.1
-    title: Control Plane Communication
     text: Configure all orchestrator control plane components for secure communication.
 - id: CNSWP-32
   title:  Baseline Configured Functionality
@@ -184,7 +173,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-32.1
-    title: System Call Restriction
     text: Restrict capabilities and system calls allowed in containers.
 - id: CNSWP-51
   title: Functionality Management
@@ -307,7 +295,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-55.1
-    title: Network Inspection
     text: Employ ingress network inspection to detect and remove malicious payloads.
 - id: CNSWP-37
   title: Policy Enforcement Management
@@ -358,7 +345,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-53.1
-    title: Service Access Restriction
     text: Restrict function access to only sanctioned services.
 - id: CNSWP-40
   title: System Monitoring Components
@@ -371,7 +357,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-40.1
-    title: Monitoring Implementation
     text: Use components to detect, track, aggregate and report system calls and network traffic.
 - id: CNSWP-41
   title: Dynamic Workload Scanning
@@ -384,7 +369,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-41.1
-    title: Dynamic Scanning
     text: Dynamically scan workloads to detect malicious or insidious behavior.
 - id: CNSWP-42
   title: Continuous Monitoring and Scanning
@@ -397,7 +381,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-42.1
-    title: Continuous Scanning
     text: Continuously scan environments to detect new vulnerabilities.
 - id: CNSWP-46
   title: Key Management Storage
@@ -422,7 +405,6 @@ guidelines:
   family: Compute
   statements:
   - id: CNSWP-47.1
-    title: Secret Storage
     text: Ensure native secret stores do not use base64 encoding or clear-text storage.
 - id: CNSWP-49
   title: Sensitive Data Encryption

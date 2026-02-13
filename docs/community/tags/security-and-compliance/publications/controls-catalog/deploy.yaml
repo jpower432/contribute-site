@@ -5,9 +5,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SR-4(3)
-      remarks: (3) Provenance | Validate as Genuine and Not Altered
+      remarks: Provenance, Validate as Genuine and Not Altered
     - reference-id: SR-4(4)
-      remarks: (4) Provenance | Supply Chain Integrity - Pedigree
+      remarks: Provenance, Supply Chain Integrity - Pedigree
   family: Deploy
   statements:
   - id: CNSWP-57.1
@@ -18,9 +18,9 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SR-4(3)
-      remarks: (3) Provenance | Validate as Genuine and Not Altered
+      remarks: Provenance, Validate as Genuine and Not Altered
     - reference-id: SR-4(4)
-      remarks: (4) Provenance | Supply Chain Integrity - Pedigree
+      remarks: Provenance, Supply Chain Integrity - Pedigree
   family: Deploy
   statements:
   - id: CNSWP-59.1
@@ -31,7 +31,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SI-7(17)
-      remarks: (17) Software, Firmware, and Information Integrity | Runtime Application Self-Protection
+      remarks: Software, Firmware, and Information Integrity, Runtime Application Self-Protection
   family: Deploy
   statements:
   - id: CNSWP-58.1

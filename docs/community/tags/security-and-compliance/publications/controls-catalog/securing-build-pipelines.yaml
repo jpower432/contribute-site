@@ -9,7 +9,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-149.1
-    title: Cryptographic Policy Implementation
     text: Use frameworks like in-toto to secure a chain of pipeline stages end-to-end with cryptographic guarantees.
 - id: CNSWP-168
   title: Follow established practices for establishing a root of trust from an offline source
@@ -43,7 +42,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-150.1
-    title: Validation Process
     text: Validate environments and dependencies, including signatures, both in the downloading or ingestion process, and again by the build worker.
 - id: CNSWP-151
   title: Validate runtime security of build workers
@@ -54,7 +52,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-151.1
-    title: Runtime Security Implementation
     text: Use security mechanisms such as seccomp, AppArmor, and SELinux to provide defense in depth.
 - id: CNSWP-152
   title: Validate build artefacts through verifiably reproducible builds
@@ -65,7 +62,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-152.1
-    title: Reproducible Build Requirements
     text: With build instructions, an end user should be able to reproduce the built artefact bit for bit.
 - id: CNSWP-153
   title: Lock and Verify External Requirements from the build process
@@ -82,7 +78,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-154.1
-    title: Non-Determinism Elimination
     text: Investigate and eliminate sources of non-determinism in build processes.
 - id: CNSWP-155
   title: Record the Build Environment
@@ -93,7 +88,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-155.1
-    title: Environment Recording
     text: Record all aspects of the build environment including base layers.
 - id: CNSWP-156
   title: Automate Creation of the Build Environment
@@ -153,7 +147,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-162.1
-    title: Network Isolation
     text: Ensure software factory has minimal network connectivity to only essential services.
 - id: CNSWP-163
   title: Segregate the duties of each build worker
@@ -176,7 +169,6 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-164.1
-    title: Environment and Command Management
     text: Build workers should operate in a clean and isolated environment and not be able to pull their own environment.
 - id: CNSWP-165
   title: Write output to separate secured storage repo
@@ -188,14 +180,12 @@ guidelines:
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-165.1
-    title: Artifact Storage
     text: Build workers should upload artifacts to appropriate secured repositories.
 - id: CNSWP-166
   title: Only allow pipeline modification through "pipeline as code"
   family: Securing Build Pipelines
   statements:
   - id: CNSWP-166.1
-    title: Pipeline as Code Enforcement
     text: Only allow pipeline modification through pipeline as code to prevent attackers from interacting and modifying the configuration.
 - id: CNSWP-167
   title: Define user roles

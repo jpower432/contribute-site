@@ -11,7 +11,6 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-141.1
-    title: Build Step Signing
     text: Every step in the build process should be signed and attested, with collective signatures included and the completed artifact itself signed.
 - id: CNSWP-142
   title: Every step in the build process should verify the previously generated signatures
@@ -25,7 +24,6 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-142.1
-    title: Signature Verification Process
     text: Every step in the build process should verify previously generated signatures to ensure compliance.
 - id: CNSWP-143
   title: Use a framework to manage signing of artefacts
@@ -37,7 +35,6 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-143.1
-    title: Signing Framework Implementation
     text: Use a framework to manage signing of artifacts from a single root to individual teams or developers.
 - id: CNSWP-144
   title: Use a store to manage attestations
@@ -45,11 +42,10 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: AC-4(6)
-      remarks: Information Flow Enforcement | Metadata
+      remarks: Information Flow Enforcement, Metadata
   family: Securing Artefacts
   statements:
   - id: CNSWP-144.1
-    title: Attestation Store Implementation
     text: Use a dedicated store to manage and track attestations.
 - id: CNSWP-145
   title: Limit which artefacts any given party is authorized to certify
@@ -61,7 +57,6 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-145.1
-    title: Certification Authorization
     text: Limit which artifacts any given party is authorized to certify using selective trust delegations.
 - id: CNSWP-146
   title: Rotation and revocation of private keys should be supported
@@ -73,14 +68,12 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-146.1
-    title: Key Rotation and Revocation
     text: Support rotation and revocation of private keys in the distribution mechanism.
 - id: CNSWP-147
   title: Use a container registry that supports OCI image-spec images
   family: Securing Artefacts
   statements:
   - id: CNSWP-147.1
-    title: OCI Registry Selection
     text: Use a container registry that supports OCI image-spec images with the security properties described in this section.
 - id: CNSWP-148
   title: Encrypt artefacts before distribution & ensure only authorized platforms have decryption capabilities
@@ -88,7 +81,7 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SC-28(1)
-      remarks: Protection of Information at Rest | Cryptographic Protection
+      remarks: Protection of Information at Rest, Cryptographic Protection
     - reference-id: SC-13
       remarks: Cryptographic Protection
     - reference-id: SC-8
@@ -100,5 +93,4 @@ guidelines:
   family: Securing Artefacts
   statements:
   - id: CNSWP-148.1
-    title: Artifact Encryption
     text: Encrypt artifacts before distribution so they are accessible only by authorized parties.

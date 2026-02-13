@@ -42,7 +42,6 @@ guidelines:
   family: Develop
   statements:
   - id: CNSWP-64.1
-    title: Dynamic Deployment Strategies
     text: Use dynamic deployment strategies for safer deployments.
 - id: CNSWP-65
   title: Integrate vulnerability and configuration scanning in the IDE or at the pull request

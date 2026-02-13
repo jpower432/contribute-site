@@ -176,7 +176,6 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-113.1
-    title: Encryption and Key Management
     text: Couple image encryption with key management, attestation, and authorization.
 - id: CNSWP-110
   title: Organizational compliance rules are enforced
@@ -199,7 +198,6 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-92.1
-    title: Compliance Integration
     text: Couple vulnerability scans with pipeline compliance rules.
 - id: CNSWP-111
   title: Incremental hardening of the infrastructure is employed
@@ -209,14 +207,12 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-81.1
-    title: Image Hardening Practices
     text: Harden container images following security best practices.
 - id: CNSWP-82
   title: Static application security testing (SAST) is performed
   family: Distribute
   statements:
   - id: CNSWP-82.1
-    title: SAST Implementation
     text: Perform static application security testing.
 - id: CNSWP-85
   title: Scan application manifests in CI pipeline
@@ -279,11 +275,10 @@ guidelines:
   - reference-id: NIST-800-53
     entries:
     - reference-id: SA-11(8)
-      remarks: (8) and (9) Interactive Application Security Testing
+      remarks: Interactive Application Security Testing
   family: Distribute
   statements:
   - id: CNSWP-93.1
-    title: DAST Implementation
     text: Perform dynamic application security testing.
 - id: CNSWP-94
   title: Application instrumentation is employed
@@ -301,14 +296,12 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-95.1
-    title: Test Mapping
     text: Map automated test results back to requirements.
 - id: CNSWP-96
   title: Infrastructure security tests must be employed
   family: Distribute
   statements:
   - id: CNSWP-96.1
-    title: Infrastructure Testing
     text: Employ infrastructure security tests.
 - id: CNSWP-97
   title: Tests to verify the security health are executed at time of build and at time of deploy
@@ -320,7 +313,6 @@ guidelines:
   family: Distribute
   statements:
   - id: CNSWP-97.1
-    title: Security Health Testing
     text: Execute security health tests at build and deploy time.
 - id: CNSWP-98
   title: IaC is subject to the same pipeline policy controls as application code

@@ -21,7 +21,6 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-15.1
-    title: HSM Implementation
     text: Use HSMs to physically protect cryptographic secrets.
 - id: CNSWP-16
   title: Secrets Management
@@ -70,7 +69,6 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-19.1
-    title: Long-Lived Secret Management
     text: Manage long-lived secrets through periodic rotation and revocation.
 - id: CNSWP-20
   title: Secrets Protection
@@ -95,7 +93,6 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-21.1
-    title: Secret Masking
     text: Mask or drop secrets from logs, audit, or system dumps.
 - id: CNSWP-2
   title: Mutual Authentication
@@ -167,7 +164,7 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-10.1
-    text: Implement abac and rbac are used.
+    text: Implement ABAC and RBAC are used.
 - id: CNSWP-11
   title: Authorization and Identity Management
   objective: End user identity is capable of being accepted, consumed, and forwarded on for contextual or dynamic authorization
@@ -179,7 +176,6 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-11.1
-    title: Identity Forwarding Implementation
     text: Enable end user identity to be accepted, consumed, and forwarded.
 - id: CNSWP-8
   title: Continuous System Monitoring
@@ -192,7 +188,6 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-8.1
-    title: Real-Time Access Control
     text: Update access control and file permissions in real-time.
 - id: CNSWP-9
   title: Privileged-based Authorization
@@ -241,5 +236,4 @@ guidelines:
   family: Access
   statements:
   - id: CNSWP-5.1
-    title: Independent Key Management
     text: Generate and manage credentials and keys independent of cloud service providers.
