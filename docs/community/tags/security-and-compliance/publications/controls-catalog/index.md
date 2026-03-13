@@ -231,7 +231,7 @@ Cluster and workloads operate actions are evaluated against access control polic
 
 ### Multi-factor Authentication | `CNSC-14`
 
-**Originating Document**: `Cloud Native Security Whitepaper v1.0`
+**Originating Document**: `Cloud Native Security Whitepaper v1.0`, `Cloud Native Security Whitepaper v2.0`
 
 
 **Objective**
@@ -433,30 +433,6 @@ Secrets are distributed through secured communication channels protected commens
 | Reference ID | Remarks |
 |--------------|----------|
 | AC-16 | Security and Privacy Attributes |
-
-
----
-
-
-
-<a id="cnsc-208"></a>
-
-### Multi-factor Authentication | `CNSC-208`
-
-**Originating Document**: `Cloud Native Security Whitepaper v2.0`
-
-
-**Objective**
-
-Identity federation uses multi-factor authentication for human users
-
-**Guideline Mappings**
-
-**`NIST-800-53`**
-
-| Reference ID | Remarks |
-|--------------|----------|
-| IA-2(1)(2) | Identification and Authentication (organizational Users) |
 
 
 ---

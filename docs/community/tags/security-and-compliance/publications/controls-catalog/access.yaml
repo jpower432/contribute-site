@@ -160,6 +160,7 @@ guidelines:
   family: Access
   applicability:
   - CNSWP-v1.0
+  - CNSWP-v2.0
 - id: CNSC-15
   title: HSMs Protection of Cryptographic Secrets
   objective: HSMs are used to physically protect cryptographic secrets with an encryption key residing in the HSM
@@ -254,15 +255,4 @@ guidelines:
   family: Access
   applicability:
   - CNSWP-v1.0
-  - CNSWP-v2.0
-- id: CNSC-208
-  title: Multi-factor Authentication
-  objective: Identity federation uses multi-factor authentication for human users
-  guideline-mappings:
-  - reference-id: NIST-800-53
-    entries:
-    - reference-id: IA-2(1)(2)
-      remarks: Identification and Authentication (organizational Users)
-  family: Access
-  applicability:
   - CNSWP-v2.0
